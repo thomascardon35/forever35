@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>FOREVER Ille-et-Vilaine</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+        <!-------------------- FONT-FAMILY -------------------->
+        <!---------------------- ICONS ------------------------>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+
+        <!----------------------- CSS ------------------------>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!----------------------- JQUERY ---------------------->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    </head>
+    <body id="body">
+        <!---------------------- Header commun  ------------------------>
+        <header>
+            <div>
+                <figure>
+                    <a href="index.php"><img class="logo" src="img/logo.jpg" alt="Logo FOREVER"></a>
+                    <figcaption>Aloé&nbsp;Véra<br>Ille-et-Vilaine</figcaption>
+                </figure>
+
+                <div class="div-nav-btn">
+                    <span><i class="fas fa-bars"></i></span>
+                </div>
+            </div>
+            
+            <nav class="nav-header">
+                <div class="border-nav">
+                    <a href="index.php">Accueil</a>
+                    <a href="aloevera.php">L'Aloé Vera</a>
+                    <a href="products.php">Produits</a>
+                    <a href="standards.php">Normes</a>                    
+                    <a href="sponsorship.php">Parrainage</a>
+                    <a href="contact.php">Contact</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="next-event">
+                <div class="blink">
+                    <p>Prochain événement&nbsp;:</p>
+                    <p>Brocante du Theil le dimanche 22 avril 2018</p>
+                </div>
+            </section>
+
+            <!-------------------- Template  ------------------------------>
+            <?php include $template.'.phtml' ?>
+        </main>
+
+        <!----------------------- Footer commun  ---------------------->
+        <footer>
+
+            <div>
+                <div class="div-logo-footer">
+                    <a href="index.php"><img class="logo-footer" src="img/foreverlogo.png" alt="Logo FOREVER"></a>
+                </div>
+                <div class="standards">
+                    <a href="standards.php#iso9001"><img src="img/normes/iso9001.gif" alt="Norme ISO9001">
+                    <a href="standards.php#iso14001"><img src="img/normes/iso14001.gif" alt="Norme ISO14001">
+                    <a href="standards.php#certified"><img src="img/normes/certified.png" alt="Label IASC (International Aloe Science Council)">
+                    <a href="standards.php#kasher-hallal"><img src="img/normes/kasher.gif" alt="Garantie Kasher">
+                    <a href="standards.php#kasher-hallal"><img src="img/normes/halal.gif" alt="Garantie Halal">
+                    <a href="standards.php#fvd"><img src="img/normes/fvd.gif" alt="Fédération de la Vente Directe"></a>
+                </div>
+                <div class="footer-link">
+                    <a href="https://www.foreverliving.fr" target="blank"><img src="img/logo.png" alt="Logo FOREVER">FRANCE</a>
+                    <a href="mailto:laurence.boussin@orange.fr"><i class="fas fa-envelope"></i>CONTACT</a>
+                </div>
+            </div>
+
+        </footer>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
