@@ -1,0 +1,90 @@
+<section id="contact">
+    <h1>Laurence Boussin</h1>
+    <h2>FOREVER 35 Ille-et-Vilaine</h2>
+    <form method="post" action="">
+        <fieldset>
+            <legend>Formulaire de contact</legend>
+            <ul>
+                <!--Civilité-->
+                <li>
+                    <div>
+                        <label for="gender">Madame</label>
+                        <input type="radio" id="madam" name="gender" value="madam" checked>
+                    </div>
+                    <div>
+                        <label for="gender">Monsieur</label>
+                        <input type="radio" id="mister" name="gender" value="mister"><li>
+                    </div>
+                </li>
+                </li>
+                <!--Nom-->
+                <li>
+                    <label for="firstName">Prénom <span class="required">*</span></label>
+                    <input id="firstName" type="text" value="" name="firstName" data-required
+                        data-name="Prénom" data-type="alphanum">
+                </li>
+
+                <!--Prénom-->
+                <li>
+                    <label for="lastName">Nom <span class="required">*</span></label>
+                    <input id="lastName" type="text" value="" name="lastName" data-required data-name="Nom"
+                        data-type="alphanum">
+                </li>
+
+                <!--Téléphone-->
+                <li>
+                    <label for="phone">Téléphone</label>
+                    <input id="phone" type="text" value="" name="phone" data-min="10" data-name="téléphone"
+                        data-type="positiveInteger">
+                </li>
+
+                <!--E mail-->
+                <li>
+                    <label for="email">E-mail <span class="required">*</span></label>
+                    <input id="email" type="text" value="" name="email" data-required data-name="email"
+                        data-type="email">
+                </li>
+
+                <li>
+                    <label for"subject">Sujet<span class="required">*</span></label>
+                    <select name="subject">
+                        <option> </option>
+                        <option value="nextEvent">Evénements</option>
+                        <option value="Sponsorship">Parrainage</option>
+                        <option value="Products">Produits</option>
+                        <option value="Others">Autres</option>
+                    </select>
+                </li>
+
+                <!-- Message -->
+                <li>
+                    <label for="message">Message<span class="required">*</span></label>
+                    <textarea id="message" value="" type="text" name="message" data-name="message" data-type="alphanum"></textarea>
+                </li>
+
+            </ul>
+
+            <!-- bouton enregistrer-->
+            <input class="submit-btn" type="submit" id="submit" name="submitMessage" value="Envoyer">
+           
+        </fieldset>
+    </form>
+
+    <article class="address">
+        <adress>
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            <abbr title="mail">Mail :<a href="mailto:laurence.boussin@orange.fr">laurence.boussin@orange.fr</a></abbr>
+        </adress>
+        
+        <adress>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <abbr title="tel">Tel:<a href="tel:+33663736632">06 63 73 66 32</a></abbr>
+        </adress>
+        
+        <adress>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <p><strong>Laurence Boussin</strong></br><em>19, rue du clos ST HUBERT</br>35240 Le Theil de Bretagne</em></p>
+        </adress>
+    </article>
+
+</section>

@@ -44,7 +44,7 @@ body{
     text-align:center;
     background: url(../img/bubbles2.jpg);
     background-size: contain;
-
+    color: rgba(90,90,90,1);
 }
 
 .hidden{
@@ -85,7 +85,7 @@ header figure{
 
 header figure figcaption{
     font-size:20px;
-    color:#6c7a1e;
+    color:rgba(108,122,30,1);
     text-align: center;
     font-family: 'Amaranth', sans-serif;
 }
@@ -192,7 +192,7 @@ main{
     font-size:30px;
     margin:30px 30px 40px ;
     font-family: 'Amaranth', sans-serif;
-    color:#6c7a1e;
+    color:rgba(108,122,30,1);
     border-bottom :1px solid rgba(200,200,200,1);
     line-height:1.4;
 }
@@ -201,7 +201,7 @@ main{
     font-size:25px;
     margin:30px 30px 40px ;
     font-family: 'Amaranth', sans-serif;
-    color:#6c7a1e;
+    color:rgba(108,122,30,1);
     text-decoration: underline;
 }
 
@@ -213,8 +213,11 @@ main .next-event{
 
 main .next-event div{
     font-size:15px;
-    font-weight:bold;
-    color:rgba(101,222,12,1);
+    font-weight:bold;/* 
+    color:rgba(101,222,12,1); */
+    background-color:rgba(101,222,12,0.5);
+    color:black;
+    border:1px dashed black;
     padding:5px 0;
     margin:0 15px;
 }
@@ -224,18 +227,25 @@ main .next-event div p{
 }
 
 .blink{
-    border:1px dashed white;
-    animation: background-blink 1.5s 2;
+    animation: background-blink 1.5s 5;
 }
 
 @keyframes background-blink { 
     0%{
 
+    }48%{
+        color:rgba(50,205,50,1);
+        background-color: white;
+        border:1px dashed white;
     } 50% { 
         background-color:rgba(101,222,12,0.5);
         color:black;
         border:1px dashed black;
-    } 
+    } 52%{
+        color:rgba(50,205,50,1);
+        background-color: white;
+        border:1px dashed white;
+    }
 }
 
 /****************************************************************************************
@@ -252,11 +262,10 @@ main .next-event div p{
 
 #home .identity {
     font-size:20px;
-    color: #65de0c;
+    color:rgba(50,205,50,1);
 }
 
 #home p{
-    color: rgba(145,145,145,1);
     line-height:1.4;
     margin:20px;
 }
@@ -281,7 +290,7 @@ main .next-event div p{
     padding:30px 5px;
     margin:0 20px;
     border: 3px outset rgba(0,0,0,0.4);
-    color:#6c7a1e;
+    color:rgba(108,122,30,1);
     box-shadow:0px 0px 15px black;
 }
 
@@ -323,7 +332,6 @@ main .next-event div p{
 }
 
 #aloe-vera .aloe-description p{
-    color: rgba(145,145,145,1);
     line-height:1.4;
     margin:20px;
 }
@@ -349,7 +357,7 @@ main .next-event div p{
 }
 
 #aloe-vera .reasons ol li p{
-    font-family: "OpenSansBold";
+    font-family: "OpenSansBold", sans-serif;
 }
 
 
@@ -360,37 +368,56 @@ main .next-event div p{
 ****************************************************************************************/
 
 #body #products .title{
-    margin-top:0;
+    margin:0 30px;
 } 
 
-#products{
-    color: rgba(110,110,110,1);
+#products .first-title{
+    margin-top:50px;
 }
 
 #products section{
     margin:20px;
 }
 
+#products nav{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+#products nav a{
+    text-decoration:none;
+    width:80px;
+}
+
+#products nav a:first-of-type,#products nav a:nth-of-type(2),#products nav a:nth-of-type(3),#products nav a:nth-of-type(4){
+    padding:9px 0;
+}
+
+
 #products section article{
     display:flex;
     flex-direction: column;
+    margin-top:70px;
+}
+
+#products section article:first-of-type{
+    margin-top:0;
 }
 
 #products h2{
     font-size:40px;
-    margin:100px 30px 40px ;
-    font-family: 'Amaranth', sans-serif;
+    margin:100px 30px 0;
+    font-family: "OpenSansBold", sans-serif;
     line-height:1.4;
     text-decoration: underline;
 }
 
-#products .first-title{
-    margin-top:0;
-}
-
 #products figcaption{
-    font-size:25px;
-    margin:20px 0;
+    font-size:20px;
+    margin:20px 0 0;
 }
 
 #products img{
@@ -399,7 +426,7 @@ main .next-event div p{
     margin: 0 auto;
 }
 
-#products a{
+#products section a{
     color:white;
     border-radius:20px;
     padding:7px 10px;
@@ -410,42 +437,51 @@ main .next-event div p{
     transition:all 0.7s ease 0s;
 }
 
-#products .health a{
-    background-color: rgba(92, 38, 131, 1);
-}
-
-#products .pain a{
-    background-color: rgba(140, 204, 92,1);
-}
-
-#products .skin a{
-    background-color: rgba(12, 100, 174,1);
-}
-
-#products .daily a{
-    background-color: rgba(235, 75, 155,1);
-}
-
-#products a:hover{
+#products section a:hover{
     background-color: white;
     transition:all 0.7s ease 0s;
     border:1px solid rgba(0,0,0,0.5);
 }
 
-#products .health a:hover, #products .health h2, #products .health figcaption{
+#health a{
+    background-color: rgba(92, 38, 131, 1);
+}
+
+#pain a{
+    background-color: rgba(140, 204, 92,1);
+}
+
+#skin a{
+    background-color: rgba(12, 100, 174,1);
+}
+
+#daily a{
+    background-color: rgba(235, 75, 155,1);
+}
+
+
+#products nav a:first-of-type,#products #health a:hover, #products #health h2, #products #health figcaption{
     color: rgba(92, 38, 131, 1);
 }
 
-#products .pain a:hover, #products .pain h2, #products .pain figcaption{
+#products nav a:nth-of-type(2),#products #pain a:hover, #products #pain h2, #products #pain figcaption{
     color: rgba(140, 204, 92,1);
 }
 
-#products .skin a:hover, #products .skin h2, #products .skin figcaption{
+#products nav a:nth-of-type(3),#products #skin a:hover, #products #skin h2, #products #skin figcaption{
     color:rgba(12, 100, 174,1);
 }
 
-#products .daily a:hover, #products .daily h2, #products .daily figcaption{
+#products nav a:nth-of-type(4),#products #daily a:hover, #products #daily h2, #products #daily figcaption{
     color:rgba(235, 75, 155,1);
+}
+
+#products nav a:nth-of-type(5){
+    color: rgba(90,90,90,1);
+}
+
+#products nav a:nth-of-type(6){
+    color: rgba(221, 151, 20,1);
 }
 
 #products .description p:first-of-type{
@@ -462,13 +498,13 @@ main .next-event div p{
     text-decoration: underline;
 }
 
-#products .house-animals a{
+#products #house-animals a{
     color:black;
     font-weight: bold;
     padding:0;
 }
 
-#products .house-animals a:hover{
+#products #house-animals a:hover{
     border:0;
 }
 
@@ -477,10 +513,6 @@ main .next-event div p{
 *                                   MAIN STANDARDS                                      *
 *                                                                                       *
 ****************************************************************************************/
-
-#standards{
-    color: rgba(145,145,145,1);
-}
 
 #standards article{
     margin:20px;
@@ -495,6 +527,149 @@ main .next-event div p{
     width:80px;
 }
 
+/****************************************************************************************
+*                                                                                       *
+*                                 MAIN SPONSORSHIP                                      *
+*                                                                                       *
+****************************************************************************************/
+
+#sponsorship .title{
+    margin-top:0;
+}
+
+#sponsorship img{
+    width:100px;
+    border-radius:100%;
+}
+
+#sponsorship article{
+    margin:70px 20px 0;
+}
+
+#sponsorship .sale ul{
+    padding-left:15px;
+    text-align: left;
+} 
+
+#sponsorship .sponsorship a{
+    color:black;
+    font-weight: bold;
+}
+
+/****************************************************************************************
+*                                                                                       *
+*                                    MAIN CONTACT                                       *
+*                                                                                       *
+****************************************************************************************/
+
+#contact{
+    margin:5px 10px;
+}
+
+#contact h1{
+    font-size:25px;
+    color:rgba(34,139,34,1);
+    margin:0;
+}
+
+#contact h2{
+    font-size:20px;
+    color:rgba(34,139,34,1);
+    margin:0 0 30px;
+}
+
+#contact fieldset{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#contact form fieldset legend{
+    font-size: 25px;
+    color: rgba(108,122,30,1);
+}
+
+#contact form ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+#contact form ul li{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
+#contact form ul li:first-of-type{
+    justify-content: space-evenly;
+}
+
+#contact form ul li div{
+    display: flex;
+    flex-direction: column;
+}
+
+#contact form ul li div input{
+    height:20px;
+}
+
+
+#contact form ul li input,#contact form ul li select{
+    height: 35px;
+    margin-bottom: 5px;
+    border:0;
+    background-color: rgba(0,255,0,0.2);
+    border-radius: 20px;
+    padding-left:15px;
+}
+
+#contact form ul li select{
+    width:172px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+#contact form input:focus,#contact form textarea:focus{
+    background-color: rgba(0,255,0,0.4);
+    border:0;
+}
+
+#contact form textarea{
+    resize:none;
+    height:100px;
+    border:0;
+    background-color: rgba(0,255,0,0.2);
+    border-radius: 20px;
+    padding:10px 0 10px 15px;
+}
+
+#contact .submit-btn{
+    background-color: white;
+    padding:10px 40px;
+    cursor:pointer;
+    color: rgba(108,122,30,1);
+    border:1px solid rgba(0,0,0,0.3);
+    font-size:18px;
+    border-radius: 50px;
+    transition:all 0.5s ease 0s;
+}
+
+#contact .submit-btn:hover{
+    background-color:rgba(27, 231, 27, 0.8);
+    color:black;
+    transition:all 0.5s ease 0s;
+}
+
+#contact .address{
+    display:flex;
+    flex-direction: column;
+}
+
+#contact .address address{
+    display:flex;
+    flex-direction: row;
+}
 
 /****************************************************************************************
 *                                                                                       *
