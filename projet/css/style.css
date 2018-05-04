@@ -51,13 +51,11 @@ body{
     display:none;
 }
 
-
 /****************************************************************************************
 *                                                                                       *
 *                                         HEADER                                        *
 *                                                                                       *
 ****************************************************************************************/
-
 
 header{
     border-bottom: 1px solid grey;
@@ -205,6 +203,15 @@ main{
     text-decoration: underline;
 }
 
+#body .fa-chevron-circle-up{ 
+    color:rgba(0,0,0,0.3);
+    font-size:40px;
+    position: fixed;
+    z-index:50;
+    bottom:20px;
+    right:5px;
+}
+
 /******************* Message Prochain Evénement **************/
 
 main .next-event{
@@ -213,11 +220,9 @@ main .next-event{
 
 main .next-event div{
     font-size:15px;
-    font-weight:bold;/* 
-    color:rgba(101,222,12,1); */
-    background-color:rgba(101,222,12,0.5);
-    color:black;
-    border:1px dashed black;
+    font-weight:bold;
+    color:rgba(101,222,12,1);
+    border:1px dashed white;
     padding:5px 0;
     margin:0 15px;
 }
@@ -233,18 +238,11 @@ main .next-event div p{
 @keyframes background-blink { 
     0%{
 
-    }48%{
-        color:rgba(50,205,50,1);
-        background-color: white;
-        border:1px dashed white;
+    
     } 50% { 
         background-color:rgba(101,222,12,0.5);
         color:black;
         border:1px dashed black;
-    } 52%{
-        color:rgba(50,205,50,1);
-        background-color: white;
-        border:1px dashed white;
     }
 }
 
@@ -566,15 +564,14 @@ main .next-event div p{
     margin:5px 10px;
 }
 
-#contact h1{
+#body #contact  h1{
     font-size:25px;
-    color:rgba(34,139,34,1);
     margin:0;
+    border:0;
 }
 
-#contact h2{
+#body #contact h2{
     font-size:20px;
-    color:rgba(34,139,34,1);
     margin:0 0 30px;
 }
 
@@ -661,14 +658,127 @@ main .next-event div p{
     transition:all 0.5s ease 0s;
 }
 
-#contact .address{
+#address{
     display:flex;
     flex-direction: column;
+    margin-top: 30px;
 }
 
-#contact .address address{
+#body #address h3{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+#address address{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    margin:10px 0;
+    color:rgba(58,157,35,1);
+    font-size:17px;
+}
+
+#address .fa{
+    font-size:20px;
+    color:rgba(58,157,35,1);
+}
+
+#address p{
+    margin:0;
+}
+
+#address a{
+    text-decoration: none;
+    color:rgba(52,201,36,1);
+}
+
+#iframe iframe{
+    margin-top:50px;
+    width:100%;
+    height:400px;
+    border:0;
+}
+
+/****************************************************************************************
+*                                                                                       *
+*                                    PAGE ADMIN                                         *
+*                                                                                       *
+****************************************************************************************/
+
+#admin{
+    color:black;
+}
+
+#admin .admin-messages h1{
+    padding-top:30px;
+    margin-top:0;
+}
+
+#admin table{
+    border-collapse: collapse;
+    margin:0 auto 20px;;
+
+}
+
+#admin th,#admin td{
+    font-size:15px;
+    padding:8px;
+    border:1px solid black;
+}
+
+#admin td{
+    font-family:'OpenSansRegular', sans-serif;
+}
+
+#admin .admin-messages tbody tr:nth-of-type(odd){
+    background-color: rgba(50,205,50,0.3);
+}
+
+#admin .admin-messages table tbody tr:hover{
+    background-color: rgba(50,205,50,0.7);
+    cursor:pointer;
+}
+
+/* #admin .admin-products tbody tr:nth-of-type(odd){
+    background-color: rgba(255,105,180,0.4);
+}
+
+#admin .admin-products table tbody tr:hover{
+    background-color: rgba(255,105,180,0.7);
+    cursor:pointer;
+} */
+
+#admin .admin-news-events tbody tr:nth-of-type(odd){
+    background-color: rgba(244,164,96,0.4);
+}
+
+#admin .admin-news-events table tbody tr:hover{
+    background-color: rgba(244,164,96,0.7);
+    cursor:pointer;
+}
+
+#admin table .fa{
+    padding:5px;
+    font-size:20px;
+    color:rgba(0,100,0,1);
+}
+
+#admin section>a{
+    text-decoration: none;
+    color:rgba(0,100,0,1);
+    padding:10px;
+    border:1px solid rgba(200,200,200,1);
+    transition:all 0.5s ease 0s;
+}
+
+#admin section > a:hover{
+    background-color:rgba(255,255,0,0.3);
+    transition:all 0.5s ease 0s;
+}
+#admin section>a:hover i{
+    transform:scale(1.3);
+    transition:all 0.5s ease 0s;
 }
 
 /****************************************************************************************
@@ -724,4 +834,19 @@ footer .footer-link a img{
 footer .footer-link a i{
     padding-bottom:14px;
     font-size:20px;
+}
+
+/****************************************************************************************
+*                                                                                       *
+*                                 MEDIAQUERRIES                                         *
+*                                                                                       *
+****************************************************************************************/
+
+
+@media screen and (min-width:768px){
+
+}
+
+@media screen and (min-width:1025px){
+
 }

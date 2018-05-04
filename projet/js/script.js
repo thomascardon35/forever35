@@ -1,24 +1,16 @@
 "use strict"
 
-
-var nav = $('.nav-header');
-
-
 function onClickBtnDisplayNav(){
     //$('.nav-header').slideToggle(500);
-
-    nav.toggleClass("width-nav"); // fait apparaitre/disparaitre la nav
+    $('.nav-header').toggleClass("width-nav"); // fait apparaitre/disparaitre la nav
     $('.fa-bars').toggleClass("rotate-nav-btn"); // rotation de l'icone ".fa-bars"
-
 }
 
 
 function onClickBodyRemoveNav(event){
-
     //Si le clic s'est produit en dehors du bouton et de la nav
     if(!$(event.target).closest('.div-nav-btn span, nav').length) {  
-        
-        nav.removeClass("width-nav"); // Alors on fait disparaitre la nav
+        $('.nav-header').removeClass("width-nav"); // Alors on fait disparaitre la nav
         $('.fa-bars').removeClass("rotate-nav-btn"); // et on fait une rotation du bouton
     } 
 };
@@ -26,7 +18,13 @@ function onClickBodyRemoveNav(event){
 /* var listReasons = $('#aloe-vera .reasons ol li');
 listReasons.addClass('vis-hidden'); */
 
-function onScrollDisplayReasons(){
+function onScrollDisplay(){
+
+    if($(this).scrollTop() > $('header').height()+100){
+        $('main .arrow-up').removeClass('hidden');
+    }else{
+        $('main .arrow-up').addClass('hidden')
+    }
 
     var firstReason   = $('#aloe-vera .reasons ol li:first-of-type');
     var secondReason  = $('#aloe-vera .reasons ol li:nth-of-type(2)');
@@ -40,7 +38,7 @@ function onScrollDisplayReasons(){
     var tenthReason   = $('#aloe-vera .reasons ol li:nth-of-type(10)');
     
 
-    var winMidlHght   = ($(window).height()) * 0.4; 
+    var winMidlHght   = ($(window).height()) * 0.37; 
     //valeur en px qui représente 40% de la hauteur de la fenetre de l'utilisateur
     var reasonsTitleTop    = $(".reasons").offset().top;
     //valeur en px qui représente le haut de l'article ".reasons" par rapport au début de la page
@@ -77,6 +75,8 @@ function onScrollDisplayReasons(){
     var tenthReasonTop = tenthReason.offset().top;
     var tenthReasonMidl= tenthReasonTop - winMidlHght;
 
+    
+    // Selon où on se situe sur la page : apparition/ disparition des 10 raisons de boire la pulpe d'Aloe Vera
     if($(this).scrollTop() < reasonsTitleMidl){
         firstReason.removeClass('vis-visible');
     } else if($(this).scrollTop() < firstReasonMidl){
@@ -111,9 +111,7 @@ function onScrollDisplayReasons(){
     }
 }
 
-
-$(function(){
-    $('.div-nav-btn span').click(onClickBtnDisplayNav); // Suite au clique sur le bouton on fait appel à la fonction onClickDisplayNav
-    $(document).click(onClickBodyRemoveNav); // Suite au clique sur le document(sauf la nav et le bouton d'ouverture/fermeture de la nav), on fait appel à la fonction onClickBodyRemoveNav
-    $(window).scroll(onScrollDisplayReasons); // Selon où on se situe sur la page : apparition/ disparition des 10 raisons de boire la pulpe d'Aloe Vera
-});
+function onClickDescription(event){
+    event.preventDefault();
+    $('.description').toggleClass("hidden");
+}

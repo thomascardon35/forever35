@@ -15,7 +15,7 @@
 
         <!----------------------- JQUERY ---------------------->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+        <script src="js/script.js"></script>
     </head>
     <body id="body">
         <!---------------------- Header commun  ------------------------>
@@ -44,15 +44,12 @@
         </header>
 
         <main>
-            <section class="next-event">
-                <div class="blink">
-                    <p>Prochain événement&nbsp;:</p>
-                    <p>Brocante du Theil le dimanche 22 avril 2018</p>
-                </div>
-            </section>
-
             <!-------------------- Template  ------------------------------>
             <?php include $template.'.phtml' ?>
+
+            <div class="arrow-up hidden">
+                <a href="#body"><i class="fas fa-chevron-circle-up"></i></a>
+            </div>
         </main>
 
         <!----------------------- Footer commun  ---------------------->
@@ -78,6 +75,6 @@
 
         </footer>
 
-        <script src="js/script.js"></script>
+        <script src="js/init.js"></script>
     </body>
 </html>
