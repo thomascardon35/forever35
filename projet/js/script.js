@@ -29,7 +29,7 @@ function onScrollDisplay(){
         $('main .arrow-up').addClass('hidden')  // sinon on fait disparaitre la fleche
     }
 
-    var reasonsTitle  = $(".reasons");
+/*     var reasonsTitle  = $(".reasons");
     var firstReason   = $('#aloe-vera .reasons ol li:first-of-type');
     var secondReason  = $('#aloe-vera .reasons ol li:nth-of-type(2)');
     var thirdReason   = $('#aloe-vera .reasons ol li:nth-of-type(3)');
@@ -41,8 +41,8 @@ function onScrollDisplay(){
     var ninthReason   = $('#aloe-vera .reasons ol li:nth-of-type(9)');
     var tenthReason   = $('#aloe-vera .reasons ol li:nth-of-type(10)');
     
-
-/*     var reasons = [
+ */
+    var reasons = [
         $(".reasons"),
         $('#aloe-vera .reasons ol li:first-of-type'),
         $('#aloe-vera .reasons ol li:nth-of-type(2)'),
@@ -56,18 +56,19 @@ function onScrollDisplay(){
         $('#aloe-vera .reasons ol li:nth-of-type(10)')
     ];
 
-    var reasonsHeight[];
-
-    for (var index = 0; index < reasons.length-1; index++) {
-        reasonsHeight.push(reasons[index].offset().top - winMidlHght);
-        
-    } */
-
+    
     var winMidlHght   = ($(window).height()) * 0.37; 
-    //valeur en px qui représente 40% de la hauteur de la fenetre de l'utilisateur
+    //valeur en px qui représente 37% de la hauteur de la fenetre de l'utilisateur
+
+    var reasonsHeight=[];
+
+    for (var index = 0; index < reasons.length; index++) {
+        reasonsHeight.push(reasons[index].offset().top - winMidlHght);
+    }
 
 
-    var reasonsTitleTop    = reasonsTitle.offset().top;
+
+/*    var reasonsTitleTop    = reasonsTitle.offset().top;
     //valeur en px qui représente le haut de l'article ".reasons" par rapport au début de la page
     var reasonsTitleMidl   = reasonsTitleTop - winMidlHght;   
     //valeur en px qui indique le haut de l'article".reasons" soustrait de la valeur en px des 40% de la fenetre de l'utilisateur.
@@ -135,7 +136,7 @@ function onScrollDisplay(){
         tenthReason.removeClass('vis-visible');
     }else if($(this).scrollTop() < tenthReasonMidl){
         tenthReason.addClass('vis-visible');
-    }
+    } */
 }
 
 /* function onClickDescription(event){
