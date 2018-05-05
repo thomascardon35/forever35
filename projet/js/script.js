@@ -7,6 +7,7 @@ function onClickBtnDisplayNav(){
 }
 
 
+
 function onClickBodyRemoveNav(event){
     //Si le clic s'est produit en dehors du bouton et de la nav
     if(!$(event.target).closest('.div-nav-btn span, nav').length) {  
@@ -19,13 +20,16 @@ function onClickBodyRemoveNav(event){
 listReasons.addClass('vis-hidden'); */
 
 function onScrollDisplay(){
-
-    if($(this).scrollTop() > $('header').height()+100){
-        $('main .arrow-up').removeClass('hidden');
+    // si le haut de la fenetre atteint la hauteur du hauteur + 200px alors
+    if($(this).scrollTop() > $('header').height()+200){  
+        $('main .arrow-up').removeClass('hidden');  // on fait apparaitre la fleche qui remonte un haut
+        $('.nav-header').removeClass("width-nav");  // on fait disparaitre la nav
+        $('.fa-bars').removeClass("rotate-nav-btn");  // et on fait une rotation du bouton
     }else{
-        $('main .arrow-up').addClass('hidden')
+        $('main .arrow-up').addClass('hidden')  // sinon on fait disparaitre la fleche
     }
 
+    var reasonsTitle  = $(".reasons");
     var firstReason   = $('#aloe-vera .reasons ol li:first-of-type');
     var secondReason  = $('#aloe-vera .reasons ol li:nth-of-type(2)');
     var thirdReason   = $('#aloe-vera .reasons ol li:nth-of-type(3)');
@@ -38,9 +42,32 @@ function onScrollDisplay(){
     var tenthReason   = $('#aloe-vera .reasons ol li:nth-of-type(10)');
     
 
+/*     var reasons = [
+        $(".reasons"),
+        $('#aloe-vera .reasons ol li:first-of-type'),
+        $('#aloe-vera .reasons ol li:nth-of-type(2)'),
+        $('#aloe-vera .reasons ol li:nth-of-type(3)'),
+        $('#aloe-vera .reasons ol li:nth-of-type(4)'),
+        $('#aloe-vera .reasons ol li:nth-of-type(5)'),
+        $('#aloe-vera .reasons ol li:nth-of-type(6)'),
+        $('#aloe-vera .reasons ol li:nth-of-type(7)'),
+        $('#aloe-vera .reasons ol li:nth-of-type(8)'),
+        $('#aloe-vera .reasons ol li:nth-of-type(9)'),
+        $('#aloe-vera .reasons ol li:nth-of-type(10)')
+    ];
+
+    var reasonsHeight[];
+
+    for (var index = 0; index < reasons.length-1; index++) {
+        reasonsHeight.push(reasons[index].offset().top - winMidlHght);
+        
+    } */
+
     var winMidlHght   = ($(window).height()) * 0.37; 
     //valeur en px qui représente 40% de la hauteur de la fenetre de l'utilisateur
-    var reasonsTitleTop    = $(".reasons").offset().top;
+
+
+    var reasonsTitleTop    = reasonsTitle.offset().top;
     //valeur en px qui représente le haut de l'article ".reasons" par rapport au début de la page
     var reasonsTitleMidl   = reasonsTitleTop - winMidlHght;   
     //valeur en px qui indique le haut de l'article".reasons" soustrait de la valeur en px des 40% de la fenetre de l'utilisateur.
@@ -111,7 +138,7 @@ function onScrollDisplay(){
     }
 }
 
-function onClickDescription(event){
+/* function onClickDescription(event){
     event.preventDefault();
     $('.description').toggleClass("hidden");
-}
+} */
