@@ -51,6 +51,16 @@ body{
     display:none;
 }
 
+#progressbar{
+    background-color: rgba(101,222,12,1);
+	height: 3px;
+	width: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 200;
+}
+
 /****************************************************************************************
 *                                                                                       *
 *                                         HEADER                                        *
