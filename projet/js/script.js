@@ -19,6 +19,25 @@ function onClickBodyRemoveNav(event){
 
 
 function onScrollDisplay(){
+
+/*     		// Calcul de la hauteur "utile"
+		var height = $(document).height()-$(window).height();
+		
+		// Récupération de la position verticale
+		var position = $(document).scrollTop();
+
+		// Récupération de la largeur de la fenêtre
+		var width = $(window).width();
+
+		// Calcul de la largeur de la barre		
+		var barre = position / hauteur * largeur;
+		
+		// Modification du CSS pour élargir ou réduire la barre		
+		$("#progress").css("width",barre); */
+
+
+
+
     // on stocke dans une variable le haut de la fenetre(par rapport au haut du document) en px
     var windowTop = $(this).scrollTop();
     // si le haut de la fenetre atteint la hauteur du header + 200px alors
