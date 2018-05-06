@@ -16,32 +16,20 @@ function onClickBodyRemoveNav(event){
     } 
 };
 
-/* var listReasons = $('#aloe-vera .reasons ol li');
-listReasons.addClass('vis-hidden'); */
+
 
 function onScrollDisplay(){
-    // si le haut de la fenetre atteint la hauteur du hauteur + 200px alors
-    if($(this).scrollTop() > $('header').height()+200){  
-        $('main .arrow-up').removeClass('hidden');  // on fait apparaitre la fleche qui remonte un haut
+    // on stocke dans une variable le haut de la fenetre(par rapport au haut du document) en px
+    var windowTop = $(this).scrollTop();
+    // si le haut de la fenetre atteint la hauteur du header + 200px alors
+    if(windowTop > $('header').height()+200){  
+        $('main .arrow-up').removeClass('hidden');  // on fait apparaitre la fleche qui remonte en haut
         $('.nav-header').removeClass("width-nav");  // on fait disparaitre la nav
         $('.fa-bars').removeClass("rotate-nav-btn");  // et on fait une rotation du bouton
     }else{
         $('main .arrow-up').addClass('hidden')  // sinon on fait disparaitre la fleche
     }
 
-/*     var reasonsTitle  = $(".reasons");
-    var firstReason   = $('#aloe-vera .reasons ol li:first-of-type');
-    var secondReason  = $('#aloe-vera .reasons ol li:nth-of-type(2)');
-    var thirdReason   = $('#aloe-vera .reasons ol li:nth-of-type(3)');
-    var fourthReason  = $('#aloe-vera .reasons ol li:nth-of-type(4)');
-    var fifthReason   = $('#aloe-vera .reasons ol li:nth-of-type(5)');
-    var sixthReason   = $('#aloe-vera .reasons ol li:nth-of-type(6)');
-    var seventhReason = $('#aloe-vera .reasons ol li:nth-of-type(7)');
-    var eighthReason  = $('#aloe-vera .reasons ol li:nth-of-type(8)');
-    var ninthReason   = $('#aloe-vera .reasons ol li:nth-of-type(9)');
-    var tenthReason   = $('#aloe-vera .reasons ol li:nth-of-type(10)');
-    
- */
     var reasons = [
         $(".reasons"),
         $('#aloe-vera .reasons ol li:first-of-type'),
@@ -55,20 +43,64 @@ function onScrollDisplay(){
         $('#aloe-vera .reasons ol li:nth-of-type(9)'),
         $('#aloe-vera .reasons ol li:nth-of-type(10)')
     ];
-
-    
-    var winMidlHght   = ($(window).height()) * 0.37; 
     //valeur en px qui représente 37% de la hauteur de la fenetre de l'utilisateur
-
+    var winMidlHght   = ($(window).height()) * 0.37; 
+    // on crée un tableau vide dans lequel on stockera les valeurs
     var reasonsHeight=[];
-
+    
     for (var index = 0; index < reasons.length; index++) {
-        reasonsHeight.push(reasons[index].offset().top - winMidlHght);
+        var reason= reasons[index];
+        // on enregistre dans le tableau les 11 nouvelles valeurs en px qui représentent chacune le haut de l'élément (par rapport au document) - 37% de la hauteur de la fenetre de l'utilisateur
+        reasonsHeight.push(reason.offset().top - winMidlHght);
     }
+    
+    // Selon où on se situe sur la page : apparition/ disparition des 10 raisons de boire la pulpe d'Aloe Vera
+    if(windowTop < reasonsHeight[0]){
+        reasons[1].removeClass('vis-visible');
+    } else if(windowTop < reasonsHeight[1]){
+        reasons[1].addClass('vis-visible');
+        reasons[2].removeClass('vis-visible');
+    } else if(windowTop < reasonsHeight[2]){
+        reasons[2].addClass('vis-visible');
+        reasons[3].removeClass('vis-visible');
+    }else if(windowTop < reasonsHeight[3]){
+        reasons[3].addClass('vis-visible');
+        reasons[4].removeClass('vis-visible');
+    }else if(windowTop < reasonsHeight[4]){
+        reasons[4].addClass('vis-visible');
+        reasons[5].removeClass('vis-visible');
+    }else if(windowTop < reasonsHeight[5]){
+        reasons[5].addClass('vis-visible');
+        reasons[6].removeClass('vis-visible');
+    }else if(windowTop < reasonsHeight[6]){
+        reasons[6].addClass('vis-visible');
+        reasons[7].removeClass('vis-visible');
+    }else if(windowTop < reasonsHeight[7]){
+        reasons[7].addClass('vis-visible');
+        reasons[8].removeClass('vis-visible');
+    }else if(windowTop < reasonsHeight[8]){
+        reasons[8].addClass('vis-visible');
+        reasons[9].removeClass('vis-visible');
+    }else if(windowTop < reasonsHeight[9]){
+        reasons[9].addClass('vis-visible');
+        reasons[10].removeClass('vis-visible');
+    }else if(windowTop < reasonsHeight[10]){
+        reasons[10].addClass('vis-visible');
+    } 
 
-
-
-/*    var reasonsTitleTop    = reasonsTitle.offset().top;
+    /*     var reasonsTitle  = $(".reasons");
+    var firstReason   = $('#aloe-vera .reasons ol li:first-of-type');
+    var secondReason  = $('#aloe-vera .reasons ol li:nth-of-type(2)');
+    var thirdReason   = $('#aloe-vera .reasons ol li:nth-of-type(3)');
+    var fourthReason  = $('#aloe-vera .reasons ol li:nth-of-type(4)');
+    var fifthReason   = $('#aloe-vera .reasons ol li:nth-of-type(5)');
+    var sixthReason   = $('#aloe-vera .reasons ol li:nth-of-type(6)');
+    var seventhReason = $('#aloe-vera .reasons ol li:nth-of-type(7)');
+    var eighthReason  = $('#aloe-vera .reasons ol li:nth-of-type(8)');
+    var ninthReason   = $('#aloe-vera .reasons ol li:nth-of-type(9)');
+    var tenthReason   = $('#aloe-vera .reasons ol li:nth-of-type(10)');
+    
+    var reasonsTitleTop    = $(".reasons").offset().top;
     //valeur en px qui représente le haut de l'article ".reasons" par rapport au début de la page
     var reasonsTitleMidl   = reasonsTitleTop - winMidlHght;   
     //valeur en px qui indique le haut de l'article".reasons" soustrait de la valeur en px des 40% de la fenetre de l'utilisateur.
@@ -104,39 +136,7 @@ function onScrollDisplay(){
     var tenthReasonMidl= tenthReasonTop - winMidlHght;
 
     
-    // Selon où on se situe sur la page : apparition/ disparition des 10 raisons de boire la pulpe d'Aloe Vera
-    if($(this).scrollTop() < reasonsTitleMidl){
-        firstReason.removeClass('vis-visible');
-    } else if($(this).scrollTop() < firstReasonMidl){
-        firstReason.addClass('vis-visible');
-        secondReason.removeClass('vis-visible');
-    } else if($(this).scrollTop() < secondReasonMidl){
-        secondReason.addClass('vis-visible');
-        thirdReason.removeClass('vis-visible');
-    }else if($(this).scrollTop() < thirdReasonMidl){
-        thirdReason.addClass('vis-visible');
-        fourthReason.removeClass('vis-visible');
-    }else if($(this).scrollTop() < fourthReasonMidl){
-        fourthReason.addClass('vis-visible');
-        fifthReason.removeClass('vis-visible');
-    }else if($(this).scrollTop() < fifthReasonMidl){
-        fifthReason.addClass('vis-visible');
-        sixthReason.removeClass('vis-visible');
-    }else if($(this).scrollTop() < sixthReasonMidl){
-        sixthReason.addClass('vis-visible');
-        seventhReason.removeClass('vis-visible');
-    }else if($(this).scrollTop() < seventhReasonMidl){
-        seventhReason.addClass('vis-visible');
-        eighthReason.removeClass('vis-visible');
-    }else if($(this).scrollTop() < eighthReasonMidl){
-        eighthReason.addClass('vis-visible');
-        ninthReason.removeClass('vis-visible');
-    }else if($(this).scrollTop() < ninthReasonMidl){
-        ninthReason.addClass('vis-visible');
-        tenthReason.removeClass('vis-visible');
-    }else if($(this).scrollTop() < tenthReasonMidl){
-        tenthReason.addClass('vis-visible');
-    } */
+    */
 }
 
 /* function onClickDescription(event){
