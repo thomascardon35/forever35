@@ -53,13 +53,50 @@ body{
 
 #progressbar{
     background-color: rgba(101,222,12,1);
-	height: 3px;
+	height: 4px;
 	width: 0;
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 200;
+	z-index: 101;
 }
+
+#bubble1,#bubble2,#bubble3,#bubble4,#bubble5,#bubble6,#bubble7,#bubble8{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+    display:none;
+}
+
+#bubble1{
+    background: url(../img/bubble50.png) 20% 150% no-repeat;
+}
+#bubble2{
+    background: url(../img/bubble150.png) 25% 175% no-repeat;
+}
+#bubble3{
+    background: url(../img/bubble75.png) 40% 175% no-repeat;
+}
+#bubble4{
+    background: url(../img/bubble125.png) 50% 50% no-repeat;
+}
+#bubble5{
+    background: url(../img/bubble250.png) 60% 90% no-repeat;
+}
+#bubble6{
+    background: url(../img/bubble50.png) 65% 160% no-repeat;
+}
+#bubble7{
+    background: url(../img/bubble75.png) 75% 20% no-repeat;
+}
+#bubble8{
+    background: url(../img/bubble50.png) 80% 190% no-repeat;
+}
+
+
 
 /****************************************************************************************
 *                                                                                       *
@@ -135,7 +172,7 @@ header nav{
     background-color: white;
     position:absolute;
     right:0;
-    z-index: 100;
+    z-index: 102;
     font-family: 'OpenSansLight';
     width: 0;
     transition:all 0.5s ease 0s;
@@ -190,9 +227,8 @@ header nav a:last-of-type:hover{
 *                                   MAIN COMMUN                                         *
 *                                                                                       *
 ****************************************************************************************/
-
-main{
-    background-color:rgba(255,255,255,0.6);
+main #container{
+    background-color:rgba(255,255,255,0.5);
     padding-bottom:50px;
 }
 
@@ -217,7 +253,7 @@ main{
     color:rgba(0,0,0,0.3);
     font-size:40px;
     position: fixed;
-    z-index:50;
+    z-index:100;
     bottom:20px;
     right:5px;
 } 
@@ -858,5 +894,10 @@ footer .footer-link a i{
 }
 
 @media screen and (min-width:1025px){
-
+    body{
+        background: 0;
+    }
+    #bubble1,#bubble2,#bubble3,#bubble4,#bubble5,#bubble6,#bubble7,#bubble8,#bubble9{
+        display:block;
+    }
 }
