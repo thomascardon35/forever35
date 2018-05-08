@@ -1,4 +1,3 @@
-
 /****************************************************************************************
 *                                                                                       *
 *                                        FONTS                                          *
@@ -34,7 +33,6 @@
 *                                     CSS COMMUN                                        *
 *                                                                                       *
 ****************************************************************************************/
-
 *{
     box-sizing:border-box;
 }
@@ -51,6 +49,7 @@ body{
     display:none;
 }
 
+/******************** Barre de Progression *******************/
 #progressbar{
     background-color: rgba(101,222,12,1);
 	height: 4px;
@@ -61,49 +60,78 @@ body{
 	z-index: 101;
 }
 
-#bubble1,#bubble2,#bubble3,#bubble4,#bubble5,#bubble6,#bubble7,#bubble8{
+/**************** Flèche de remontée du document *************/
+#body .fa-chevron-circle-up{ 
+    color:rgba(0,0,0,0.3);
+    font-size:40px;
+    position: fixed;
+    z-index:100;
+    bottom:20px;
+    right:5px;
+} 
+
+/********************* Background Animé Bulles ***************/
+#bubble1,#bubble2,#bubble3,#bubble4,#bubble5,#bubble6,#bubble7,#bubble8,#bubble9{
+    display:none;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     position: fixed;
     z-index: -1;
-    display:none;
 }
 
 #bubble1{
-    background: url(../img/bubble50.png) 20% 150% no-repeat;
+    background: url(../img/bubble50.png) 7% 15% no-repeat;
 }
 #bubble2{
-    background: url(../img/bubble150.png) 25% 175% no-repeat;
+    background: url(../img/bubblecolor150.png) 12% 75% no-repeat;
 }
 #bubble3{
-    background: url(../img/bubble75.png) 40% 175% no-repeat;
+    background: url(../img/bubble125.png) 35% 50% no-repeat;
 }
 #bubble4{
-    background: url(../img/bubble125.png) 50% 50% no-repeat;
+    background: url(../img/bubbleblue100.png) 40% 80% no-repeat;
 }
 #bubble5{
-    background: url(../img/bubble250.png) 60% 90% no-repeat;
+    background: url(../img/bubblecolor50.png) 65% 85% no-repeat;
 }
 #bubble6{
-    background: url(../img/bubble50.png) 65% 160% no-repeat;
-}
-#bubble7{
     background: url(../img/bubble75.png) 75% 20% no-repeat;
 }
+#bubble7{
+    background: url(../img/bubble250.png) 90% 40% no-repeat;
+}
 #bubble8{
-    background: url(../img/bubble50.png) 80% 190% no-repeat;
+    background: url(../img/bubbleblue50.png) 90% 75% no-repeat;
+}
+#bubble9{
+    background: url(../img/bubblecolor150.png) 98% 10% no-repeat;    
 }
 
+/************************** Titres ***************************/
+#body .title{
+    font-size:30px;
+    margin:30px 30px 40px ;
+    font-family: 'Amaranth', sans-serif;
+    color:rgba(108,122,30,1);
+    border-bottom :1px solid rgba(200,200,200,1);
+    line-height:1.4;
+}
 
+#body .title-small{ 
+    font-size:25px;
+    margin:30px 30px 40px ;
+    font-family: 'Amaranth', sans-serif;
+    color:rgba(108,122,30,1);
+    text-decoration: underline;
+}
 
 /****************************************************************************************
 *                                                                                       *
 *                                         HEADER                                        *
 *                                                                                       *
 ****************************************************************************************/
-
 header{
     border-bottom: 1px solid grey;
     background-color:rgba(255,255,255,0.8);
@@ -136,7 +164,6 @@ header figure figcaption{
 }
 
 /**************************** Nav ****************************/
-
 .div-nav-btn{
     font-size:20px;
     text-align: right;
@@ -221,45 +248,18 @@ header nav a:last-of-type:hover{
     background-color:rgba(255,105,180,0.4);
 }
 
-
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN COMMUN                                         *
 *                                                                                       *
 ****************************************************************************************/
 main #container{
-    background-color:rgba(255,255,255,0.5);
+    background-color:rgba(255,255,255,0.6);
     padding-bottom:50px;
+    margin:0 auto;
 }
-
-#body .title{
-    font-size:30px;
-    margin:30px 30px 40px ;
-    font-family: 'Amaranth', sans-serif;
-    color:rgba(108,122,30,1);
-    border-bottom :1px solid rgba(200,200,200,1);
-    line-height:1.4;
-}
-
-#body .title-small{ 
-    font-size:25px;
-    margin:30px 30px 40px ;
-    font-family: 'Amaranth', sans-serif;
-    color:rgba(108,122,30,1);
-    text-decoration: underline;
-}
-
-#body .fa-chevron-circle-up{ 
-    color:rgba(0,0,0,0.3);
-    font-size:40px;
-    position: fixed;
-    z-index:100;
-    bottom:20px;
-    right:5px;
-} 
 
 /******************* Message Prochain Evénement **************/
-
 main .next-event{
     padding-top:15px;
 }
@@ -299,7 +299,6 @@ main .next-event div p{
 ****************************************************************************************/
 
 /********** Articles "Qui suis-je?" , "Notre Histoire" *******/
-
 #home .history{
     margin: 60px 0;
 }
@@ -327,7 +326,6 @@ main .next-event div p{
 }
 
 /********************  Aside "News&Events" *******************/
-
 #news-events{
     background:linear-gradient(135deg, rgba(255, 255, 255,0.5) ,rgba(120, 255, 0,0.5) );
     /*background-color:rgba(255,255,0,0.1);*/
@@ -348,17 +346,13 @@ main .next-event div p{
     font-size:14px;
 }
 
-
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN ALOE VERA                                      *
 *                                                                                       *
 ****************************************************************************************/
 
-
 /******************* Description de l'Aloe Vera **************/
-
-
 #aloe-vera .aloe-description img:first-of-type{
     width:100px;
     float:left;
@@ -381,7 +375,6 @@ main .next-event div p{
 }
 
 /************************* Les 10 raisons ********************/
-
 #aloe-vera .reasons ol{
     padding:0 20px 0 50px;
     font-family:'OpenSansRegular', sans-serif;
@@ -404,13 +397,11 @@ main .next-event div p{
     font-family: "OpenSansBold", sans-serif;
 }
 
-
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN PRODUCTS                                       *
 *                                                                                       *
 ****************************************************************************************/
-
 #body #products .title{
     margin:0 30px;
 } 
@@ -490,40 +481,31 @@ main .next-event div p{
 #health a{
     background-color: rgba(92, 38, 131, 1);
 }
-
 #pain a{
     background-color: rgba(140, 204, 92,1);
 }
-
 #skin a{
     background-color: rgba(12, 100, 174,1);
 }
-
 #daily a{
     background-color: rgba(235, 75, 155,1);
 }
 
-
 #products nav a:first-of-type,#products #health a:hover, #products #health h2, #products #health figcaption{
     color: rgba(92, 38, 131, 1);
 }
-
 #products nav a:nth-of-type(2),#products #pain a:hover, #products #pain h2, #products #pain figcaption{
     color: rgba(140, 204, 92,1);
 }
-
 #products nav a:nth-of-type(3),#products #skin a:hover, #products #skin h2, #products #skin figcaption{
     color:rgba(12, 100, 174,1);
 }
-
 #products nav a:nth-of-type(4),#products #daily a:hover, #products #daily h2, #products #daily figcaption{
     color:rgba(235, 75, 155,1);
 }
-
 #products nav a:nth-of-type(5){
     color: rgba(90,90,90,1);
 }
-
 #products nav a:nth-of-type(6){
     color: rgba(221, 151, 20,1);
 }
@@ -557,7 +539,6 @@ main .next-event div p{
 *                                   MAIN STANDARDS                                      *
 *                                                                                       *
 ****************************************************************************************/
-
 #standards article{
     margin:20px;
 }
@@ -576,7 +557,6 @@ main .next-event div p{
 *                                 MAIN SPONSORSHIP                                      *
 *                                                                                       *
 ****************************************************************************************/
-
 #sponsorship .title{
     margin-top:0;
 }
@@ -605,7 +585,6 @@ main .next-event div p{
 *                                    MAIN CONTACT                                       *
 *                                                                                       *
 ****************************************************************************************/
-
 #contact{
     margin:5px 10px;
 }
@@ -751,7 +730,6 @@ main .next-event div p{
 *                                    PAGE ADMIN                                         *
 *                                                                                       *
 ****************************************************************************************/
-
 #admin{
     color:black;
 }
@@ -764,7 +742,6 @@ main .next-event div p{
 #admin table{
     border-collapse: collapse;
     margin:0 auto 20px;;
-
 }
 
 #admin th,#admin td{
@@ -832,7 +809,6 @@ main .next-event div p{
 *                                      FOOTER                                           *
 *                                                                                       *
 ****************************************************************************************/
-
 footer{
     background:url(../img/bgfooter.jpg) center bottom no-repeat;
     background-size: cover;
@@ -887,16 +863,16 @@ footer .footer-link a i{
 *                                 MEDIAQUERRIES                                         *
 *                                                                                       *
 ****************************************************************************************/
-
-
 @media screen and (min-width:768px){
-
+    main{
+        background-color:rgba(255,255,255,0.1);
+    }
+    main #container{
+        max-width:900px;
+    }
 }
 
 @media screen and (min-width:1025px){
-    body{
-        background: 0;
-    }
     #bubble1,#bubble2,#bubble3,#bubble4,#bubble5,#bubble6,#bubble7,#bubble8,#bubble9{
         display:block;
     }
