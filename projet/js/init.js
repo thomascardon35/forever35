@@ -7,6 +7,7 @@ $(function(){
     $(document).click(onClickBodyRemoveNav);
     // écouteur d'evenement sur le scroll
     $(window).scroll(onScroll); 
+    
 
     /* $('#products a').click(onClickDescription); */
 });
