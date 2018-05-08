@@ -18,6 +18,7 @@
         <script src="js/script.js"></script>
     </head>
     <body id="body">
+
         <!---------------------- Header commun  ------------------------>
         <header>
             <div id="progressbar"></div>
@@ -45,17 +46,28 @@
         </header>
 
         <main>
-            <!-------------------- Template  ------------------------------>
-            <?php include $template.'.phtml' ?>
+            <!-------------------- Background Animé Bulles  ------------------------------>
+            <div id="bubble1"></div>
+            <div id="bubble2"></div>
+            <div id="bubble3"></div>
+            <div id="bubble4"></div>
+            <div id="bubble5"></div>
+            <div id="bubble6"></div>
+            <div id="bubble7"></div>
+            <div id="bubble8"></div>
+            <div id="bubble9"></div>
+            <div id="container">
+                <!-------------------- Template  ------------------------------>
+                <?php include $template.'.phtml' ?>
 
-            <div class="arrow-up hidden">
-                <a href="#body"><i class="fas fa-chevron-circle-up"></i></a>
+                <div class="arrow-up hidden">
+                    <a href="#body"><i class="fas fa-chevron-circle-up"></i></a>
+                </div>
             </div>
         </main>
 
         <!----------------------- Footer commun  ---------------------->
         <footer>
-
             <div>
                 <div class="div-logo-footer">
                     <a href="#body"><img class="logo-footer" src="img/foreverlogo.png" alt="Logo FOREVER"></a>
@@ -73,7 +85,6 @@
                     <a href="contact.php"><i class="fas fa-envelope"></i>CONTACT</a>
                 </div>
             </div>
-
         </footer>
 
         <script src="js/init.js"></script>
