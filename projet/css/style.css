@@ -157,7 +157,7 @@ header figure{
 }
 
 header figure figcaption{
-    font-size:20px;
+    font-size:25px;
     color:rgba(108,122,30,1);
     text-align: center;
     font-family: 'Amaranth', sans-serif;
@@ -261,44 +261,83 @@ main #container{
 
 /******************* Message Prochain Evénement **************/
 main .next-event{
-    padding-top:15px;
+    padding-top:20px;
+    max-width:500px;
+    margin:0 auto;
+    overflow: hidden;
 }
 
-main .next-event div{
+main .next-event>div{
     padding:5px 0;
-    margin:0 15px;
-    color:black;
-    border:1px solid black;
-    background-color:rgba(101,222,12,0.5);
+    color:black;/* 
+    border:2px dashed black;
+    background-color:rgba(101,222,12,0.5); */
+    position: relative;
+    text-align: left;
 }
 
-main .next-event div p{
-    margin:0;
+main .next-event .title-event img{
+    width:20px;
+    height:80px;
+    transform:rotate(85deg);
+    position: absolute;
+    top:-35px;
+    left:100px;
+    z-index: 50;
 }
 
-main .next-event div p:first-of-type{
-    font-size:20px;
-    font-weight:bold;
-}
 
-main .next-event div p:nth-of-type(2){
+main .next-event .title-event p{
     font-size:17px;
+    transform: rotate(-5deg);
+    padding:15px 5px;
+    background-color: rgba(255,255,0,0.4);
+    display:inline-block;
+    margin:0 0 0 20px;
+    font-family: 'Permanent Marker', cursive;
+    z-index:49;
 }
 
-.blink{
-    animation: background-blink 1.5s 5;
+main .next-event .slider-events{
+    position:relative;
+    display:inline-block;
+    margin-top:-35px;
 }
 
-@keyframes background-blink { 
+main .next-event .slider-events img:first-of-type{
+    width:60px;
+    position: absolute;
+    top:0;
+    right:-15px;
+    transform: rotate(75deg);
+}
+
+main .next-event .slider-events p{
+    font-size:20px;
+    padding:15px;
+    text-align:center;
+    background:linear-gradient(135deg,rgba(255, 255, 255,0.5) ,rgba(187,255,127,0.5) 40%,rgba(120, 255, 0,0.5) );
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+main .next-event .slider-events img:nth-of-type(2){
+    width:60px;
+    position: absolute;
+    transform: rotate(-25deg);
+    bottom:-10px;
+    left:-15px;
+}
+
+
+/* @keyframes background-blink { 
     0%{
 
     
     } 50% { 
-        color:rgba(101,222,12,1);
-        border:1px solid transparent;
-        background-color:white;
+        background:linear-gradient(135deg,rgba(255, 255, 255,0.5) ,rgba(127,255,127,0.5) 40%,rgba(0, 255, 0,0.5) );
     }
-}
+} */
 
 /****************************************************************************************
 *                                                                                       *
@@ -342,6 +381,8 @@ main .next-event div p:nth-of-type(2){
     border: 3px outset rgba(0,0,0,0.4);
     color:rgba(108,122,30,1);
     box-shadow:0px 0px 15px black;
+    max-width: 280px;
+    margin:0 auto;
 }
 
 #news-events .title-news{
@@ -422,6 +463,7 @@ main .next-event div p:nth-of-type(2){
     margin:20px;
 }
 
+/****************** NAV catégories de produits ***************/
 #products nav{
     display:flex;
     flex-direction:row;
@@ -439,7 +481,7 @@ main .next-event div p:nth-of-type(2){
     padding:9px 0;
 }
 
-
+/************************* Les Produits **********************/
 #products section article{
     display:flex;
     flex-direction: column;
@@ -458,7 +500,7 @@ main .next-event div p:nth-of-type(2){
     text-decoration: underline;
 }
 
-#products figcaption{
+#products h3{
     font-size:20px;
     margin:20px 0 0;
 }
@@ -469,15 +511,18 @@ main .next-event div p:nth-of-type(2){
     margin: 0 auto;
 }
 
+/******************* Les Boutons "Description" ***************/
 #products section a{
     color:white;
     border-radius:20px;
-    padding:7px 10px;
+    padding:10px;
     font-size:16px;
-    border:0;
+    border:1px solid rgba(255,255,255,1);
     cursor:pointer;
     text-decoration: none;
     transition:all 0.7s ease 0s;
+    max-width: 205px;
+    margin: 0 auto;
 }
 
 #products section a:hover{
@@ -486,6 +531,7 @@ main .next-event div p:nth-of-type(2){
     border:1px solid rgba(0,0,0,0.5);
 }
 
+/*************** Les Couleurs NAV,Boutons,Titres *************/
 #health a{
     background-color: rgba(92, 38, 131, 1);
 }
@@ -499,16 +545,16 @@ main .next-event div p:nth-of-type(2){
     background-color: rgba(235, 75, 155,1);
 }
 
-#products nav a:first-of-type,#products #health a:hover, #products #health h2, #products #health figcaption{
+#products nav a:first-of-type,#products #health a:hover, #products #health h2, #products #health h3{
     color: rgba(92, 38, 131, 1);
 }
-#products nav a:nth-of-type(2),#products #pain a:hover, #products #pain h2, #products #pain figcaption{
+#products nav a:nth-of-type(2),#products #pain a:hover, #products #pain h2, #products #pain h3{
     color: rgba(140, 204, 92,1);
 }
-#products nav a:nth-of-type(3),#products #skin a:hover, #products #skin h2, #products #skin figcaption{
+#products nav a:nth-of-type(3),#products #skin a:hover, #products #skin h2, #products #skin h3{
     color:rgba(12, 100, 174,1);
 }
-#products nav a:nth-of-type(4),#products #daily a:hover, #products #daily h2, #products #daily figcaption{
+#products nav a:nth-of-type(4),#products #daily a:hover, #products #daily h2, #products #daily h3{
     color:rgba(235, 75, 155,1);
 }
 #products nav a:nth-of-type(5){
@@ -518,6 +564,7 @@ main .next-event div p:nth-of-type(2){
     color: rgba(221, 151, 20,1);
 }
 
+/*********************** Les Descriptions ********************/
 #products .description p:first-of-type{
     margin:30px 0;
     text-align: center;
@@ -531,6 +578,8 @@ main .next-event div p:nth-of-type(2){
 #products .description p span{
     text-decoration: underline;
 }
+
+/***************** La catégorie "Maison&Animaux" ************/
 
 #products #house-animals a{
     color:black;
@@ -635,6 +684,9 @@ main .next-event div p:nth-of-type(2){
     justify-content: space-evenly;
 }
 
+#contact form ul li:first-of-type label,#contact form ul li:first-of-type input{
+    cursor:pointer;
+}
 #contact form ul li div{
     display: flex;
     flex-direction: column;
@@ -656,6 +708,7 @@ main .next-event div p:nth-of-type(2){
 
 #contact form ul li select{
     width:172px;
+    appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
 }
@@ -726,7 +779,7 @@ main .next-event div p:nth-of-type(2){
     color:rgba(52,201,36,1);
 }
 
-#iframe iframe{
+iframe{
     margin-top:50px;
     width:100%;
     height:400px;
@@ -872,11 +925,54 @@ footer .footer-link a i{
 *                                                                                       *
 ****************************************************************************************/
 @media screen and (min-width:768px){
+    
+    /********************** HEADER *********************/
+    .logo{
+        max-width:150px;
+    }
+    header figure figcaption{
+        font-size:28px;
+        margin-left:30px;
+    }
+    .div-nav-btn{
+        font-size:25px;
+    }
+    .div-nav-btn span{
+        padding:7px 25px 17px 15px;
+    }
+    /******************** MAIN COMMUN ******************/
     main{
         background-color:rgba(255,255,255,0.1);
     }
     main #container{
         max-width:900px;
+    }
+    /*********************** HOME **********************/
+    #home{
+        display:flex;
+        flex-direction: row;
+    }
+    #articles{
+        margin:0 10px
+    }
+    #news-events{
+        height:100%;
+        margin:75px 20px 0;
+    }
+
+    #aloe-vera{
+        max-width:505px;
+        margin:0 auto;
+    }
+    #products section .products-container{
+        display:flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    #products section article{
+        margin-top:0;
+        justify-content: space-between;
     }
 }
 
