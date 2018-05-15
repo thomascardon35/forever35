@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
         <!-------------------- FONT-FAMILY -------------------->
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> 
         <!---------------------- ICONS ------------------------>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 
@@ -46,6 +48,14 @@
         </header>
 
         <main>
+            <div id="container">
+                <!-------------------- Template  ------------------------------>
+                <?php include $template.'.phtml' ?>
+
+                <div class="arrow-up hidden">
+                    <a href="#body"><i class="fas fa-chevron-circle-up"></i></a>
+                </div>
+            </div>
             <!-------------------- Background Animé Bulles  ------------------------------>
             <div id="bubble1"></div>
             <div id="bubble2"></div>
@@ -57,14 +67,6 @@
             <div id="bubble8"></div>
             <div id="bubble9"></div>
             
-            <div id="container">
-                <!-------------------- Template  ------------------------------>
-                <?php include $template.'.phtml' ?>
-
-                <div class="arrow-up hidden">
-                    <a href="#body"><i class="fas fa-chevron-circle-up"></i></a>
-                </div>
-            </div>
         </main>
 
         <!----------------------- Footer commun  ---------------------->
@@ -74,11 +76,11 @@
                     <a href="#body"><img class="logo-footer" src="img/foreverlogo.png" alt="Logo FOREVER"></a>
                 </div>
                 <div class="standards">
-                    <a href="standards.php#iso9001"><img src="img/normes/iso9001.gif" alt="Norme ISO9001">
-                    <a href="standards.php#iso14001"><img src="img/normes/iso14001.gif" alt="Norme ISO14001">
-                    <a href="standards.php#certified"><img src="img/normes/certified.png" alt="Label IASC (International Aloe Science Council)">
-                    <a href="standards.php#kasher-hallal"><img src="img/normes/kasher.gif" alt="Garantie Kasher">
-                    <a href="standards.php#kasher-hallal"><img src="img/normes/halal.gif" alt="Garantie Halal">
+                    <a href="standards.php#iso9001"><img src="img/normes/iso9001.gif" alt="Norme ISO9001"></a>
+                    <a href="standards.php#iso14001"><img src="img/normes/iso14001.gif" alt="Norme ISO14001"></a>
+                    <a href="standards.php#certified"><img src="img/normes/certified.png" alt="Label IASC (International Aloe Science Council)"></a>
+                    <a href="standards.php#kasher-hallal"><img src="img/normes/kasher.gif" alt="Garantie Kasher"></a>
+                    <a href="standards.php#kasher-hallal"><img src="img/normes/halal.gif" alt="Garantie Halal"></a>
                     <a href="standards.php#fvd"><img src="img/normes/fvd.gif" alt="Fédération de la Vente Directe"></a>
                 </div>
                 <div class="footer-link">
