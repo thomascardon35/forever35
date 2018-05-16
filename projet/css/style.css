@@ -355,7 +355,7 @@ main .next-event .slider-events img:nth-of-type(2){
     color:rgba(50,205,50,1);
 }
 
-#home p{
+#home h1,#home p{
     line-height:1.4;
     margin:20px;
 }
@@ -402,16 +402,21 @@ main .next-event .slider-events img:nth-of-type(2){
 ****************************************************************************************/
 
 /******************* Description de l'Aloe Vera **************/
+#aloe-vera{
+    max-width:600px;
+    margin:0 auto;
+}
+
 #aloe-vera .aloe-description img:first-of-type{
     width:100px;
     float:left;
-    margin-left: 20px;
+    margin: 10px 10px 0 20px;
 }
 
 #aloe-vera .aloe-description img:nth-of-type(2){
     width:100px;
     float:right;
-    margin-right: 20px;
+    margin: 10px 20px 0 10px;
 }
 
 #aloe-vera .aloe-description img:nth-of-type(3){
@@ -470,6 +475,7 @@ main .next-event .slider-events img:nth-of-type(2){
     justify-content: space-around;
     flex-wrap:wrap;
     align-items:center;
+    margin-top:20px;
 }
 
 #products nav a{
@@ -597,7 +603,8 @@ main .next-event .slider-events img:nth-of-type(2){
 *                                                                                       *
 ****************************************************************************************/
 #standards article{
-    margin:20px;
+    margin:20px auto;
+    max-width: 400px;
 }
 
 #standards h2{
@@ -614,13 +621,13 @@ main .next-event .slider-events img:nth-of-type(2){
 *                                 MAIN SPONSORSHIP                                      *
 *                                                                                       *
 ****************************************************************************************/
-#sponsorship .title{
-    margin-top:0;
-}
-
 #sponsorship img{
     width:100px;
     border-radius:100%;
+}
+#sponsorship .div-sponsorship{
+    max-width:600px;
+    margin:0 auto;
 }
 
 #sponsorship article{
@@ -630,6 +637,8 @@ main .next-event .slider-events img:nth-of-type(2){
 #sponsorship .sale ul{
     padding-left:15px;
     text-align: left;
+    max-width:450px;
+    margin:0 auto;
 } 
 
 #sponsorship .sponsorship a{
@@ -646,13 +655,13 @@ main .next-event .slider-events img:nth-of-type(2){
     margin:5px 10px;
 }
 
-#body #contact  h1{
+#body #contact-h1{
     font-size:25px;
     margin:0;
     border:0;
 }
 
-#body #contact h2{
+#body #contact-h2{
     font-size:20px;
     margin:0 0 30px;
 }
@@ -720,7 +729,7 @@ main .next-event .slider-events img:nth-of-type(2){
 
 #contact form textarea{
     resize:none;
-    height:100px;
+    height:170px;
     border:0;
     background-color: rgba(0,255,0,0.2);
     border-radius: 20px;
@@ -780,7 +789,6 @@ main .next-event .slider-events img:nth-of-type(2){
 }
 
 iframe{
-    margin-top:50px;
     width:100%;
     height:400px;
     border:0;
@@ -925,7 +933,6 @@ footer .footer-link a i{
 *                                                                                       *
 ****************************************************************************************/
 @media screen and (min-width:768px){
-    
     /********************** HEADER *********************/
     .logo{
         max-width:150px;
@@ -947,37 +954,211 @@ footer .footer-link a i{
     main #container{
         max-width:900px;
     }
+    #body .fa-chevron-circle-up{
+        right:15px;
+    }
     /*********************** HOME **********************/
     #home{
         display:flex;
         flex-direction: row;
     }
     #articles{
-        margin:0 10px
+        margin:0 10px;
     }
     #news-events{
         height:100%;
         margin:75px 20px 0;
     }
+    /******************** ALOE VERA ********************/
 
-    #aloe-vera{
-        max-width:505px;
-        margin:0 auto;
-    }
+    /******************** PRODUITS *********************/
     #products section .products-container{
         display:flex;
         flex-direction:row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
     }
     #products section article{
-        margin-top:0;
         justify-content: space-between;
+        max-width: 220px;
+        margin:0 30px;
+    }
+    #products #house-animals{
+        max-width:700px;
+        margin:0 auto;
+    }
+    /********************** NORMES *********************/
+    #standards{
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: center;
+    }
+    #standards article{
+        width:36%;
+        margin:20px 7%;
+    }
+    /********************* CONTACT *********************/
+    #contact form ul li:nth-of-type(2) input,#contact form ul li:nth-of-type(3) input,#contact form ul li:nth-of-type(4) input,#contact form ul li:nth-of-type(5) input,#contact form ul li select,#contact form textarea{
+        width:250px;
     }
 }
 
 @media screen and (min-width:1025px){
+    #body{
+        font-size: 18px;
+    }
+    .div-nav-btn{
+        display:none;
+    }
+    header > div{
+        justify-content: center;
+    }
+    .logo{
+        max-width:200px;
+    }
+    header figure figcaption{
+        font-size:40px;
+    }
+    header nav{
+        flex-direction:row;
+        background-color: transparent;
+        position:static; 
+        overflow-x: visible;   
+        justify-content: space-around;
+        width:100%;
+        margin:0;
+        font-family: 'Amaranth', sans-serif;
+    }
+    .border-nav{
+        border:none;
+    }
+    header nav a{
+        display:inline-block;
+        padding:10px 25px;
+        width:147px;
+        font-size:22px;
+    }
+
+    header nav a:first-of-type:hover,header nav a:nth-of-type(2):hover,header nav a:nth-of-type(3):hover,header nav a:nth-of-type(4):hover,header nav a:nth-of-type(5):hover,header nav a:nth-of-type(6):hover,header nav a:last-of-type:hover{
+        color:black;
+    }
+
+    header nav a:first-of-type{
+        color:rgba(255,200,0,1);
+    }
+    header nav a:nth-of-type(2){
+        color:rgba(0,255,0,1);
+    }
+    header nav a:nth-of-type(3){
+        color:rgba(75,0,130,1);
+    }
+    header nav a:nth-of-type(4){
+        color:rgba(255,140,0,1);
+    }
+    header nav a:nth-of-type(5){
+        color:rgba(0,154,160,1);
+    }
+    header nav a:last-of-type{
+        color:rgba(255,105,180,1);
+    }
+
+
+    #body .title{
+        font-size:45px;
+    }
+    #body .title-small{
+        font-size:30px;
+    }
     #bubble1,#bubble2,#bubble3,#bubble4,#bubble5,#bubble6,#bubble7,#bubble8,#bubble9{
         display:block;
+    }
+    main #container{
+        max-width:1100px;
+    }
+    main .next-event{
+        max-width: 700px;
+    }
+    main .next-event .title-event img{
+        width:25px;
+        height:100px;
+        top:-45px;
+        left:140px;
+    }
+    main .next-event .title-event p{
+        font-size:30px;
+        margin:0;
+    }
+    main .next-event .slider-events p{
+        font-size:25px;
+        padding:30px;
+    }
+    #home .identity {
+        font-size:25px;
+    }
+    #home img{
+        width:130px;
+    }
+    #news-events .title-news{
+        font-size:35px;
+    }
+    
+    #news-events ul li{
+        font-size:15px;
+    }
+    #aloe-vera{
+        max-width:700px;
+    }
+    #aloe-vera .aloe-description img:first-of-type{
+        width:130px;
+        margin: 10px 20px 5px;
+    }
+    
+    #aloe-vera .aloe-description img:nth-of-type(2){
+        width:130px;
+        margin: 10px 20px 5px;
+    }
+    
+    #aloe-vera .aloe-description img:nth-of-type(3){
+        width:160px;
+    }
+    #body #products .title{
+        margin:30px 30px 0;
+    }
+    #products nav{
+        font-size:19px;
+    }
+    #body #contact-h1{
+        font-size:45px;
+        margin:30px 30px 0;
+    }
+    
+    #body #contact-h2{
+        font-size:30px;
+    }
+    #contact-address{
+        display:flex;
+        justify-content: center;
+    }
+    #contact{
+        width:100%;
+    }
+    #contact fieldset{
+        max-width: none;
+    }
+    #contact form ul li:nth-of-type(2) input,#contact form ul li:nth-of-type(3) input,#contact form ul li:nth-of-type(4) input,#contact form ul li:nth-of-type(5) input,#contact form ul li select{
+        width:350px;
+    }
+    #contact form textarea{
+        width:350px;
+        height:300px;
+    }
+    #address{
+        width:100%;
+    }
+    #address address{
+        font-size:20px;
+    }
+    iframe{
+        height:650px;
     }
 }
