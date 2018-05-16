@@ -1,91 +1,90 @@
-<?php include 'nextEvent.phtml' ?>
+    <?php include 'nextEvent.phtml' ?>
+    <h1 id="contact-h1" class="title">Laurence Boussin</h1>
+    <h2 id="contact-h2" class="title">FOREVER 35 Ille-et-Vilaine</h2>
+    <div id="contact-address">
+        <section id="contact">
+            <form method="post" action="">
+                <fieldset>
+                    <legend>Formulaire de contact</legend>
+                    <ul>
+                        <!--Civilité-->
+                        <li>
+                            <div>
+                                <label for="madam">Madame</label>
+                                <input type="radio" id="madam" name="gender" value="madam" checked>
+                            </div>
+                            <div>
+                                <label for="mister">Monsieur</label>
+                                <input type="radio" id="mister" name="gender" value="mister">
+                            </div>
+                        </li>
 
-<section id="contact">
-    <h1 class="title">Laurence Boussin</h1>
-    <h2 class="title">FOREVER 35 Ille-et-Vilaine</h2>
+                        <!--Prénom-->
+                        <li>
+                            <label for="firstName">Prénom <span class="required">*</span></label>
+                            <input id="firstName" type="text" value="" name="firstName" data-required
+                                data-name="Prénom" data-type="alphanum">
+                        </li>
+                        <!--Nom-->
+                        <li>
+                            <label for="lastName">Nom <span class="required">*</span></label>
+                            <input id="lastName" type="text" value="" name="lastName" data-required data-name="Nom"
+                                data-type="alphanum">
+                        </li>
+                        <!--Téléphone-->
+                        <li>
+                            <label for="phone">Téléphone</label>
+                            <input id="phone" type="text" value="" name="phone" data-min="10" data-name="téléphone"
+                                data-type="positiveInteger">
+                        </li>
+                        <!--E mail-->
+                        <li>
+                            <label for="email">E-mail <span class="required">*</span></label>
+                            <input id="email" type="text" value="" name="email" data-required data-name="email"
+                                data-type="email">
+                        </li>
+                        <!-- Sujet -->
+                        <li>
+                            <label for"subject">Sujet<span class="required">*</span></label>
+                            <select name="subject">
+                                <option> </option>
+                                <option value="nextEvent">Evénements</option>
+                                <option value="Sponsorship">Parrainage</option>
+                                <option value="Products">Produits</option>
+                                <option value="Others">Autres</option>
+                            </select>
+                        </li>
+                        <!-- Message -->
+                        <li>
+                            <label for="message">Message<span class="required">*</span></label>
+                            <textarea id="message" value="" type="text" name="message" data-name="message" data-type="alphanum"></textarea>
+                        </li>
+                    </ul>
+                    <!-- bouton enregistrer-->
+                    <input class="submit-btn" type="submit" id="submit" name="submitMessage" value="Envoyer">
+                </fieldset>
+            </form>
+        </section>
 
-    <form method="post" action="">
-        <fieldset>
-            <legend>Formulaire de contact</legend>
-            <ul>
-                <!--Civilité-->
-                <li>
-                    <div>
-                        <label for="gender">Madame</label>
-                        <input type="radio" id="madam" name="gender" value="madam" checked>
-                    </div>
-                    <div>
-                        <label for="gender">Monsieur</label>
-                        <input type="radio" id="mister" name="gender" value="mister">
-                    </div>
-                </li>
+        <section id="address">
+            <h3 class="title">Mes Coordonnées</h3>
 
-                <!--Prénom-->
-                <li>
-                    <label for="firstName">Prénom <span class="required">*</span></label>
-                    <input id="firstName" type="text" value="" name="firstName" data-required
-                        data-name="Prénom" data-type="alphanum">
-                </li>
-                <!--Nom-->
-                <li>
-                    <label for="lastName">Nom <span class="required">*</span></label>
-                    <input id="lastName" type="text" value="" name="lastName" data-required data-name="Nom"
-                        data-type="alphanum">
-                </li>
-                <!--Téléphone-->
-                <li>
-                    <label for="phone">Téléphone</label>
-                    <input id="phone" type="text" value="" name="phone" data-min="10" data-name="téléphone"
-                        data-type="positiveInteger">
-                </li>
-                <!--E mail-->
-                <li>
-                    <label for="email">E-mail <span class="required">*</span></label>
-                    <input id="email" type="text" value="" name="email" data-required data-name="email"
-                        data-type="email">
-                </li>
-                <!-- Sujet -->
-                <li>
-                    <label for"subject">Sujet<span class="required">*</span></label>
-                    <select name="subject">
-                        <option> </option>
-                        <option value="nextEvent">Evénements</option>
-                        <option value="Sponsorship">Parrainage</option>
-                        <option value="Products">Produits</option>
-                        <option value="Others">Autres</option>
-                    </select>
-                </li>
-                <!-- Message -->
-                <li>
-                    <label for="message">Message<span class="required">*</span></label>
-                    <textarea id="message" value="" type="text" name="message" data-name="message" data-type="alphanum"></textarea>
-                </li>
-            </ul>
-            <!-- bouton enregistrer-->
-            <input class="submit-btn" type="submit" id="submit" name="submitMessage" value="Envoyer">
-        </fieldset>
-    </form>
-</section>
+            <address>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <p><strong>Laurence Boussin</strong></br><em>19, rue du clos ST HUBERT</br>35240 Le Theil de Bretagne</em></p>
+            </address>
 
-<section id="address">
-    <h3 class="title">Mes Coordonnées</h3>
-
-    <address>
-        <i class="fa fa-envelope" aria-hidden="true"></i>
-        <p><strong>Laurence Boussin</strong></br><em>19, rue du clos ST HUBERT</br>35240 Le Theil de Bretagne</em></p>
-    </address>
-
-    <address>
-        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-        <abbr title="E-mail">E-mail : </br><a href="mailto:laurence.boussin@orange.fr">laurence.boussin@orange.fr</a></abbr>
-    </address>
-    
-    <address>
-        <i class="fa fa-phone" aria-hidden="true"></i>
-        <abbr title="Téléphone">Tél: <a href="tel:+33663736632">06 63 73 66 32</a></abbr>
-    </address>
-</section>
-
-<!-- <section id="iframe">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2673.9092912994356!2d-1.4263254841613433!3d47.91879257435203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480f2dfc3db0eab1%3A0xff90640df8f3ffd!2s19+Rue+du+Clos+St+Hubert%2C+35240+Le+Theil-de-Bretagne!5e0!3m2!1sfr!2sfr!4v1525420915964"></iframe>
-</section> -->
+            <address>
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                <abbr title="E-mail">E-mail : </br><a href="mailto:laurence.boussin@orange.fr">laurence.boussin@orange.fr</a></abbr>
+            </address>
+            
+            <address>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <abbr title="Téléphone">Tél: <a href="tel:+33663736632">06 63 73 66 32</a></abbr>
+            </address>
+        </section>
+    </div>
+</div> <!--fermeture de la div class="container" du layout afin que l'iframe ne subisse pas le max-width:900px de cette classe -->
+<div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2673.909291299365!2d-1.4263254849286489!3d47.918792574353404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480f2dfc3db0eab1%3A0xff90640df8f3ffd!2s19+Rue+du+Clos+St+Hubert%2C+35240+Le+Theil-de-Bretagne!5e0!3m2!1sfr!2sfr!4v1525872770244" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
