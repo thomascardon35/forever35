@@ -1,7 +1,14 @@
-"use strict"
+"use strict";
 
 $(window).scroll(function(){ 
-    var reasons = [
+    var reasons;
+    var winHghtPctage;
+    var index;
+    var windowTop;
+    var reasonsHeight;
+    var reason;
+
+    reasons = [
         $(".reasons"),
         $('#aloe-vera .reasons ol li:first-of-type'),
         $('#aloe-vera .reasons ol li:nth-of-type(2)'),
@@ -15,21 +22,47 @@ $(window).scroll(function(){
         $('#aloe-vera .reasons ol li:nth-of-type(10)')
     ];
 
-    // on stocke dans une variable la difference entre le haut de la fenetre et le haut du document  en px en fonction du scroll
-    var windowTop = $(this).scrollTop();
 
-    //valeur en px qui représente 37% de la hauteur de la fenetre de l'utilisateur
-    var winMidlHght   = ($(window).height()) * 0.37; 
+    //Ici, en fonction de la hauteur de l'écran utilisateur on modifie la valeur que l'on va soustraire afin de faire apparaitre/disparaitre les éléments sur la page.
+    if (window.matchMedia("(max-height: 870px)").matches){
+        winHghtPctage   = ($(window).height()) * .37; 
+    } else if(window.matchMedia("(max-height: 1090px)").matches){
+        winHghtPctage   = ($(window).height()) * .5; 
+    } else if(window.matchMedia("(max-height: 1560px)").matches){
+        winHghtPctage   = ($(window).height()) * .65; 
+    } else if(window.matchMedia("(max-height: 1640px)").matches){
+        winHghtPctage   = ($(window).height()) * .7; 
+    } else if(window.matchMedia("(max-height: 2160px)").matches){
+        for ( index = 0; index < reasons.length; index++) { 
+            reasons[index].addClass('vis-visible');
+        };
+        return;
+    };
+
+
+    // Récupération de la difference entre le haut de la fenetre et 
+    // le haut du document en px (valeur changeante en fonction du scroll)
+    windowTop = $(this).scrollTop();
 
     // on crée un tableau vide dans lequel on stockera les valeurs
-    var reasonsHeight=[];
+    reasonsHeight=[];
 
-    for (var index = 0; index < reasons.length; index++) {
-        var reason= reasons[index];
-        
-        // on enregistre dans le tableau les 11 nouvelles valeurs en px qui représentent chacune la difference entre le haut de l'élément et le haut du document) - 37% de la hauteur de la fenetre de l'utilisateur
-        reasonsHeight.push(reason.offset().top - winMidlHght);
-    }
+    //on boucle sur le tableau du titre + "les 10 raisons"
+    for (index = 0; index < reasons.length; index++) {
+        reason= reasons[index];
+        // on enregistre dans le tableau vide les 11 nouvelles valeurs en px 
+        // qui représentent chacune la difference entre le haut de l'élément
+        // et le haut du document - winHghtPctage
+        reasonsHeight.push(reason.offset().top - winHghtPctage);
+    };
+
+    // Si on est en haut du document alors disparition des "10 raisons"
+    // (Permet d'éviter le bug lorsqu'on clique sur la flèche de remontée du document)
+    if(windowTop == 0){
+        for (index = 0; index < reasons.length; index++){
+            reasons[index].removeClass('vis-visible');
+        };
+    };
 
     // Selon où on se situe sur la page : apparition/ disparition des 10 raisons de boire la pulpe d'Aloe Vera
     if(windowTop < reasonsHeight[0]){
@@ -63,7 +96,8 @@ $(window).scroll(function(){
         reasons[10].removeClass('vis-visible');
     }else if(windowTop < reasonsHeight[10]){
         reasons[10].addClass('vis-visible');
-    } 
+    };
+
 
     /*     var reasonsTitle  = $(".reasons");
     var firstReason   = $('#aloe-vera .reasons ol li:first-of-type');
@@ -79,38 +113,38 @@ $(window).scroll(function(){
 
     var reasonsTitleTop    = $(".reasons").offset().top;
     //valeur en px qui représente le haut de l'article ".reasons" par rapport au début de la page
-    var reasonsTitleMidl   = reasonsTitleTop - winMidlHght;   
+    var reasonsTitleMidl   = reasonsTitleTop - winHghtPctage;   
     //valeur en px qui indique le haut de l'article".reasons" soustrait de la valeur en px des 40% de la fenetre de l'utilisateur.
 
     var firstReasonTop = firstReason.offset().top;
-    var firstReasonMidl= firstReasonTop - winMidlHght;
+    var firstReasonMidl= firstReasonTop - winHghtPctage;
 
     var secondReasonTop = secondReason.offset().top;
-    var secondReasonMidl= secondReasonTop - winMidlHght;   
+    var secondReasonMidl= secondReasonTop - winHghtPctage;   
 
     var thirdReasonTop = thirdReason.offset().top;
-    var thirdReasonMidl= thirdReasonTop - winMidlHght;  
+    var thirdReasonMidl= thirdReasonTop - winHghtPctage;  
 
     var fourthReasonTop = fourthReason.offset().top;
-    var fourthReasonMidl= fourthReasonTop - winMidlHght;
+    var fourthReasonMidl= fourthReasonTop - winHghtPctage;
 
     var fifthReasonTop = fifthReason.offset().top;
-    var fifthReasonMidl= fifthReasonTop - winMidlHght;
+    var fifthReasonMidl= fifthReasonTop - winHghtPctage;
 
     var sixthReasonTop = sixthReason.offset().top;
-    var sixthReasonMidl= sixthReasonTop - winMidlHght;
+    var sixthReasonMidl= sixthReasonTop - winHghtPctage;
 
     var seventhReasonTop = seventhReason.offset().top;
-    var seventhReasonMidl= seventhReasonTop - winMidlHght;
+    var seventhReasonMidl= seventhReasonTop - winHghtPctage;
 
     var eighthReasonTop = eighthReason.offset().top;
-    var eighthReasonMidl= eighthReasonTop - winMidlHght;
+    var eighthReasonMidl= eighthReasonTop - winHghtPctage;
 
     var ninthReasonTop = ninthReason.offset().top;
-    var ninthReasonMidl= ninthReasonTop - winMidlHght;
+    var ninthReasonMidl= ninthReasonTop - winHghtPctage;
 
     var tenthReasonTop = tenthReason.offset().top;
-    var tenthReasonMidl= tenthReasonTop - winMidlHght;
+    var tenthReasonMidl= tenthReasonTop - winHghtPctage;
 
     */
 });
