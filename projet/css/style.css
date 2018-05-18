@@ -916,7 +916,8 @@ footer .footer-link a{
     font-size:13px;
     text-decoration: none;
     color:white;
-    margin:5px
+    margin:5px;
+    width:70px;
 }
 
 footer .footer-link a img{
@@ -1175,5 +1176,22 @@ footer .footer-link a i{
     }
     iframe{
         height:650px;
+    }
+    footer .div-logo-footer img{
+        width:300px;
+    }
+    footer .standards img{
+        width:60px;
+    }
+    footer .footer-link a{
+        font-size:20px;
+        width:120px;
+        margin-bottom: 20px;
+    }
+    footer .footer-link a img{
+        width:auto;
+    }
+    footer .footer-link a i{
+        font-size:40px;
     }
 }
