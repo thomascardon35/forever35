@@ -24,15 +24,13 @@ $(window).scroll(function(){
 
 
     //Ici, en fonction de la hauteur de l'écran utilisateur on modifie la valeur que l'on va soustraire afin de faire apparaitre/disparaitre les éléments sur la page.
-    if (window.matchMedia("(max-height: 870px)").matches){
+    if (window.matchMedia("(max-height: 1000px)").matches){
         winHghtPctage   = ($(window).height()) * .37; 
-    } else if(window.matchMedia("(max-height: 1090px)").matches){
+    } else if(window.matchMedia("(max-height: 1270px)").matches){
         winHghtPctage   = ($(window).height()) * .5; 
-    } else if(window.matchMedia("(max-height: 1560px)").matches){
+    } else if(window.matchMedia("(max-height: 1750px)").matches){
         winHghtPctage   = ($(window).height()) * .65; 
-    } else if(window.matchMedia("(max-height: 1640px)").matches){
-        winHghtPctage   = ($(window).height()) * .7; 
-    } else if(window.matchMedia("(max-height: 2160px)").matches){
+    } else if(window.matchMedia("(max-height: 100000px)").matches){
         for ( index = 0; index < reasons.length; index++) { 
             reasons[index].addClass('vis-visible');
         };
