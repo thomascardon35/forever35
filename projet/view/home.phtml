@@ -24,7 +24,7 @@
         <h3 class="title-news">News & Evénements : </h3>
         <?php foreach($newsevents as $newsevent): ?>
             <ul>
-                <li>Le <?= $newsevent['appointementdate']?> </li>
+                <li>Le <?= $newsevent['day'] . '/' . $newsevent['month']. '/' . $newsevent['year']?> à <?= $newsevent['hour'] . 'h' . $newsevent['minute']?> </li>
                 <li class="<?= $newsevent['city']?>">A <?= $newsevent['city']?></li>
                 <li><?= $newsevent['description']?></li>
             </ul>
