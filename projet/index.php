@@ -4,7 +4,7 @@
 include 'config/database.php';
 
 
-$sql = 'SELECT appointementdate ,city ,description,eventtype
+$sql = 'SELECT DAY(appointementdate)AS day,MONTH(appointementdate)AS month,YEAR(appointementdate)AS year,HOUR(appointementdate)AS hour,MINUTE(appointementdate)AS minute,city ,description,eventtype
         FROM newsevents' ;
 
 
@@ -12,7 +12,9 @@ $ressource = $pdo->prepare($sql);
 $ressource->execute();
 $newsevents = $ressource->fetchAll(PDO::FETCH_ASSOC);
 
-
+/* <?php foreach($newsevents as $newsevent): ?>
+                <p><?= $newsevent['description']?></p>
+            <?php endforeach; ?> */
 
 
 
