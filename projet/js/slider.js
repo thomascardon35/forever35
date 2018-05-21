@@ -1,7 +1,21 @@
 "use strict";
 
+$(function(){
 
-var newsEvents = [
+    $('.bg-slider p:gt(0)').hide();
+
+    setInterval(
+        function(){
+            $(".bg-slider > :first-child").slideUp(1000, function() {
+                $(this).next('.bg-slider p').slideDown(1000).end().appendTo('.bg-slider')
+            });
+        }, 6000
+    );
+
+});
+
+
+/* var newsEvents = [
     { event: "Brocante du Theil le dimanche 22 avril 2018" } ,
     { event: "Fete de la roche aux fées le samedi 18 juin 2018"},
     { event: "Fete de Retiers le dimanche 24 juin 2018"},
@@ -39,4 +53,4 @@ $(function(){
     state.timer = null;
 
     sliderTimer();
-});
+}); */
