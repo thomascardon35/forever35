@@ -62,7 +62,7 @@ body{
 
 /**************** Flèche de remontée du document *************/
 #body .fa-chevron-circle-up{ 
-    color:rgba(0,0,0,0.3);
+    color:rgba(0,0,0,0.4);
     font-size:40px;
     position: fixed;
     z-index:100;
@@ -261,7 +261,7 @@ main #container{
 
 /******************* Message Prochain Evénement **************/
 main .next-event{
-    padding-top:20px;
+    padding:13px 0 21px;
     max-width:500px;
     margin:0 auto;
     overflow: hidden;
@@ -301,32 +301,36 @@ main .next-event .title-event p{
 main .next-event .slider-events{
     position:relative;
     display:inline-block;
-    margin-top:-35px;
+    margin-top:-15px;
 }
 
 main .next-event .slider-events img:first-of-type{
     width:60px;
     position: absolute;
-    top:0;
-    right:-15px;
+    top:-20px;
+    right:-20px;
     transform: rotate(75deg);
+}
+
+main .next-event .slider-events .bg-slider{
+    background:linear-gradient(135deg,rgba(255,255,255,0.5),rgba(187,255,127,0.5) 20%,rgba(120, 255, 0,0.5) );
+    width:280px;
+    height:100px;
 }
 
 main .next-event .slider-events .bg-slider p{
     font-size:20px;
-    padding:15px;
-    text-align:center;
-    background:linear-gradient(135deg,rgba(255,255,255,0.5),rgba(187,255,127,0.5) 20%,rgba(120, 255, 0,0.5) );
     font-family: 'Josefin Sans', sans-serif;
-    max-width:400px;
-    height:75px;
+    position:absolute;
+    text-align: center;
+    width:100%;
 }
 
 main .next-event .slider-events img:nth-of-type(2){
     width:60px;
     position: absolute;
-    transform: rotate(-25deg);
-    bottom:-10px;
+    transform: rotate(-20deg);
+    bottom:-30px;
     left:-15px;
 }
 
@@ -504,7 +508,7 @@ main .next-event .slider-events img:nth-of-type(2){
 }
 
 #products h2{
-    font-size:40px;
+    font-size:30px;
     margin:100px 30px 0;
     font-family: "OpenSansBold", sans-serif;
     line-height:1.4;
@@ -987,10 +991,9 @@ footer .footer-link a i{
     #body .fa-chevron-circle-up{
         right:15px;
     }
-    main .next-event .slider-events .bg-slider p{
-        max-width:none;
+    main .next-event .slider-events .bg-slider{
         width:450px;
-        height:70px;
+        height:80px;
     }
     /*********************** HOME **********************/
     #home{
@@ -1049,7 +1052,7 @@ footer .footer-link a i{
 
 @media screen and (min-width:1025px){
     #body{
-        font-size: 18px;
+        font-size: 17px;
     }
     .div-nav-btn{
         display:none;
@@ -1108,7 +1111,7 @@ footer .footer-link a i{
 
 
     #body .title{
-        font-size:45px;
+        font-size:40px;
     }
     #body .title-small{
         font-size:30px;
@@ -1132,15 +1135,16 @@ footer .footer-link a i{
         font-size:30px;
         margin:0;
     }
+    main .next-event .slider-events .bg-slider{
+        width:650px;
+        height:100px;
+    }
     main .next-event .slider-events img:first-of-type{
         width:75px;
         right:-20px;
     }
     main .next-event .slider-events .bg-slider p{
         font-size:25px;
-        padding:30px;
-        width:650px;
-        height:80px;
     }
     main .next-event .slider-events img:nth-of-type(2){
         width:75px;
@@ -1179,6 +1183,9 @@ footer .footer-link a i{
     }
     #products nav{
         font-size:19px;
+    }
+    #products h2{
+        font-size:35px;
     }
     #body #contact-h1{
         font-size:45px;
