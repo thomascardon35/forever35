@@ -1,0 +1,59 @@
+<section id ="admin-add-event">
+    <div class="admin-menu">
+        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+    </div>
+    <h1 class="title">Ajouter un événement</h1>
+    <form method="post" action="">
+        <ul>
+            <div>
+                <!-- Selecteur de date --> 
+                <li>
+                    <label for"appointementdate">Date de l'événement&nbsp;:</label>
+                    <div class="select-date">
+                        <select name="appointementdate">
+                            <option value="day">Jour</option>
+                        </select>
+                        <select name="appointementdate">
+                            <option value="month">Mois</option>
+                        </select>
+                        <select name="appointementdate">
+                            <option value="year">Année</option>
+                        </select>
+                    </div>
+                </li>
+                <!-- Sélecteur d'heure-->
+                <li>
+                    <label for"appointementtime">Heure de rendez-vous&nbsp;:</label>
+                    <div class="select-time">
+                        <select name="appointementtime">
+                            <option value="hour">Heure</option>
+                        </select>
+                        <select name="appointementtime">
+                            <option value="minute">Minutes</option>
+                        </select>
+                    </div>
+                </li>
+                <!-- Ville-->
+                <li>
+                    <label for="city">Ville&nbsp;:</label>
+                    <input id="city" type="text" value="" name="city" data-name="Ville" data-type="alphanum">
+                </li>
+                <!-- Type d'événement -->
+                <li>
+                    <label for="eventtype">Type d'événement&nbsp;:</label>
+                    <input id="eventtype" type="text" value="" name="eventtype" data-name="TypeEvenement" data-type="alphanum">
+                </li>
+            </div>
+            <!-- Description de l'événement-->
+            <li>
+                <label for="eventdescription">Description&nbsp;:</label>
+                <textarea id="eventdescription" value="" type="text" name="eventdescription" data-required data-name="DescriptionEvenement" data-type="alphanum"></textarea>
+            </li>
+        </ul>
+        <!-- bouton Ajouter-->
+        <button class="submit-btn" type="submit" name="addEvent"><i class="fas fa-plus"></i>Ajouter l'événement</button>
+    </form>
+    <div class="admin-menu">
+        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+    </div>
+</section>
