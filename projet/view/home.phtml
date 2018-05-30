@@ -7,7 +7,7 @@
             <img src="img/aloeVera.jpg" alt="Plant d'Aloé Véra">
             <h1 class="identity">Laurence Boussin<br/>Entrepreneur FOREVER</h1>
             <p>Je m'appelle Laurence Boussin et je suis FBO (Forever Business Owner), entrepreneur Forever, partenaire de Forever Living Products.
-            Je suis situé au Theil de Bretagne dans le sud-est de l'Ille-et-Vilaine à seulement 20 minutes de Rennes sur la route d'Angers. J'exerce cette fonction depuis .... Je me déplace à votre domicile ou suis présente à certains événements.
+            Je suis située au Theil de Bretagne dans le sud-est de l'Ille-et-Vilaine à seulement 20 minutes de Rennes sur la route d'Angers. J'exerce cette fonction depuis .... Je me déplace à votre domicile ou suis présente à certains événements.
             A travers ce site internet, vous pourrez retrouver <a href="#news-events">mes actualités</a>, <a href="products.php">les produits</a> que nous proposons, les démarches concernant <a href="sponsorship.php">le parrainage</a> ainsi qu'une page concernant les bienfaits de l'<a href="aloevera.php">Aloé&nbsp;Véra</a>. Si vous avez des questions ou souhaitez prendre RDV, n'hésitez pas à me contacter en remplissant ce <a href="contact.php">formulaire de contact.</a>
             </p>
         </article>
@@ -22,14 +22,20 @@
     </section>
     <aside id="news-events">
         <h3 class="title-news">News & Evénements : </h3>
-        <?php foreach($newsevents as $newsevent): ?>
+        <?php foreach($newsEvents as $newsEvent): ?>
             <ul>
-                <li>Le <?= $newsevent['day'] . '/' . $newsevent['month']. '/' . $newsevent['year']?> à <?= $newsevent['hour'] . 'h' . $newsevent['minute']?> </li>
-                <li class="<?= $newsevent['city']?>">A <?= substr($newsevent['city'],0,2);?></li>
-                <li><?= $newsevent['eventdescription']?></li>
+                <li>Le <?= $newsEvent['eventdate']?> à <?= $newsEvent['eventtime']?> </li>
+                <li class="<?= $newsEvent['city']?>"><?= $newsEvent['eventtype'];?> à <?= $newsEvent['city'];?></li>
+                <li><?= $newsEvent['eventdescription']?></li>
             </ul>
         <?php endforeach; ?>
+
         <!-- <ul>
+            <li>Le 24.04.2018 de 9h a 18h</li>
+            <li>Au Theil de Bretagne</li>
+            <li>Je serai presente sur le place de la mairie a mon stand FOREVER</li>
+        </ul>
+        <ul>
             <li>Le 24.04.2018 de 9h a 18h</li>
             <li>Au Theil de Bretagne</li>
             <li>Je serai presente sur le place de la mairie a mon stand FOREVER</li>

@@ -10,26 +10,59 @@
                 <li>
                     <label for"appointementdate">Date de l'événement&nbsp;:</label>
                     <div class="select-date">
-                        <select name="appointementdate">
-                            <option value="day">Jour</option>
+                        <select name="day">
+                            <option value=""></option>
+                            <?php for ($day = 1; $day <= 31; $day++): ?>
+                                <option value="<?= $day ?>"><?= sprintf("%02d",$day) ?></option>
+                            <?php endfor ?>
                         </select>
-                        <select name="appointementdate">
-                            <option value="month">Mois</option>
+                        <select name="month">
+                            <option value=""></option>
+                            <?php for ($month = 1; $month <= 12; $month++): ?>
+                                <option value="<?= $month ?>"><?= sprintf("%02d",$month) ?></option>
+                            <?php endfor ?>
                         </select>
-                        <select name="appointementdate">
-                            <option value="year">Année</option>
+                        <select name="year">
+                            <option value=""></option>
+                            <?php for ($year = date("Y"); $year <=  date("Y") + 3 ; $year++):  ?>
+                                <option value="<?=$year ?>"><?=$year ?></option>
+                            <?php endfor ?>
                         </select>
                     </div>
                 </li>
-                <!-- Sélecteur d'heure-->
+                <!-- Sélecteur d'heure de début-->
                 <li>
                     <label for"appointementtime">Heure de rendez-vous&nbsp;:</label>
                     <div class="select-time">
-                        <select name="appointementtime">
-                            <option value="hour">Heure</option>
+                        <select name="appointementhour">
+                            <option value=""></option>
+                            <?php for ($hour = 0; $hour <= 23; $hour++): ?>
+                                <option value="<?= $hour ?>"><?= sprintf("%02d",$hour) ?></option>
+                            <?php endfor ?>
                         </select>
-                        <select name="appointementtime">
-                            <option value="minute">Minutes</option>
+                        <select name="appointementminutes">
+                            <option value=""></option>
+                            <?php for ($minutes = 0; $minutes <= 59; $minutes++): ?>
+                                <option value="<?= $minutes ?>"><?= sprintf("%02d",$minutes); ?></option>
+                            <?php endfor ?>
+                        </select>
+                    </div>
+                </li>
+                <!-- Sélecteur d'heure de fin-->
+                <li>
+                    <label for"endtimeevent">Heure de fin&nbsp;:</label>
+                    <div class="select-time">
+                        <select name="endtimehour">
+                            <option value=""></option>
+                            <?php for ($hour = 0; $hour <= 23; $hour++): ?>
+                                <option value="<?= $hour ?>"><?= sprintf("%02d",$hour) ?></option>
+                            <?php endfor ?>
+                        </select>
+                        <select name="endtimeminutes">
+                            <option value=""></option>
+                            <?php for ($minutes = 0; $minutes <= 59; $minutes++): ?>
+                                <option value="<?= $minutes ?>"><?= sprintf("%02d",$minutes); ?></option>
+                            <?php endfor ?>
                         </select>
                     </div>
                 </li>
@@ -51,7 +84,8 @@
             </li>
         </ul>
         <!-- bouton Ajouter-->
-        <button class="submit-btn" type="submit" name="addEvent"><i class="fas fa-plus"></i>Ajouter l'événement</button>
+        <button class="add-event-btn" type="submit" name="addEvent"><i class="fas fa-plus"></i>Ajouter l'événement</button>
+        <button class="add-event-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Tout effacer</button>
     </form>
     <div class="admin-menu">
         <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>

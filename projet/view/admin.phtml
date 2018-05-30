@@ -77,7 +77,24 @@
                 </tr>
             </thead>
             <tbody>
+            <?php foreach($newsEvents as $newsEvent): ?>
                 <tr>
+                    <td><a href="adminAddEvent.php"><?= $newsEvent['eventdate']?></td></a>
+                    <td class="hidden"><a href="adminAddEvent.php"><?= $newsEvent['eventtime']?></td></a>
+                    <td><a href="adminAddEvent.php"><?= substr($newsEvent['city'],0,9);?></td></a>
+                    <td><a href="adminAddEvent.php"><?= substr($newsEvent['eventtype'],0,15);?></td></a>
+                    <td class="hidden"><a href="adminAddEvent.php"><?= substr($newsEvent['eventdescription'],0,30);?></td></a>
+                    <td>
+                        <div>
+                            <a data-action="create" href="adminAddEvent.php"><i class="fa fa-edit"></i></a>
+                            <a data-action="remove" href="admin.php?delete_id=<?= intval($newsEvent['id'])?>"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+
+
+                <!-- <tr>
                     <td><a href="adminAddEvent.php">Date......</td></a>
                     <td class="hidden"><a href="adminAddEvent.php">Heure.....</td></a>
                     <td><a href="adminAddEvent.php">Lieu......</td></a>
@@ -102,20 +119,7 @@
                             <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
-                </tr>
-                <tr>
-                    <td><a href="adminAddEvent.php">Date......</td></a>
-                    <td class="hidden"><a href="adminAddEvent.php">Heure.....</td></a>
-                    <td><a href="adminAddEvent.php">Lieu......</td></a>
-                    <td><a href="adminAddEvent.php">Evenement.</td></a>
-                    <td class="hidden"><a href="adminAddEvent.php">Description</td></a>
-                    <td>
-                        <div>
-                            <a data-action="create" href="adminAddEvent.php"><i class="fa fa-edit"></i></a>
-                            <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
-                        </div>
-                    </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <a href="adminAddEvent.php"><i class="fas fa-plus"></i> Ajouter un événement</a>
