@@ -7,27 +7,30 @@
 	font-family: "Amaranth";
 	src: url("../fonts/amaranth.otf");
 }
-
 @font-face {
 	font-family: "BreeSerif";
 	src: url("../fonts/breeserif.ttf");
 }
-
 @font-face {
 	font-family: "OpenSansLight";
 	src: url("../fonts/opensans/OpenSans-Light.ttf");
 }
-
 @font-face {
 	font-family: "OpenSansRegular";
 	src: url("../fonts/opensans/OpenSans-Regular.ttf");
 }
-
 @font-face {
 	font-family: "OpenSansBold";
 	src: url("../fonts/opensans/OpenSans-Bold.ttf");
 }
-
+@font-face {
+	font-family: "JosefinSansRegular";
+	src: url("../fonts/JosefinSans-Regular.ttf");
+}
+@font-face {
+	font-family: "PermanentMarkerRegular";
+	src: url("../fonts/PermanentMarker-Regular.ttf");
+}
 /****************************************************************************************
 *                                                                                       *
 *                                     CSS COMMUN                                        *
@@ -40,7 +43,7 @@
 body{
     font-family: "BreeSerif", sans-serif;
     text-align:center;
-    background: url(../img/bubbles2.jpg);
+    background: url(../img/bubbles/bubbles2.jpg);
     background-size: contain;
     color: rgba(90,90,90,1);
 }
@@ -82,34 +85,34 @@ body{
 }
 
 #bubble0{
-    background: url(../img/bubbleblue100.png) 3% 10% no-repeat;
+    background: url(../img/bubbles/bubblecolor100.png) 3% 10% no-repeat;
 }
 #bubble1{
-    background: url(../img/bubble50.png) 7% 15% no-repeat;
+    background: url(../img/bubbles/bubble50.png) 7% 15% no-repeat;
 }
 #bubble2{
-    background: url(../img/bubblecolor150.png) 12% 75% no-repeat;
+    background: url(../img/bubbles/bubblecolor150.png) 12% 75% no-repeat;
 }
 #bubble3{
-    background: url(../img/bubble125.png) 35% 50% no-repeat;
+    background: url(../img/bubbles/bubble125.png) 35% 50% no-repeat;
 }
 #bubble4{
-    background: url(../img/bubbleblue100.png) 40% 80% no-repeat;
+    background: url(../img/bubbles/bubbleblue100.png) 40% 80% no-repeat;
 }
 #bubble5{
-    background: url(../img/bubblecolor50.png) 65% 85% no-repeat;
+    background: url(../img/bubbles/bubblecolor50.png) 65% 85% no-repeat;
 }
 #bubble6{
-    background: url(../img/bubble75.png) 75% 20% no-repeat;
+    background: url(../img/bubbles/bubble75.png) 75% 20% no-repeat;
 }
 #bubble7{
-    background: url(../img/bubble250.png) 90% 40% no-repeat;
+    background: url(../img/bubbles/bubble250.png) 90% 40% no-repeat;
 }
 #bubble8{
-    background: url(../img/bubbleblue50.png) 90% 75% no-repeat;
+    background: url(../img/bubbles/bubbleblue50.png) 90% 75% no-repeat;
 }
 #bubble9{
-    background: url(../img/bubblecolor150.png) 98% 10% no-repeat;    
+    background: url(../img/bubbles/bubblecolor150.png) 98% 10% no-repeat;    
 }
 
 /************************** Titres ***************************/
@@ -130,6 +133,21 @@ body{
     text-decoration: underline;
 }
 
+.error-message{
+    background-color: red;
+    color:orange;
+    font-size:50px;
+    height:100px;
+    margin-bottom:0;
+    animation: error-message 200ms 10;
+}
+
+@keyframes error-message{
+    50%{
+        background-color:orange;
+        color:black;
+    }
+}
 /****************************************************************************************
 *                                                                                       *
 *                                         HEADER                                        *
@@ -140,11 +158,6 @@ header{
     background-color:rgba(255,255,255,0.8);
 }
 
-.logo{
-    width:100%;
-    max-width:100px;
-}
-
 header > div{
     display:flex;
     justify-content:space-between;
@@ -152,11 +165,17 @@ header > div{
     margin:0;
 }
 
+/******************* Logo et Titre du site *******************/
 header figure{
     text-align:left;
     margin:0;
     display:flex;
     align-items: center;
+}
+
+.logo{
+    width:100%;
+    max-width:100px;
 }
 
 header figure figcaption{
@@ -166,7 +185,7 @@ header figure figcaption{
     font-family: 'Amaranth', sans-serif;
 }
 
-/**************************** Nav ****************************/
+/**************** Bouton d'ouverture de la  NAV **************/
 .div-nav-btn{
     font-size:20px;
     text-align: right;
@@ -174,13 +193,14 @@ header figure figcaption{
 }
 
 .div-nav-btn span{
-    padding:7px 15px;
+    padding:7px;
     cursor: pointer;
 }
 
 .fa-bars{
     color:#7acf47;
     transition:all 0.5s ease 0s;
+    padding:0 9px;
 }
 
 .rotate-nav-btn{
@@ -188,6 +208,7 @@ header figure figcaption{
     transition:all 0.5s ease 0s;
 }
 
+/**************************** NAV ****************************/
 .width-nav{
     width:232px;
 }
@@ -227,6 +248,7 @@ header nav a:hover{
     transform:translateY(-3px);
 }
 
+/******* Couleurs de fond en hover de chaque bouton NAV ******/
 header nav a:first-of-type:hover{
     background-color:rgba(255,255,0,0.4);
 }
@@ -250,14 +272,13 @@ header nav a:nth-of-type(5):hover{
 header nav a:last-of-type:hover{
     background-color:rgba(255,105,180,0.4);
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN COMMUN                                         *
 *                                                                                       *
 ****************************************************************************************/
 main #container{
-    background-color:rgba(255,255,255,0.6);
+    background-color:rgba(255,255,255,0.7);
     padding-bottom:50px;
     margin:0 auto;
 }
@@ -277,6 +298,10 @@ main .next-event>div{
     text-align: left;
 }
 
+main .next-event .title-event{
+    z-index:49;
+}
+
 main .next-event .title-event img{
     width:20px;
     height:80px;
@@ -287,7 +312,6 @@ main .next-event .title-event img{
     z-index: 50;
 }
 
-
 main .next-event .title-event p{
     font-size:17px;
     transform: rotate(-5deg);
@@ -295,8 +319,7 @@ main .next-event .title-event p{
     background-color: rgba(255,255,60,0.45);
     display:inline-block;
     margin:0 0 0 20px;
-    font-family: 'Permanent Marker', cursive;
-    z-index:49;
+    font-family:'PermanentMarkerRegular', sans-serif;
 }
 
 main .next-event .slider-events{
@@ -321,7 +344,7 @@ main .next-event .slider-events .bg-slider{
 
 main .next-event .slider-events .bg-slider p{
     font-size:20px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family:'JosefinSansRegular', sans-serif;
     position:absolute;
     text-align: center;
     width:100%;
@@ -334,14 +357,6 @@ main .next-event .slider-events img:nth-of-type(2){
     bottom:-30px;
     left:-15px;
 }
-/* @keyframes background-blink { 
-    0%{
-
-    
-    } 50% { 
-        background:linear-gradient(135deg,rgba(255, 255, 255,0.5) ,rgba(127,255,127,0.5) 40%,rgba(0, 255, 0,0.5) );
-    }
-} */
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN HOME                                           *
@@ -365,7 +380,6 @@ main .next-event .slider-events img:nth-of-type(2){
     line-height:1.4;
     margin:20px;
 }
-
 
 #home a{
     font-weight:bold;
@@ -393,13 +407,13 @@ main .next-event .slider-events img:nth-of-type(2){
 #news-events .title-news{
     font-size:30px;
     margin:30px 0 50px;
+    width:264px;
 }
 
 #news-events ul li{
     text-align: left;
     font-size:14px;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN ALOE VERA                                      *
@@ -454,7 +468,6 @@ main .next-event .slider-events img:nth-of-type(2){
 #aloe-vera .reasons ol li p{
     font-family: "OpenSansBold", sans-serif;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN PRODUCTS                                       *
@@ -584,7 +597,6 @@ main .next-event .slider-events img:nth-of-type(2){
 #products #house-animals a:hover{
     border:0;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                MAIN PRODUCT DESCRIPTION                               *
@@ -604,8 +616,8 @@ main .next-event .slider-events img:nth-of-type(2){
     display:block;
     margin: 0 auto;
 }
-/******************* La Description du Produit ***************/
 
+/******************* La Description du Produit ***************/
 #product .description{
     margin:0 20px;
 }
@@ -622,12 +634,14 @@ main .next-event .slider-events img:nth-of-type(2){
 #product .description p span{
     text-decoration: underline;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN STANDARDS                                      *
 *                                                                                       *
 ****************************************************************************************/
+#standards{
+    margin:0 20px;
+}
 #standards article{
     margin:20px auto;
     max-width: 400px;
@@ -641,7 +655,6 @@ main .next-event .slider-events img:nth-of-type(2){
 #standards img{
     width:80px;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                 MAIN SPONSORSHIP                                      *
@@ -671,7 +684,6 @@ main .next-event .slider-events img:nth-of-type(2){
     color:black;
     font-weight: bold;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                    MAIN CONTACT                                       *
@@ -716,22 +728,34 @@ main .next-event .slider-events img:nth-of-type(2){
     white-space: nowrap;
 }
 
+/******************** Boutons radio MR, MME ******************/
 #contact form ul li:first-of-type{
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+#contact form ul li:first-of-type div{
+    padding:0 35px;
 }
 
 #contact form ul li:first-of-type label,#contact form ul li:first-of-type input{
     cursor:pointer;
+    background-color: transparent;
 }
+
 #contact form ul li div{
     display: flex;
     flex-direction: column;
+    align-items:center;
 }
 
 #contact form ul li div input{
     height:20px;
 }
 
+/********** Les champs de saisie du form de contact **********/
+#contact form ul li>input,#contact form ul li select,#contact form ul li textarea{
+    width:172px;
+}
 
 #contact form ul li input,#contact form ul li select{
     height: 35px;
@@ -742,16 +766,20 @@ main .next-event .slider-events img:nth-of-type(2){
     padding-left:15px;
 }
 
+#contact form input:focus,#contact form textarea:focus{
+    background-color: rgba(0,255,0,0.4);
+    border:0;
+    outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
+}
+
 #contact form ul li select{
-    width:172px;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
 }
 
-#contact form input:focus,#contact form textarea:focus{
-    background-color: rgba(0,255,0,0.4);
-    border:0;
+#contact form ul li select:focus{
+    outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
 }
 
 #contact form textarea{
@@ -824,7 +852,6 @@ iframe{
     border:0;
     margin-bottom:-5px;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                    MAIN ADMIN                                         *
@@ -853,12 +880,20 @@ iframe{
     font-family:'OpenSansRegular', sans-serif;
 }
 
-#admin td a{
+/************** Liens pour des lignes cliquables *************/
+#admin .admin-messages td a{
     text-decoration: none;
     color:black;
-    padding:5px 10px;
+    padding:5px 5px;
 }
 
+#admin .admin-news-events td a{
+    text-decoration: none;
+    color:black;
+    padding:5px 0;
+}
+
+/********** Les icônes en fin de ligne des tableaux **********/
 #admin table .fa{
     padding:5px;
     font-size:20px;
@@ -925,25 +960,25 @@ iframe{
     transform:scale(1.4);
     transition:all 0.5s ease 0s;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                MAIN ADMINMESSAGE                                      *
 *                                                                                       *
 ****************************************************************************************/
-/**** ".admin-menu "commun à ADMINMESSAGE et ADMINADDEVENT ***/
-.admin-menu{
-    text-align: left;
-    padding-top: 30px;
-    font-size:13px;
-}
 
-.admin-menu a{
-    text-decoration: none;
-    color:rgba(108,122,30,1);
-    padding:10px;
-}
+/**** ".admin-menu "commun à ADMINMESSAGE et ADMINADDEVENT ***/
+.admin-menu{                                               /**/
+    text-align: left;                                      /**/
+    padding-top: 30px;                                     /**/
+    font-size:13px;                                        /**/
+}                                                          /**/
+.admin-menu a{                                             /**/
+    text-decoration: none;                                 /**/
+    color:rgba(108,122,30,1);                            /**/
+    padding:10px;                                          /**/
+}                                                          /**/
 /*************************************************************/
+
 #admin-message{
     margin:0 20px;
 }
@@ -968,7 +1003,6 @@ iframe{
 }
 
 /************ Les Couleurs des span adminMessage *************/
-
 #admin-message .user-message li:first-of-type span:first-of-type{
     text-decoration: underline;
     color: rgba(92, 38, 131, 1);
@@ -994,7 +1028,6 @@ iframe{
 }
 
 /******** Boutons Répondre et Supprimer adminMessage *********/
-
 #admin-message .message-btn{
     margin-top:50px;
 }
@@ -1025,7 +1058,6 @@ iframe{
     transform:scale(1.4);
     transition:all 0.5s ease 0s;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                               MAIN ADMINEVENTFORM                                     *
@@ -1052,28 +1084,31 @@ iframe{
     margin:10px 0;
 }
 
+/****** Mise en forme des champs de saisie du formulaire *****/
 #admin-add-event form ul li select{
-    width:90px;
+    width:70px;
     text-align: center;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+    outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
 }
 
 #admin-add-event form ul li input{
     width:220px;
     margin:0 auto;
+    outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
 }
 
 #body #admin-add-event form ul li textarea{
-    width:200px;
+    width:220px;
     height:250px;
     resize:none;
     margin:0 auto;
     padding-top: 5px;
+    outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
 }
 
-/****** Mise en forme des champs de saisie du formulaire *****/
 #admin-add-event form ul li select,#admin-add-event form ul li input , #admin-add-event form ul li textarea{
     height: 35px;
     margin-bottom: 5px;
@@ -1084,7 +1119,7 @@ iframe{
 }
 
 /********* Bouton Ajouter un Evenement(ADMINADDEVENT) ********/
-#admin-add-event .submit-btn{
+#admin-add-event .add-event-btn{
     text-decoration: none;
     color:rgba(0,100,0,1);
     padding:10px;
@@ -1094,23 +1129,23 @@ iframe{
     font-size:18px;
     background-color: transparent;
     cursor: pointer;
+    width:185px;
 }
-#admin-add-event .submit-btn i{
+#admin-add-event .add-event-btn i{
     transform:scale(1);
     transition:all 0.5s ease 0s;
     display:block;
     font-size:25px;
 }
 
-#admin-add-event .submit-btn:hover{
+#admin-add-event .add-event-btn:hover{
     background-color:rgba(58,242,75,0.5);
     transition:all 0.5s ease 0s;
 }
-#admin-add-event .submit-btn:hover i{
+#admin-add-event .add-event-btn:hover i{
     transform:scale(1.4);
     transition:all 0.5s ease 0s;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                      FOOTER                                           *
@@ -1127,6 +1162,7 @@ footer > div{
     background:linear-gradient(180deg,rgba(255,255,255,1),rgba(255,255,255,0.1)) ;
 }
 
+/*********************** Logo Footer *************************/
 footer .div-logo-footer{
     padding:65px 50px 50px;
 }
@@ -1135,11 +1171,13 @@ footer .div-logo-footer img{
     width:200px;
 }
 
+/********************** Logos Normes *************************/
 footer .standards img{
     width:40px;
     padding:0 0 20px;
 }
 
+/************ Liens site maison Mère & Contact ***************/
 footer .footer-link{
     display:flex;
     justify-content:center;
@@ -1165,12 +1203,14 @@ footer .footer-link a i{
     padding-bottom:14px;
     font-size:20px;
 }
-
 /****************************************************************************************
 *                                                                                       *
 *                                 MEDIAQUERRIES                                         *
 *                                                                                       *
 ****************************************************************************************/
+
+/******************************** MODE TABLETTE ****************************************/
+
 @media screen and (min-width:768px){
     /********************** HEADER *********************/
     .logo{
@@ -1183,8 +1223,8 @@ footer .footer-link a i{
     .div-nav-btn{
         font-size:25px;
     }
-    .div-nav-btn span{
-        padding:7px 25px 17px 15px;
+    .fa-bars{
+        padding:0 25px;
     }
     /******************** MAIN COMMUN ******************/
     main{
@@ -1213,7 +1253,6 @@ footer .footer-link a i{
         margin:75px 20px 0;
     }
     /******************** ALOE VERA ********************/
-
     /******************** PRODUITS *********************/
     #products section .products-container{
         display:flex;
@@ -1250,12 +1289,18 @@ footer .footer-link a i{
         margin:20px 7%;
     }
     /********************* CONTACT *********************/
-    #contact form ul li:nth-of-type(2) input,#contact form ul li:nth-of-type(3) input,#contact form ul li:nth-of-type(4) input,#contact form ul li:nth-of-type(5) input,#contact form ul li select,#contact form textarea{
+    #contact form ul li>input,#contact form ul li select,#contact form ul li textarea{
         width:250px;
     }
     /********************** ADMIN **********************/
     #admin td.hidden,#admin th.hidden{
         display:table-cell;
+    }
+    #admin .admin-messages td:nth-of-type(4),#admin .admin-messages td:nth-of-type(5),#admin .admin-messages th:nth-of-type(4),#admin .admin-messages th:nth-of-type(5){
+        display:none;
+    }
+    #admin .admin-news-events td a,#admin .admin-messages td a{
+        padding:5px 10px;
     }
     /******************* ADMIN MESSAGE *****************/
     #admin-message .message-btn a{
@@ -1266,20 +1311,34 @@ footer .footer-link a i{
         flex-direction: row;
         justify-content: center;
     }
-    /******************* ADMIN ADD EVENT *****************/
+    /****************** ADMIN ADD EVENT ****************/
     #admin-add-event form ul{
         display:flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
     #body #admin-add-event form ul li textarea{
         width:400px;
+        height:310px;
     }
+    /*********************** FOOTER ********************/
 }
 
+/******************************** MODE ORDINATEUR **************************************/
 @media screen and (min-width:1025px){
+    /******************** CSS COMMUN *******************/
     #body{
         font-size: 17px;
     }
+    #body .title{
+        font-size:40px;
+    }
+    #body .title-small{
+        font-size:30px;
+    }
+    #bubble0,#bubble1,#bubble2,#bubble3,#bubble4,#bubble5,#bubble6,#bubble7,#bubble8,#bubble9{
+        display:block;
+    }
+    /********************** HEADER *********************/
     .div-nav-btn{
         display:none;
     }
@@ -1311,11 +1370,9 @@ footer .footer-link a i{
         width:147px;
         font-size:22px;
     }
-
     header nav a:first-of-type:hover,header nav a:nth-of-type(2):hover,header nav a:nth-of-type(3):hover,header nav a:nth-of-type(4):hover,header nav a:nth-of-type(5):hover,header nav a:nth-of-type(6):hover,header nav a:last-of-type:hover{
         color:black;
     }
-
     header nav a:first-of-type{
         color:rgba(255,200,0,1);
     }
@@ -1334,17 +1391,7 @@ footer .footer-link a i{
     header nav a:last-of-type{
         color:rgba(255,105,180,1);
     }
-
-
-    #body .title{
-        font-size:40px;
-    }
-    #body .title-small{
-        font-size:30px;
-    }
-    #bubble0,#bubble1,#bubble2,#bubble3,#bubble4,#bubble5,#bubble6,#bubble7,#bubble8,#bubble9{
-        display:block;
-    }
+    /******************** MAIN COMMUN ******************/
     main #container{
         max-width:1100px;
     }
@@ -1375,6 +1422,7 @@ footer .footer-link a i{
     main .next-event .slider-events img:nth-of-type(2){
         width:75px;
     }
+    /*********************** HOME **********************/
     #home .identity {
         font-size:25px;
     }
@@ -1384,10 +1432,10 @@ footer .footer-link a i{
     #news-events .title-news{
         font-size:35px;
     }
-    
     #news-events ul li{
         font-size:15px;
     }
+    /******************** ALOE VERA ********************/
     #aloe-vera{
         max-width:700px;
     }
@@ -1404,6 +1452,7 @@ footer .footer-link a i{
     #aloe-vera .aloe-description img:nth-of-type(3){
         width:160px;
     }
+    /******************** PRODUITS *********************/
     #body #products .title{
         margin:30px 30px 0;
     }
@@ -1413,6 +1462,9 @@ footer .footer-link a i{
     #products h2{
         font-size:35px;
     }
+    /******************* PRODUITS SEULS ****************/
+    /********************** NORMES *********************/
+    /********************* CONTACT *********************/
     #body #contact-h1{
         font-size:45px;
         margin:30px 30px 0;
@@ -1426,12 +1478,12 @@ footer .footer-link a i{
         justify-content: center;
     }
     #contact{
-        width:100%;
+        width:120%;
     }
     #contact fieldset{
         max-width: none;
     }
-    #contact form ul li:nth-of-type(2) input,#contact form ul li:nth-of-type(3) input,#contact form ul li:nth-of-type(4) input,#contact form ul li:nth-of-type(5) input,#contact form ul li select{
+    #contact form ul li>input,#contact form ul li select,#contact form ul li textarea{
         width:350px;
     }
     #contact form textarea{
@@ -1447,15 +1499,22 @@ footer .footer-link a i{
     iframe{
         height:550px;
     }
+    /********************** ADMIN **********************/
+    #admin .admin-messages td:nth-of-type(4),#admin .admin-messages td:nth-of-type(5),#admin .admin-messages th:nth-of-type(4),#admin .admin-messages th:nth-of-type(5){
+        display:table-cell;
+    }
+    /******************* ADMIN MESSAGE *****************/
     #admin-message .user-message{
         max-width: 700px;
     }
-    #admin-add-event form ul li select{
-        width:110px;
-    }
+    /******************* ADMIN ADD EVENT *****************/
     #admin-add-event form ul li input{
         width:270px
     }
+    #body #admin-add-event form ul li textarea{
+        width:500px;
+    }
+    /*********************** FOOTER ********************/    
     footer .div-logo-footer img{
         width:250px;
     }
