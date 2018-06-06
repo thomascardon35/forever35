@@ -2,7 +2,7 @@
 
 require_once 'config/databaseClass.php';
 
-class newsEventsModel{
+class NewsEvents{
     private $db;
 
     function __construct(){
@@ -29,14 +29,33 @@ class newsEventsModel{
         return $this->db->query($sql);
     }
 
+    function readById($id){
+        $sql = 'SELECT id,DATE_FORMAT(appointementdate,"%d") AS eventday,DATE_FORMAT(appointementdate,"%m") AS eventmonth,DATE_FORMAT(appointementdate,"%Y") AS eventyear,DATE_FORMAT(appointementdate,"%H") AS eventhour,DATE_FORMAT(appointementdate,"%i") AS eventminutes, endtimeevent, city, eventtype, eventdescription
+        FROM newsevents
+        WHERE id = ?' ;
+
+        return $this->db->queryOne($sql,[$id]);
+    }
+
     function delete($id){
         $sql = 'DELETE FROM newsevents WHERE id=?';
 
         $this->db->executeSql($sql,$id);
     }
 
-    function update(){
+    function update($appointementDate,$endTimeEvent,$city,$eventType,$eventDescription,$id){
+        $sql = 'UPDATE newsevents
+                SET appointementdate = ?,
+                endtimeevent = ?,
+                city = ?,
+                eventtype = ?,
+                eventdescription = ?
+                WHERE id = ?';
 
+
+        $newsEventUpdate = $this->db->executeSql($sql,[$appointementDate,$endTimeEvent,$city,$eventType,$eventDescription,$id]);
+        
+        var_dump($appointementDate);
     }
 }
 
