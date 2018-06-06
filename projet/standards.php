@@ -2,7 +2,7 @@
 
 require_once 'models/newsEventsModel.php';
 
-$newsEventsModel = new newsEventsModel;
+$newsEventsModel = new NewsEvents;
 $newsEvents= $newsEventsModel->read();
 
 
