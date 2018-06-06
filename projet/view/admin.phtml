@@ -86,7 +86,7 @@
                     <td class="hidden"><a href="adminAddEvent.php"><?= substr($newsEvent['eventdescription'],0,30);?></td></a>
                     <td>
                         <div>
-                            <a data-action="create" href="adminAddEvent.php"><i class="fa fa-edit"></i></a>
+                            <a data-action="update" href="adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>"><i class="fa fa-edit"></i></a>
                             <a data-action="remove" href="admin.php?delete_id=<?= intval($newsEvent['id'])?>"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
