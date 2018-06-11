@@ -1,7 +1,9 @@
 <section id ="admin-add-event">
+
     <div class="admin-menu">
         <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
     </div>
+
     <?php if(array_key_exists('update_id', $_GET)) :?>
         <h1 class="title">Modifier un événement</h1>
         <form method="post" action="">
@@ -13,12 +15,14 @@
                         <div class="select-date">
                             <select name="day">
                                 <option value="<?= $newsEventsUpdate['eventday']?>"><?= $newsEventsUpdate['eventday']?></option>
+                                <option value=""></option>
                                 <?php for ($day = 1; $day <= 31; $day++): ?>
                                     <option value="<?= sprintf("%02d",$day) ?>"><?= sprintf("%02d",$day) ?></option>
                                 <?php endfor ?>
                             </select>
                             <select name="month">
                                 <option value="<?= $newsEventsUpdate['eventmonth']?>"><?= $newsEventsUpdate['eventmonth']?></option>
+                                <option value=""></option>
                                 <?php for ($month = 1; $month <= 12; $month++): ?>
                                     <option value="<?= sprintf("%02d",$month) ?>"><?= sprintf("%02d",$month) ?></option>
                                 <?php endfor ?>
@@ -37,12 +41,14 @@
                         <div class="select-time">
                             <select name="appointementhour">
                                 <option value="<?= $newsEventsUpdate['eventhour']?>"><?= $newsEventsUpdate['eventhour']?></option>
+                                <option value=""></option>
                                 <?php for ($hour = 0; $hour <= 23; $hour++): ?>
                                     <option value="<?= sprintf("%02d",$hour) ?>"><?= sprintf("%02d",$hour) ?></option>
                                 <?php endfor ?>
                             </select>
                             <select name="appointementminutes">
                                 <option value="<?= $newsEventsUpdate['eventminutes']?>"><?= $newsEventsUpdate['eventminutes']?></option>
+                                <option value=""></option>
                                 <?php for ($minutes = 0; $minutes <= 59; $minutes++): ?>
                                     <option value="<?= sprintf("%02d",$minutes); ?>"><?= sprintf("%02d",$minutes); ?></option>
                                 <?php endfor ?>
@@ -54,12 +60,14 @@
                         <label for"endtimeevent">Heure de fin&nbsp;:</label>
                         <div class="select-time">
                             <select name="endtimehour">
+                                <option value="<?= $newsEventsUpdate['endtimehour']?>"><?= $newsEventsUpdate['endtimehour']?></option>
                                 <option value=""></option>
                                 <?php for ($hour = 0; $hour <= 23; $hour++): ?>
                                     <option value="<?= sprintf("%02d",$hour) ?>"><?= sprintf("%02d",$hour) ?></option>
                                 <?php endfor ?>
                             </select>
                             <select name="endtimeminutes">
+                                <option value="<?= $newsEventsUpdate['endtimeminutes']?>"><?= $newsEventsUpdate['endtimeminutes']?></option>
                                 <option value=""></option>
                                 <?php for ($minutes = 0; $minutes <= 59; $minutes++): ?>
                                     <option value="<?= sprintf("%02d",$minutes); ?>"><?= sprintf("%02d",$minutes); ?></option>
@@ -87,9 +95,9 @@
                 <input type="hidden" name="id" value="<?= $newsEventsUpdate['id']?>">
             </ul>
             <!-- bouton Mise a jour-->
-            <button class="add-event-btn" type="submit" name="updateEvent"><i class="fas fa-plus"></i>Modifier l'événement </button>
-            <button class="add-event-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Rétablir l'événement </button>
-            <button class="add-event-btn" type="submit" name="delete_id"><i class="fa fa-trash"></i>Supprimer l'événement</button>
+            <button class="admin-btn" type="submit" name="updateEvent"><i class="fas fa-plus"></i>Modifier l'événement </button>
+            <button class="admin-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Rétablir l'événement </button>
+            <button class="admin-btn" type="submit" name="delete_id"><i class="fa fa-trash"></i>Supprimer l'événement</button>
         </form>
     <?php else: ?>
         <h1 class="title">Ajouter un événement</h1>
@@ -174,10 +182,15 @@
                 </li>
             </ul>
             <!-- bouton Ajouter-->
-            <button class="add-event-btn" type="submit" name="addEvent"><i class="fas fa-plus"></i>Ajouter l'événement</button>
-            <button class="add-event-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Effacer</button>
+            <button class="admin-btn" type="submit" name="addEvent"><i class="fas fa-plus"></i>Ajouter l'événement</button>
+            <button class="admin-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Effacer</button>
         </form>
     <?php endif;?>
+    
+    <form class="logout-btn" action="adminLogIn.php" method="post">
+        <button class="admin-btn" name="logout" type="submit"><i class="fas fa-sign-out-alt"></i>Déconnexion</button>
+    <form>
+        
     <div class="admin-menu">
         <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
     </div>
