@@ -70,128 +70,41 @@
             <thead>
                 <tr>
                     <th>Date</th>
-                    <th class="hidden">Heure</th>
+                    <th class="hidden">Heure de début</th>
+                    <th class="hidden">Heure de fin</th>
                     <th>Lieu</th>
                     <th>Evenement</th>
-                    <th class="hidden">Description</th>
+                    <th>Description</th>
                 </tr>
             </thead>
+
             <tbody>
             <?php foreach($newsEvents as $newsEvent): ?>
-                <tr>
-                    <td><a href="adminAddEvent.php"><?= $newsEvent['eventdate']?></td></a>
-                    <td class="hidden"><a href="adminAddEvent.php"><?= $newsEvent['eventtime']?></td></a>
-                    <td><a href="adminAddEvent.php"><?= substr($newsEvent['city'],0,9);?></td></a>
-                    <td><a href="adminAddEvent.php"><?= substr($newsEvent['eventtype'],0,15);?></td></a>
-                    <td class="hidden"><a href="adminAddEvent.php"><?= substr($newsEvent['eventdescription'],0,30);?></td></a>
-                    <td>
+                <tr onclick="location.href='adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>'">
+                    <td><?= $newsEvent['eventdate']?></td>
+                    <td class="hidden"><?= $newsEvent['eventtime']?></td>
+                    <td class="hidden"><?= $newsEvent['endtime']?></td>
+                    <td><?= substr($newsEvent['city'],0,15);?></td>
+                    <td><?= substr($newsEvent['eventtype'],0,15);?></td>
+                    <td><?= substr($newsEvent['eventdescription'],0,30);?></td>
+                    <td class="hidden">
                         <div>
-                            <a data-action="update" href="adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>"><i class="fa fa-edit"></i></a>
-                            <a data-action="remove" href="admin.php?delete_id=<?= intval($newsEvent['id'])?>"><i class="fa fa-trash"></i></a>
+                            <a data-action="update" href="adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>">
+                            <i class="fa fa-edit"></i></a>
+
+                            <a data-action="remove" href="admin.php?delete_id=<?= intval($newsEvent['id'])?>">
+                            <i class="fa fa-trash"></i></a>
                         </div>
                     </td>
                 </tr>
             <?php endforeach; ?>
-
-
-                <!-- <tr>
-                    <td><a href="adminAddEvent.php">Date......</td></a>
-                    <td class="hidden"><a href="adminAddEvent.php">Heure.....</td></a>
-                    <td><a href="adminAddEvent.php">Lieu......</td></a>
-                    <td><a href="adminAddEvent.php">Evenement.</td></a>
-                    <td class="hidden"><a href="adminAddEvent.php">Description</td></a>
-                    <td>
-                        <div>
-                            <a data-action="create" href="adminAddEvent.php"><i class="fa fa-edit"></i></a>
-                            <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="adminAddEvent.php">Date......</td></a>
-                    <td class="hidden"><a href="adminAddEvent.php">Heure.....</td></a>
-                    <td><a href="adminAddEvent.php">Lieu......</td></a>
-                    <td><a href="adminAddEvent.php">Evenement.</td></a>
-                    <td class="hidden"><a href="adminAddEvent.php">Description</td></a>
-                    <td>
-                        <div>
-                            <a data-action="create" href="adminAddEvent.php"><i class="fa fa-edit"></i></a>
-                            <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
-                        </div>
-                    </td>
-                </tr> -->
             </tbody>
         </table>
-        <a href="adminAddEvent.php"><i class="fas fa-plus"></i> Ajouter un événement</a>
-        
+        <a class="admin-a-btn" href="adminAddEvent.php"><i class="fas fa-plus"></i> Ajouter un événement</a>
     </section>
+    
+    <form class="logout-btn" action="adminLogIn.php" method="post">
+        <button class="admin-btn" name="logout" type="submit"><i class="fas fa-sign-out-alt"></i>Déconnexion</button>
+    <form>
 
-    <!-- <section class="admin-products">
-        <h2 class="title">Mes Produits affichés sur le site</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Catégorie</th>
-                    <th>Réf Produit</th>
-                    <th>Titre</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr onclick="document.location=''">
-                    <td>Contenu Catégorie</td>
-                    <td>Contenu Réf</td>
-                    <td>Contenu Titre</td>
-                    <td>
-                        <a data-action="create" href=""><i class="fa fa-edit"></i></a>
-                        <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr onclick="document.location=''">
-                    <td>Contenu Catégorie</td>
-                    <td>Contenu Réf</td>
-                    <td>Contenu Titre</td>
-                    <td>
-                        <a data-action="create" href=""><i class="fa fa-edit"></i></a>
-                        <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr onclick="document.location=''">
-                    <td>Contenu Catégorie</td>
-                    <td>Contenu Réf</td>
-                    <td>Contenu Titre</td>
-                    <td>
-                        <a data-action="create" href=""><i class="fa fa-edit"></i></a>
-                        <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr onclick="document.location=''">
-                    <td>Contenu Catégorie</td>
-                    <td>Contenu Réf</td>
-                    <td>Contenu Titre</td>
-                    <td>
-                        <a data-action="create" href=""><i class="fa fa-edit"></i></a>
-                        <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <a href=""><i class="fas fa-plus"></i> Ajouter un produit</a>
-    </section> -->
-
-    <!-- <script>
-        $(function(){
-            var tableBox= $("#admin td a");
-            /* var arrayTableBox=[]; */
-
-            for (var index = 0; index < tableBox.length; index++){
-
-                var textTableBox = tableBox[index].textContent;
-                /* arrayTableBox.push(textTableBox); */
-
-                /*var newTextTableBox = textTableBox.substring(0,3);  */
-                tableBox[index].textContent = textTableBox.substring(0,7) + '...';
-            }
-            
-        });
-    </script> -->
 </section>
