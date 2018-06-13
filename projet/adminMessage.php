@@ -10,6 +10,15 @@ if (isset($_SESSION['login'])){//On vérifie que le variable existe.
 
 if ($login == "1"){ // Si le visiteur s'est identifié, on affiche la page
 
+    require_once 'models/messageModel.php';
+
+
+    if(array_key_exists('read_message', $_GET)){
+        $messageModel = new Message;
+        $readMessage = $messageModel->readById($_GET['read_message']);
+    }
+
+
 
 
     if(array_key_exists('logout', $_POST)){
