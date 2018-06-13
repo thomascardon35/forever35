@@ -11,26 +11,22 @@ class NewsEvents{
 
     function create($appointementDate,$endTimeEvent,$city,$eventType,$eventDescription){
         
-        if(empty($eventDescription)){
-            echo("Vous n'avez pas rempli le champs description");
-        }else{
-
-            $sql = 'INSERT INTO newsevents(appointementdate,endtimeevent,city,eventtype,eventdescription)
-                    VALUES (?,?,?,?,?)';
+        $sql = 'INSERT INTO newsevents(appointementdate,endtimeevent,city,eventtype,eventdescription)
+                VALUES (?,?,?,?,?)';
                 
-            $newsEvent = $this->db->executeSql($sql,[$appointementDate,$endTimeEvent,$city,$eventType,$eventDescription]);
-        }
+        $newsEvent = $this->db->executeSql($sql,[$appointementDate,$endTimeEvent,$city,$eventType,$eventDescription]);
     }
     
     function read(){
-        $sql = 'SELECT id, DATE_FORMAT(appointementdate,"%e %M %Y") AS eventdate, DATE_FORMAT(appointementdate,"%H:%i") AS eventtime,city ,eventdescription,eventtype
-        FROM newsevents' ;
+        $sql = 'SELECT id, DATE_FORMAT(appointementdate,"%e %M %Y") AS eventdate, DATE_FORMAT(appointementdate,"%H:%i") AS eventtime,TIME_FORMAT(endtimeevent,"%H:%i") AS endtime,city ,eventdescription,eventtype
+        FROM newsevents
+        ORDER BY appointementdate' ;
 
         return $this->db->query($sql);
     }
 
     function readById($id){
-        $sql = 'SELECT id,DATE_FORMAT(appointementdate,"%d") AS eventday,DATE_FORMAT(appointementdate,"%m") AS eventmonth,DATE_FORMAT(appointementdate,"%Y") AS eventyear,DATE_FORMAT(appointementdate,"%H") AS eventhour,DATE_FORMAT(appointementdate,"%i") AS eventminutes, endtimeevent, city, eventtype, eventdescription
+        $sql = 'SELECT id,DATE_FORMAT(appointementdate,"%d") AS eventday,DATE_FORMAT(appointementdate,"%m") AS eventmonth,DATE_FORMAT(appointementdate,"%Y") AS eventyear,DATE_FORMAT(appointementdate,"%H") AS eventhour,DATE_FORMAT(appointementdate,"%i") AS eventminutes, TIME_FORMAT(endtimeevent,"%H") AS endtimehour,TIME_FORMAT(endtimeevent,"%i") AS endtimeminutes, city, eventtype, eventdescription
         FROM newsevents
         WHERE id = ?' ;
 
