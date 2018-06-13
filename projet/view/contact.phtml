@@ -11,24 +11,36 @@
                         <li>
                             <div>
                                 <label for="madam">Madame</label>
-                                <input type="radio" id="madam" name="gender" value="madam" checked>
+                                <input type="radio" id="madam" name="gender" value="Mme" checked>
                             </div>
                             <div>
                                 <label for="mister">Monsieur</label>
-                                <input type="radio" id="mister" name="gender" value="mister">
+                                <input type="radio" id="mister" name="gender" value="M">
                             </div>
                         </li>
 
                         <!--Prénom-->
                         <li>
-                            <label for="firstName">Prénom <span class="required">*</span></label>
-                            <input id="firstName" type="text" value="" name="firstName" data-required
+                            <label for="firstname">Prénom <span class="required">*</span></label>
+                            <input id="first-name" type="text" value="" name="firstname" data-required
                                 data-name="Prénom" data-type="alphanum">
                         </li>
                         <!--Nom-->
                         <li>
-                            <label for="lastName">Nom <span class="required">*</span></label>
-                            <input id="lastName" type="text" value="" name="lastName" data-required data-name="Nom"
+                            <label for="lastname">Nom <span class="required">*</span></label>
+                            <input id="last-name" type="text" value="" name="lastname" data-required data-name="Nom"
+                                data-type="alphanum">
+                        </li>
+
+                        <li>
+                            <label for="zipcode">Code Postal <span class="required">*</span></label>
+                            <input id="zip-code" type="text" value="" name="zipcode" data-required data-name="Code postal"
+                                data-type="alphanum">
+                        </li>
+
+                        <li>
+                            <label for="city">Ville </label>
+                            <input id="city" type="text" value="" name="city" data-required data-name="Ville"
                                 data-type="alphanum">
                         </li>
                         <!--Téléphone-->
@@ -40,24 +52,24 @@
                         <!--E mail-->
                         <li>
                             <label for="email">E-mail <span class="required">*</span></label>
-                            <input id="email" type="text" value="" name="email" data-required data-name="email"
+                            <input id="email" type="text" value="" name="email" data-required data-name="E-mail"
                                 data-type="email">
                         </li>
                         <!-- Sujet -->
                         <li>
-                            <label for"subject">Sujet<span class="required">*</span></label>
-                            <select name="subject">
+                            <label for"subjectmessage">Sujet<span class="required">*</span></label>
+                            <select name="subjectmessage">
                                 <option> </option>
-                                <option value="nextEvent">Evénements</option>
-                                <option value="Sponsorship">Parrainage</option>
-                                <option value="Products">Produits</option>
-                                <option value="Others">Autres</option>
+                                <option value="Evénements">Evénements</option>
+                                <option value="Parrainage">Parrainage</option>
+                                <option value="Produits">Produits</option>
+                                <option value="Autres">Autres</option>
                             </select>
                         </li>
                         <!-- Message -->
                         <li>
-                            <label for="message">Message<span class="required">*</span></label>
-                            <textarea id="message" value="" type="text" name="message" data-name="message" data-type="alphanum"></textarea>
+                            <label for="usermessage">Message<span class="required">*</span></label>
+                            <textarea id="user-message" value="" placeholder="Ici , votre message !" type="text" name="usermessage" data-name="Message" data-type="alphanum"></textarea>
                         </li>
                     </ul>
                     <!-- bouton enregistrer-->
