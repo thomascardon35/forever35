@@ -5,17 +5,32 @@
             <thead>
                 <tr>
                     <th>Date</th>
+                    <th>Heure</th>
                     <th class="hidden">Civilité</th>
                     <th>Nom</th>
                     <th class="hidden">Prénom</th>
-                    <th class="hidden">Téléphone</th>
-                    <th class="hidden">E-mail</th>
+                    <th class="hidden">Code Postal</th>
+                    <th class="hidden">Ville</th>
                     <th>Sujet</th>
                     <th class="hidden">Message</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <?php foreach($messages as $message): ?>            
+                    <tr onclick="location.href='adminMessage.php?read_message=<?= intval($message['id'])?>'">
+                        <td><?= $message['sendingdate']?></td>
+                        <td><?= $message['sendingtime']?></td>
+                        <td class="hidden"><?= $message['gender']?></td>
+                        <td><?= substr($message['lastname'],0,10);?></td>
+                        <td class="hidden"><?= substr($message['firstname'],0,10);?></td>
+                        <td class="hidden"><?= $message['zipcode']?></td>
+                        <td class="hidden"><?= substr($message['city'],0,17);?></td>
+                        <td><?= $message['subjectmessage']?></td>
+                        <td class="hidden"><?= substr($message['usermessage'],0,20);?></td>
+                        <td class="hidden"><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                <?php endforeach; ?>
+                <!-- <tr>
                     <td><a href="adminMessage.php">Date......</a></td>
                     <td class="hidden"><a href="adminMessage.php">Civilité..</a></td>
                     <td><a href="adminMessage.php">Nom.......</a></td>
@@ -47,18 +62,7 @@
                     <td><a href="adminMessage.php">Sujet.....</a></td>
                     <td class="hidden"><a href="adminMessage.php">Message...</a></td>
                     <td><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
-                </tr>
-                <tr>
-                    <td><a href="adminMessage.php">Date......</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Civilité..</a></td>
-                    <td><a href="adminMessage.php">Nom.......</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Prénom....</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Téléphone.</a></td>
-                    <td class="hidden"><a href="adminMessage.php">E-mail....</a></td>
-                    <td><a href="adminMessage.php">Sujet.....</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Message...</a></td>
-                    <td><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
 
@@ -79,25 +83,25 @@
             </thead>
 
             <tbody>
-            <?php foreach($newsEvents as $newsEvent): ?>
-                <tr onclick="location.href='adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>'">
-                    <td><?= $newsEvent['eventdate']?></td>
-                    <td class="hidden"><?= $newsEvent['eventtime']?></td>
-                    <td class="hidden"><?= $newsEvent['endtime']?></td>
-                    <td><?= substr($newsEvent['city'],0,15);?></td>
-                    <td><?= substr($newsEvent['eventtype'],0,15);?></td>
-                    <td><?= substr($newsEvent['eventdescription'],0,30);?></td>
-                    <td class="hidden">
-                        <div>
-                            <a data-action="update" href="adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>">
-                            <i class="fa fa-edit"></i></a>
+                <?php foreach($newsEvents as $newsEvent): ?>
+                    <tr onclick="location.href='adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>'">
+                        <td><?= $newsEvent['eventdate']?></td>
+                        <td class="hidden"><?= $newsEvent['eventtime']?></td>
+                        <td class="hidden"><?= $newsEvent['endtime']?></td>
+                        <td><?= substr($newsEvent['city'],0,15);?></td>
+                        <td><?= substr($newsEvent['eventtype'],0,15);?></td>
+                        <td><?= substr($newsEvent['eventdescription'],0,30);?></td>
+                        <td class="hidden">
+                            <div>
+                                <a data-action="update" href="adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>">
+                                <i class="fa fa-edit"></i></a>
 
-                            <a data-action="remove" href="admin.php?delete_id=<?= intval($newsEvent['id'])?>">
-                            <i class="fa fa-trash"></i></a>
-                        </div>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
+                                <a data-action="remove" href="admin.php?delete_id=<?= intval($newsEvent['id'])?>">
+                                <i class="fa fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
         <a class="admin-a-btn" href="adminAddEvent.php"><i class="fas fa-plus"></i> Ajouter un événement</a>
