@@ -37,4 +37,10 @@ class Message{
         return $this->db->queryOne($sql,[$id]);
     }
 
+
+    function delete($id){
+        $sql = 'DELETE FROM contactmessage WHERE id=?';
+
+        $this->db->executeSql($sql,[$id]);
+    }
 }
