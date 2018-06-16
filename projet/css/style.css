@@ -133,21 +133,6 @@ body{
     text-decoration: underline;
 }
 
-.error-message{
-    background-color: red;
-    color:orange;
-    font-size:50px;
-    height:100px;
-    margin-bottom:0;
-    animation: error-message 200ms 10;
-}
-
-@keyframes error-message{
-    50%{
-        background-color:orange;
-        color:black;
-    }
-}
 /****************************************************************************************
 *                                                                                       *
 *                                         HEADER                                        *
@@ -337,9 +322,39 @@ main .next-event .slider-events img:first-of-type{
 }
 
 main .next-event .slider-events .bg-slider{
-    background:linear-gradient(135deg,rgba(255,255,255,0.5),rgba(187,255,127,0.5) 20%,rgba(120, 255, 0,0.5) );
+    /* background:linear-gradient(135deg,rgba(255,255,255,0.5),rgba(187,255,127,0.5) 20%,rgba(120, 255, 0,0.5) ); */
     width:280px;
-    height:100px;
+    height:130px;
+    animation :blink 6s infinite ;
+}
+
+@keyframes blink{
+    
+    20%{
+        background-color:transparent;
+    }22%{
+        background-color:rgba(255,255,0,0.4);
+    }24%{
+        background-color:transparent;
+    }26%{
+        background-color:rgba(75,0,130,0.4);
+    }28%{
+        background-color:transparent;
+    }30%{
+        background-color:rgba(255,140,0,0.4);
+    }32%{
+        background-color:transparent;
+    }34%{
+        background-color:rgba(0,154,160,0.4);
+    }36%{
+        background-color:transparent;
+    }38%{
+        background-color:rgba(255,105,180,0.4);
+    }40%{
+        background-color:transparent;
+    }42%{
+        background-color:rgba(0,255,0,0.4);
+    }
 }
 
 main .next-event .slider-events .bg-slider p{
@@ -348,6 +363,28 @@ main .next-event .slider-events .bg-slider p{
     position:absolute;
     text-align: center;
     width:100%;
+}
+
+main .next-event .slider-events .bg-slider p a{
+    text-decoration: none;
+    color:black;
+}
+
+main .next-event .slider-events .bg-slider p span:first-of-type{
+    color:rgba(75,0,130,1);
+    font-weight: bold;
+}
+main .next-event .slider-events .bg-slider p span:nth-of-type(2){
+    color:rgba(255,140,0,1);
+    font-weight: bold;
+}
+main .next-event .slider-events .bg-slider p span:nth-of-type(3){
+    color:rgba(255,0,0,1);
+    font-weight: bold;
+}
+main .next-event .slider-events .bg-slider p span:nth-of-type(4){
+    color:rgba(255,20,147,1);
+    font-weight: bold;
 }
 
 main .next-event .slider-events img:nth-of-type(2){
@@ -400,19 +437,29 @@ main .next-event .slider-events img:nth-of-type(2){
     border: 3px outset rgba(0,0,0,0.4);
     color:rgba(108,122,30,1);
     box-shadow:0px 0px 15px black;
-    max-width: 280px;
+    max-width: 328px;
     margin:0 auto;
 }
 
 #news-events .title-news{
     font-size:30px;
-    margin:30px 0 50px;
+    margin:30px auto 50px;
     width:264px;
+}
+
+#news-events ul{
+    margin:22px 0;
 }
 
 #news-events ul li{
     text-align: left;
-    font-size:14px;
+    font-size:15px;
+    padding-right:20px;
+    list-style: disclosure-closed ;
+}
+#news-events ul li span{
+    color:rgba(80,80,80,1);
+    font-weight: bold;
 }
 /****************************************************************************************
 *                                                                                       *
@@ -715,49 +762,50 @@ main .next-event .slider-events img:nth-of-type(2){
     color: rgba(108,122,30,1);
 }
 
-#contact form ul{
+#contact form fieldset ul{
     list-style: none;
     padding-left: 0;
 }
 
-#contact form ul li{
+#contact form fieldset ul li{
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     white-space: nowrap;
+    align-items: center;
 }
 
 /******************** Boutons radio MR, MME ******************/
-#contact form ul li:first-of-type{
+#contact form fieldset ul li:first-of-type{
     justify-content: center;
 }
 
-#contact form ul li:first-of-type div{
+#contact form fieldset ul li:first-of-type div{
     padding:0 35px;
 }
 
-#contact form ul li:first-of-type label,#contact form ul li:first-of-type input{
+#contact form fieldset ul li:first-of-type label,#contact form fieldset ul li:first-of-type input{
     cursor:pointer;
     background-color: transparent;
 }
 
-#contact form ul li div{
+#contact form fieldset ul li div{
     display: flex;
     flex-direction: column;
     align-items:center;
 }
 
-#contact form ul li div input{
+#contact form fieldset ul li div input{
     height:20px;
 }
 
 /********** Les champs de saisie du form de contact **********/
-#contact form ul li>input,#contact form ul li select,#contact form ul li textarea{
+#contact form fieldset ul li>input,#contact form fieldset ul li select,#contact form fieldset ul li textarea{
     width:172px;
 }
 
-#contact form ul li input,#contact form ul li select{
+#contact form fieldset ul li input,#contact form fieldset ul li select{
     height: 35px;
     margin-bottom: 5px;
     border:0;
@@ -772,13 +820,13 @@ main .next-event .slider-events img:nth-of-type(2){
     outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
 }
 
-#contact form ul li select{
+#contact form fieldset ul li select{
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
 }
 
-#contact form ul li select:focus{
+#contact form fieldset ul li select:focus{
     outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
 }
 
@@ -807,6 +855,39 @@ main .next-event .slider-events img:nth-of-type(2){
     background-color:rgba(27, 231, 27, 0.8);
     color:black;
     transition:all 0.5s ease 0s;
+}
+
+/*********************** Messages d'erreur *******************/
+.error-message{
+    background-color: rgba(86, 217, 0, 0.3);
+    border: 2px solid #FF3300;
+    border-radius: 6px;
+    margin: 20px 0;
+    color: black;
+    font-size: 17px;
+    animation: error-message 200ms 10;
+    max-width:400px;
+    margin:0 auto;
+}
+
+@keyframes error-message{
+    50%{
+        background-color:orange;
+        color:black;
+    }
+}
+
+#contact .error-message ul li{
+    padding-left:20px;
+    text-align: left;
+    white-space:normal;
+    color:red;
+    list-style: disclosure-closed ;
+    margin:5px 0;
+}
+
+#contact .error-field{
+    background-color:rgba(255,0,0,0.2);
 }
 
 /******************** Adresse, Mail, Téléphone ****************/
@@ -852,6 +933,126 @@ iframe{
     border:0;
     margin-bottom:-5px;
 }
+
+/****************************************************************************************
+*                                                                                       *
+*                                 MAIN ADMIN COMMUN                                     *
+*                                                                                       *
+****************************************************************************************/
+/**** ".admin-menu "commun à ADMINMESSAGE et ADMINADDEVENT ***/
+.admin-menu{                                              
+    text-align: left;                                     
+    padding-top: 30px;                                    
+    font-size:13px;                                       
+}                                                         
+.admin-menu a{                                            
+    text-decoration: none;                                
+    color:rgba(108,122,30,1);                           
+    padding:10px;                                         
+}                                                         
+
+/********************* Les boutons <button> ******************/
+.admin-btn{
+    text-decoration: none;
+    color:rgba(0,100,0,1);
+    padding:10px;
+    border:1px solid rgba(200,200,200,1);
+    transition:all 0.5s ease 0s;
+    line-height: 1.5;
+    font-size:18px;
+    background-color: transparent;
+    cursor: pointer;
+    width:250px;
+}
+
+.admin-btn i{
+    transform:scale(1);
+    transition:all 0.5s ease 0s;
+    display:block;
+    font-size:25px;
+}
+
+.admin-btn:hover{
+    background-color:rgba(58,242,75,0.5);
+    transition:all 0.5s ease 0s;
+}
+
+.admin-btn:hover i{
+    transform:scale(1.4);
+    transition:all 0.5s ease 0s;
+}
+
+
+/****************** Les boutons DECONNEXION ******************/
+.logout-btn .admin-btn{
+    margin:30px 0;
+    color:rgba(255,0,0,1);
+}
+
+.logout-btn .admin-btn:hover{
+    background-color:rgba(255,0,0,0.1);
+}
+/******************** Les boutons <a href> *******************/
+.admin-a-btn{
+    text-decoration: none;
+    color:rgba(0,100,0,1);
+    padding:10px;
+    font-size:18px;
+    border:1px solid rgba(200,200,200,1);
+    transition:all 0.5s ease 0s;
+    display:flex;
+    flex-direction:column;
+    width:250px;
+    margin:0 auto;
+}
+
+.admin-a-btn i{
+    transform:scale(1);
+    transition:all 0.5s ease 0s;
+}
+
+.admin-a-btn:hover{
+    background-color:rgba(58,242,75,0.5);
+    transition:all 0.5s ease 0s;
+}
+
+.admin-a-btn:hover i{
+    transform:scale(1.4);
+    transition:all 0.5s ease 0s;
+}
+
+/****************************************************************************************
+*                                                                                       *
+*                                  MAIN ADMINLOGIN                                      *
+*                                                                                       *
+****************************************************************************************/
+#admin-login{
+    padding:50px 20px 20px;
+    max-width:450px;
+    margin: 0 auto;
+}
+
+#admin-login form fieldset legend{
+    font-size:22px;
+    color:rgba(108,122,30,1);
+}
+
+#admin-login form ul {
+    list-style-type:none;
+    padding:0;
+}
+
+#admin-login form ul li{
+    display:flex;
+    flex-direction: column;
+    padding:20px 40px;
+}
+
+#admin-login form ul li input{
+    width:162px;
+    margin: 0 auto;
+}
+
 /****************************************************************************************
 *                                                                                       *
 *                                    MAIN ADMIN                                         *
@@ -872,27 +1073,15 @@ iframe{
 }
 
 #admin th,#admin td{
-    font-size:15px;
+    font-size:14px;
     border:1px solid black;
 }
 
 #admin td{
     font-family:'OpenSansRegular', sans-serif;
+    padding:3px 2px;
+    height:56px;
 }
-
-/************** Liens pour des lignes cliquables *************/
-#admin .admin-messages td a{
-    text-decoration: none;
-    color:black;
-    padding:5px 5px;
-}
-
-#admin .admin-news-events td a{
-    text-decoration: none;
-    color:black;
-    padding:5px 0;
-}
-
 /********** Les icônes en fin de ligne des tableaux **********/
 #admin table .fa{
     padding:5px;
@@ -910,7 +1099,6 @@ iframe{
 }
 
 /********* Couleurs et Hover des lignes des tableaux *********/
-
 #admin .admin-messages tbody tr:nth-of-type(odd){
     background-color: rgba(50,205,50,0.3);
 }
@@ -939,7 +1127,7 @@ iframe{
 } */
 
 /************* Bouton Ajouter un Evenement(ADMIN) ************/
-#admin section>a{
+/* #admin section>a{
     text-decoration: none;
     color:rgba(0,100,0,1);
     padding:10px;
@@ -959,26 +1147,14 @@ iframe{
 #admin section>a:hover i{
     transform:scale(1.4);
     transition:all 0.5s ease 0s;
-}
+} */
+
+
 /****************************************************************************************
 *                                                                                       *
 *                                MAIN ADMINMESSAGE                                      *
 *                                                                                       *
 ****************************************************************************************/
-
-/**** ".admin-menu "commun à ADMINMESSAGE et ADMINADDEVENT ***/
-.admin-menu{                                               /**/
-    text-align: left;                                      /**/
-    padding-top: 30px;                                     /**/
-    font-size:13px;                                        /**/
-}                                                          /**/
-.admin-menu a{                                             /**/
-    text-decoration: none;                                 /**/
-    color:rgba(108,122,30,1);                            /**/
-    padding:10px;                                          /**/
-}                                                          /**/
-/*************************************************************/
-
 #admin-message{
     margin:0 20px;
 }
@@ -1000,13 +1176,34 @@ iframe{
     color:black;
     font-size:16px;
     margin:10px 0;
+    overflow: hidden;
+    width: 100%;
 }
 
+#admin-message .user-message li:first-of-type div{
+    display:flex;
+    flex-direction:column;
+}
+
+#admin-message .user-message li:first-of-type div span{
+    margin:3px 0;
+}
+
+#admin-message .user-message li:first-of-type div a{
+    color:rgba(130,130,130,1);
+    text-decoration: none;
+}
 /************ Les Couleurs des span adminMessage *************/
 #admin-message .user-message li:first-of-type span:first-of-type{
     text-decoration: underline;
     color: rgba(92, 38, 131, 1);
     padding-right:53px;
+}
+
+/*on surcharge la div pour laisser le nom et prenom en couleur noir et sans soulignement*/
+#admin-message .user-message li:first-of-type div span:first-of-type{
+    color:black;
+    text-decoration:none; 
 }
 
 #admin-message .user-message li:nth-of-type(2) span:first-of-type{
@@ -1028,10 +1225,10 @@ iframe{
 }
 
 /******** Boutons Répondre et Supprimer adminMessage *********/
-#admin-message .message-btn{
+ #admin-message .message-btn{
     margin-top:50px;
 }
-
+/*
 #admin-message .message-btn a{
     text-decoration: none;
     color:rgba(0,100,0,1);
@@ -1057,7 +1254,7 @@ iframe{
 #admin-message .message-btn a:hover i{
     transform:scale(1.4);
     transition:all 0.5s ease 0s;
-}
+} */
 /****************************************************************************************
 *                                                                                       *
 *                               MAIN ADMINEVENTFORM                                     *
@@ -1119,7 +1316,7 @@ iframe{
 }
 
 /********* Bouton Ajouter un Evenement(ADMINADDEVENT) ********/
-#admin-add-event .add-event-btn{
+/* #admin-add-event .add-event-btn{
     text-decoration: none;
     color:rgba(0,100,0,1);
     padding:10px;
@@ -1129,7 +1326,7 @@ iframe{
     font-size:18px;
     background-color: transparent;
     cursor: pointer;
-    width:185px;
+    width:210px;
 }
 #admin-add-event .add-event-btn i{
     transform:scale(1);
@@ -1145,7 +1342,7 @@ iframe{
 #admin-add-event .add-event-btn:hover i{
     transform:scale(1.4);
     transition:all 0.5s ease 0s;
-}
+} */
 /****************************************************************************************
 *                                                                                       *
 *                                      FOOTER                                           *
@@ -1238,7 +1435,7 @@ footer .footer-link a i{
     }
     main .next-event .slider-events .bg-slider{
         width:450px;
-        height:80px;
+        height:105px;
     }
     /*********************** HOME **********************/
     #home{
@@ -1289,22 +1486,41 @@ footer .footer-link a i{
         margin:20px 7%;
     }
     /********************* CONTACT *********************/
-    #contact form ul li>input,#contact form ul li select,#contact form ul li textarea{
+    #contact form fieldset ul li>input,#contact form fieldset ul li select,#contact form fieldset ul li textarea{
         width:250px;
     }
+    /******************* ADMIN LOGIN *******************/
+    #admin-login{
+        max-width:600px;
+    }
+    #admin-login form ul li{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        white-space: nowrap; 
+        padding:20px 60px;
+    }
+    #admin-login form ul li input{
+        margin:0;
+    }
     /********************** ADMIN **********************/
+    #admin .admin-news-events th:nth-of-type(2),#admin .admin-news-events th:nth-of-type(3){
+        width:120px;
+    }
+    #admin td{
+        padding:3px 4px;
+        font-size:15px;
+        height:37px;
+    }
     #admin td.hidden,#admin th.hidden{
         display:table-cell;
     }
-    #admin .admin-messages td:nth-of-type(4),#admin .admin-messages td:nth-of-type(5),#admin .admin-messages th:nth-of-type(4),#admin .admin-messages th:nth-of-type(5){
+    #admin .admin-messages td:nth-of-type(3),#admin .admin-messages td:nth-of-type(6),#admin .admin-messages th:nth-of-type(3),#admin .admin-messages th:nth-of-type(6),#admin .admin-news-events th:nth-of-type(3),#admin .admin-news-events td:nth-of-type(3){
         display:none;
     }
-    #admin .admin-news-events td a,#admin .admin-messages td a{
-        padding:5px 10px;
-    }
     /******************* ADMIN MESSAGE *****************/
-    #admin-message .message-btn a{
-        margin:0;
+    #admin-message .user-message li{
+        font-size:17px;
     }
     #admin-message .message-btn{
         display:flex;
@@ -1410,7 +1626,7 @@ footer .footer-link a i{
     }
     main .next-event .slider-events .bg-slider{
         width:650px;
-        height:100px;
+        height:140px;
     }
     main .next-event .slider-events img:first-of-type{
         width:75px;
@@ -1431,9 +1647,6 @@ footer .footer-link a i{
     }
     #news-events .title-news{
         font-size:35px;
-    }
-    #news-events ul li{
-        font-size:15px;
     }
     /******************** ALOE VERA ********************/
     #aloe-vera{
@@ -1483,12 +1696,15 @@ footer .footer-link a i{
     #contact fieldset{
         max-width: none;
     }
-    #contact form ul li>input,#contact form ul li select,#contact form ul li textarea{
+    #contact form fieldset ul li>input,#contact form fieldset ul li select,#contact form fieldset ul li textarea{
         width:350px;
     }
     #contact form textarea{
         width:350px;
         height:300px;
+    }
+    .error-message{
+        max-width:589px;
     }
     #address{
         width:100%;
@@ -1499,11 +1715,15 @@ footer .footer-link a i{
     iframe{
         height:550px;
     }
+    /******************* ADMIN LOGIN *******************/
     /********************** ADMIN **********************/
-    #admin .admin-messages td:nth-of-type(4),#admin .admin-messages td:nth-of-type(5),#admin .admin-messages th:nth-of-type(4),#admin .admin-messages th:nth-of-type(5){
+    #admin .admin-messages td:nth-of-type(3),#admin .admin-messages td:nth-of-type(6),#admin .admin-messages th:nth-of-type(3),#admin .admin-messages th:nth-of-type(6),#admin .admin-news-events th:nth-of-type(3),#admin .admin-news-events td:nth-of-type(3){
         display:table-cell;
     }
     /******************* ADMIN MESSAGE *****************/
+    #admin-message .user-message li{
+        font-size:18px;
+    }
     #admin-message .user-message{
         max-width: 700px;
     }
