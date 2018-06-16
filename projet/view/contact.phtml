@@ -3,7 +3,12 @@
     <h2 id="contact-h2" class="title">FOREVER 35 Ille-et-Vilaine</h2>
     <div id="contact-address">
         <section id="contact">
-            <form method="post" action="">
+            <form id="form" method="post" action="">    
+
+                <aside class="error-message hidden">
+                    <h3>Il y a une erreur dans le formulaire</h3>
+                </aside>
+
                 <fieldset>
                     <legend>Formulaire de contact</legend>
                     <ul>
@@ -22,31 +27,30 @@
                         <!--Prénom-->
                         <li>
                             <label for="firstname">Prénom <span class="required">*</span></label>
-                            <input id="first-name" type="text" value="" name="firstname" data-required
+                            <input id="firstname" type="text" value="" name="firstname" data-required
                                 data-name="Prénom" data-type="alphanum">
                         </li>
                         <!--Nom-->
                         <li>
                             <label for="lastname">Nom <span class="required">*</span></label>
-                            <input id="last-name" type="text" value="" name="lastname" data-required data-name="Nom"
+                            <input id="lastname" type="text" value="" name="lastname" data-required data-name="Nom"
                                 data-type="alphanum">
                         </li>
-
+                        <!-- Code Postal -->
                         <li>
                             <label for="zipcode">Code Postal <span class="required">*</span></label>
-                            <input id="zip-code" type="text" value="" name="zipcode" data-required data-name="Code postal"
-                                data-type="alphanum">
+                            <input id="zipcode" type="text" value="" name="zipcode" data-required data-min="5" data-max="5" data-name="Code Postal" data-type="positiveInteger">
                         </li>
-
+                        <!-- Ville -->
                         <li>
                             <label for="city">Ville </label>
-                            <input id="city" type="text" value="" name="city" data-required data-name="Ville"
+                            <input id="city" type="text" value="" name="city" data-name="Ville"
                                 data-type="alphanum">
                         </li>
                         <!--Téléphone-->
                         <li>
                             <label for="phone">Téléphone</label>
-                            <input id="phone" type="text" value="" name="phone" data-min="10" data-name="téléphone"
+                            <input id="phone" type="text" value="" name="phone" data-min="10" data-max="10" data-name="Téléphone"
                                 data-type="positiveInteger">
                         </li>
                         <!--E mail-->
@@ -58,8 +62,8 @@
                         <!-- Sujet -->
                         <li>
                             <label for"subjectmessage">Sujet<span class="required">*</span></label>
-                            <select name="subjectmessage">
-                                <option> </option>
+                            <select data-required data-name="Sujet" name="subjectmessage">
+                                <option></option>
                                 <option value="Evénements">Evénements</option>
                                 <option value="Parrainage">Parrainage</option>
                                 <option value="Produits">Produits</option>
@@ -69,7 +73,7 @@
                         <!-- Message -->
                         <li>
                             <label for="usermessage">Message<span class="required">*</span></label>
-                            <textarea id="user-message" value="" placeholder="Ici , votre message !" type="text" name="usermessage" data-name="Message" data-type="alphanum"></textarea>
+                            <textarea id="user-message" value="" placeholder="Ici , votre message !" type="text" name="usermessage" data-name="Message" data-type="alphanum" data-required></textarea>
                         </li>
                     </ul>
                     <!-- bouton enregistrer-->
@@ -100,3 +104,7 @@
 </div> <!--fermeture de la div class="container" du layout afin que l'iframe ne subisse pas le max-width:900px de cette classe -->
 <div>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2673.909291299365!2d-1.4263254849286489!3d47.918792574353404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480f2dfc3db0eab1%3A0xff90640df8f3ffd!2s19+Rue+du+Clos+St+Hubert%2C+35240+Le+Theil-de-Bretagne!5e0!3m2!1sfr!2sfr!4v1525872770244" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    
+<script src="js/validator.js"></script>
+<script src="js/contact.js"></script>
