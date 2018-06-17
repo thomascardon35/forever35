@@ -3,82 +3,100 @@
     <h2 id="contact-h2" class="title">FOREVER 35 Ille-et-Vilaine</h2>
     <div id="contact-address">
         <section id="contact">
-            <form id="form" method="post" action="">    
+            <form id="form" method="POST" action="">    
 
-                <aside class="error-message hidden">
-                    <h3>Il y a une erreur dans le formulaire</h3>
-                </aside>
+                <!-- Si l'utilisateur a cliqué sur "envoyer" et qu'aucune erreur n'existe, on l'informe que son message a bien été envoyé et on fait disparaitre le formulaire  VALABLE AVEC OU SANS JS-->
+                <?php if(array_key_exists('submitMessage',$_POST) && $messageModel->getErrorMessage() == null ) : ?>
+                    <p>Votre Message a bien été envoyé !</p>
 
-                <fieldset>
-                    <legend>Formulaire de contact</legend>
-                    <ul>
-                        <!--Civilité-->
-                        <li>
-                            <div>
-                                <label for="madam">Madame</label>
-                                <input type="radio" id="madam" name="gender" value="Mme" checked>
-                            </div>
-                            <div>
-                                <label for="mister">Monsieur</label>
-                                <input type="radio" id="mister" name="gender" value="M">
-                            </div>
-                        </li>
+                    <!-- sinon, si l'utilisateur a cliqué sur "envoyer" et qu'une erreur existe, on affiche l'erreur et réaffiche le formulaire ;  ou "true" (dans le cas de l'arrivée de l'utilisateur sur la page) on affiche tout simplement le formualire SANS le message d'erreur  VALABLE UNIQUEMENT SI LE JS EST DESACTIVE -->
+                <?php elseif((array_key_exists('submitMessage',$_POST) && $messageModel->getErrorMessage() != null) || true ) :?>
 
-                        <!--Prénom-->
-                        <li>
-                            <label for="firstname">Prénom <span class="required">*</span></label>
-                            <input id="firstname" type="text" value="" name="firstname" data-required
-                                data-name="Prénom" data-type="alphanum">
-                        </li>
-                        <!--Nom-->
-                        <li>
-                            <label for="lastname">Nom <span class="required">*</span></label>
-                            <input id="lastname" type="text" value="" name="lastname" data-required data-name="Nom"
-                                data-type="alphanum">
-                        </li>
-                        <!-- Code Postal -->
-                        <li>
-                            <label for="zipcode">Code Postal <span class="required">*</span></label>
-                            <input id="zipcode" type="text" value="" name="zipcode" data-required data-min="5" data-max="5" data-name="Code Postal" data-type="positiveInteger">
-                        </li>
-                        <!-- Ville -->
-                        <li>
-                            <label for="city">Ville </label>
-                            <input id="city" type="text" value="" name="city" data-name="Ville"
-                                data-type="alphanum">
-                        </li>
-                        <!--Téléphone-->
-                        <li>
-                            <label for="phone">Téléphone</label>
-                            <input id="phone" type="text" value="" name="phone" data-min="10" data-max="10" data-name="Téléphone"
-                                data-type="positiveInteger">
-                        </li>
-                        <!--E mail-->
-                        <li>
-                            <label for="email">E-mail <span class="required">*</span></label>
-                            <input id="email" type="text" value="" name="email" data-required data-name="E-mail"
-                                data-type="email">
-                        </li>
-                        <!-- Sujet -->
-                        <li>
-                            <label for"subjectmessage">Sujet<span class="required">*</span></label>
-                            <select data-required data-name="Sujet" name="subjectmessage">
-                                <option></option>
-                                <option value="Evénements">Evénements</option>
-                                <option value="Parrainage">Parrainage</option>
-                                <option value="Produits">Produits</option>
-                                <option value="Autres">Autres</option>
-                            </select>
-                        </li>
-                        <!-- Message -->
-                        <li>
-                            <label for="usermessage">Message<span class="required">*</span></label>
-                            <textarea id="user-message" value="" placeholder="Ici , votre message !" type="text" name="usermessage" data-name="Message" data-type="alphanum" data-required></textarea>
-                        </li>
-                    </ul>
-                    <!-- bouton enregistrer-->
-                    <input class="submit-btn" type="submit" id="submit" name="submitMessage" value="Envoyer">
-                </fieldset>
+                    <!-- affichage du message d'erreur s'il existe VALABLE UNIQUEMENT SI LE JS EST DESACTIVE -->
+                    <?php if($messageModel->getErrorMessage() != null):?>
+                        <aside class="error-message">
+                            <ul>
+                                <li><?=$messageModel->getErrorMessage();?></li>
+                            </ul>
+                        </aside>
+                    <?php endif;?>
+
+                    <!-- aside, avec la class="error-message", qui permet l'affichage des erreurs grace au JAVASCRIPT -->
+                    <aside class='error-message hidden'></aside>
+                    
+                    <fieldset>
+                        <legend>Formulaire de contact</legend>
+                        <ul>
+                            <!--Civilité-->
+                            <li>
+                                <div>
+                                    <label for="madam">Madame</label>
+                                    <input type="radio" id="madam" name="gender" value="Mme" checked>
+                                </div>
+                                <div>
+                                    <label for="mister">Monsieur</label>
+                                    <input type="radio" id="mister" name="gender" value="M">
+                                </div>
+                            </li>
+
+                            <!--Prénom-->
+                            <li>
+                                <label for="firstname">Prénom <span class="required">*</span></label>
+                                <input id="firstname" type="text" value="<?php if(isset($firstName)){echo htmlentities($firstName);}?>" name="firstname" data-required
+                                    data-name="Prénom" data-type="alphanum">
+                            </li>
+                            <!--Nom-->
+                            <li>
+                                <label for="lastname">Nom <span class="required">*</span></label>
+                                <input id="lastname" type="text" value="<?php if(isset($lastName)){echo htmlentities($lastName);}?>" name="lastname" data-required data-name="Nom"
+                                    data-type="alphanum">
+                            </li>
+                            <!-- Code Postal -->
+                            <li>
+                                <label for="zipcode">Code Postal <span class="required">*</span></label>
+                                <input id="zipcode" type="text" value="<?php if(isset($zipCode)){echo htmlentities($zipCode);}?>" name="zipcode" data-required data-min="5" data-max="5" data-name="Code Postal" data-type="positiveInteger">
+                            </li>
+                            <!-- Ville -->
+                            <li>
+                                <label for="city">Ville </label>
+                                <input id="city" type="text" value="<?php if(isset($city)){echo htmlentities($city);}?>" name="city" data-name="Ville"
+                                    data-type="alphanum">
+                            </li>
+                            <!--Téléphone-->
+                            <li>
+                                <label for="phone">Téléphone</label>
+                                <input id="phone" type="text" value="<?php if(isset($phone)){echo htmlentities($phone);}?>" name="phone" data-min="10" data-max="10" data-name="Téléphone"
+                                    data-type="positiveInteger">
+                            </li>
+                            <!--E mail-->
+                            <li>
+                                <label for="email">E-mail <span class="required">*</span></label>
+                                <input id="email" type="text" value="<?php if(isset($email)){echo htmlentities($email);}?>" name="email" data-required data-name="E-mail"
+                                    data-type="email">
+                            </li>
+                            <!-- Sujet -->
+                            <li>
+                                <label for"subjectmessage">Sujet<span class="required">*</span></label>
+                                <select data-required data-name="Sujet" name="subjectmessage">
+                                    <option><?php if(isset($subjectMessage)){echo htmlentities($subjectMessage);}?></option>
+                                    <option value="Evénements">Evénements</option>
+                                    <option value="Parrainage">Parrainage</option>
+                                    <option value="Produits">Produits</option>
+                                    <option value="Autres">Autres</option>
+                                </select>
+                            </li>
+                            <!-- Message -->
+                            <li>
+                                <label for="usermessage">Message<span class="required">*</span></label>
+                                <textarea id="user-message" placeholder="Ici , votre message !" type="text" name="usermessage" data-name="Message" data-required><?php if(isset($userMessage)){echo htmlentities($userMessage);}?></textarea>
+                            </li>
+                        </ul>
+                        <!-- bouton enregistrer-->
+                        <input class="submit-btn" type="submit" id="submit" name="submitMessage" value="Envoyer">
+                    </fieldset>
+
+                <?php endif; ?>
+
             </form>
         </section>
 
@@ -106,5 +124,3 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2673.909291299365!2d-1.4263254849286489!3d47.918792574353404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480f2dfc3db0eab1%3A0xff90640df8f3ffd!2s19+Rue+du+Clos+St+Hubert%2C+35240+Le+Theil-de-Bretagne!5e0!3m2!1sfr!2sfr!4v1525872770244" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
     
-<script src="js/validator.js"></script>
-<script src="js/contact.js"></script>
