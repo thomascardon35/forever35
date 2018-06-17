@@ -2,10 +2,10 @@
 
 
 var Validator = function (form){
-    this.form = form;  // le formulaire passé en argument devient une propriété de Validator
-    this.errors=[];    // on crée une propriété errors : un tableau vide pour y stocker les éventuelles erreurs
+    this.form = form;       // le formulaire passé en argument devient une propriété de Validator
+    this.errors=[];         // on crée une propriété errors : un tableau vide pour y stocker les éventuels mesages d'erreurs
+    this.errorFields = [];  // on crée une propriété errorFields : un tableau vide pour y stocker les champs où il y a des erreurs
     this.errorMessage = $('.error-message'); // La propriété errorMessage représente le message d'erreur lui meme (CSS HTML)
-    this.errorFields = [];
 }
 
 
@@ -45,21 +45,21 @@ Validator.prototype.fieldType = function () {
         switch (type) {
             case 'email':
                 if (value.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) === null) {
-                    this.errors.push('le champ ' + fieldName + ' doit être un E-mail valide');
+                    this.errors.push('Le champ ' + fieldName + ' doit être un E-mail valide');
                     this.errorFields.push(fieldType); // on enregistre le champ fautif dans le tableau prévu à cet effet
                 }
                 break;
                 
             case 'positiveInteger':
                 if (!isInteger(value) || value < 0) {
-                    this.errors.push('le champ ' + fieldName + ' doit être un entier positif');
+                    this.errors.push('Le champ ' + fieldName + ' doit être un entier positif');
                     this.errorFields.push(fieldType); // on enregistre le champ fautif dans le tableau prévu à cet effet
                 }
                 break;
 
             case 'alphanum':
-                if (value.match(/^[\w\s'-]+$/) === null) {
-                    this.errors.push('le champ ' + fieldName + ' doit être composé de caractère alphanumériques');
+                if (value.match(/^[\w\s\áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._'-]+$/) === null) {
+                    this.errors.push('Le champ ' + fieldName + ' doit être composé de caractère alphanumériques');
                     this.errorFields.push(fieldType); // on enregistre le champ fautif dans le tableau prévu à cet effet
                 }
                 break;

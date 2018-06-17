@@ -1,5 +1,11 @@
 "use strict";
 
+/*******************************************************************************
+*                                                                              *
+*                                    NAV                                       *
+*                                                                              *
+*******************************************************************************/
+
 function onClickBtnDisplayNav(){
     //$('.nav-header').slideToggle(500);
     $('.nav-header').toggleClass("width-nav"); // fait apparaitre/disparaitre la nav
@@ -34,25 +40,16 @@ function onScroll(){
 *******************************************************************************/
     //si la largeur de l'écran utilisateur égale ou dépasse les 1025px(comme le mediaquerry) alors on anime les bulles en fond d'écran
     if (window.matchMedia("(min-width: 1025px)").matches){
-        var bubble1 = $('#bubble1');
-        var bubble2 = $('#bubble2');
-        var bubble3 = $('#bubble3');
-        var bubble4 = $('#bubble4');
-        var bubble5 = $('#bubble5');
-        var bubble6 = $('#bubble6');
-        var bubble7 = $('#bubble7');
-        var bubble8 = $('#bubble8');
-        var bubble9 = $('#bubble9');
-
-        bubble1.css('top', windowTop * .15 + 'px'); 
-        bubble2.css('top', -windowTop * .05 + 'px'); 
-        bubble3.css('top', -windowTop * .25 + 'px');
-        bubble4.css('top', -windowTop * .15 + 'px');
-        bubble5.css('top', -windowTop * .35 + 'px');
-        bubble6.css('top', windowTop * .25 + 'px');
-        bubble7.css('top',windowTop * .05 + 'px');
-        bubble8.css('top', -windowTop * .05 + 'px'); 
-        bubble9.css('top', windowTop * .2 + 'px'); 
+        $('#bubble0').css('top', windowTop * 1.25 + 'px'); 
+        $('#bubble1').css('top', windowTop * .15 + 'px'); 
+        $('#bubble2').css('top', -windowTop * .1 + 'px'); 
+        $('#bubble3').css('top', -windowTop * .25 + 'px');
+        $('#bubble4').css('top', -windowTop * .15 + 'px');
+        $('#bubble5').css('top', -windowTop * .35 + 'px');
+        $('#bubble6').css('top', windowTop * .25 + 'px');
+        $('#bubble7').css('top',windowTop * .05 + 'px');
+        $('#bubble8').css('top', -windowTop * .05 + 'px'); 
+        $('#bubble9').css('top', windowTop * .2 + 'px'); 
     };
 /*******************************************************************************
 *                                                                              *
