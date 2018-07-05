@@ -2,11 +2,14 @@
 
 require_once 'models/newsEventsModel.php';
 require_once 'models/messageModel.php';
+require_once 'models/errorModel.php';
 
 $newsEventsModel = new NewsEvents;
 $newsEvents= $newsEventsModel->read();
 
 $messageModel = new Message;
+
+$errorModel = new Error;
 
 if(array_key_exists('submitMessage',$_POST)){
     $gender             = ($_POST['gender']);
@@ -23,7 +26,7 @@ if(array_key_exists('submitMessage',$_POST)){
         $messageModel->create($gender,$firstName,$lastName,$zipCode,$city,$phone,$email,$subjectMessage,$userMessage);
         
     }catch (DomainException $error){
-        $messageModel->setErrorMessage($error->getMessage());
+        $errorModel->setErrorMessage($error->getMessage());
     }
 
 }; 
