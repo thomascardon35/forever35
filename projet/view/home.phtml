@@ -24,9 +24,23 @@
         <h3 class="title-news">News & Evénements : </h3>
         <?php foreach($newsEvents as $newsEvent): ?>
             <ul>
-                <li>Le <?= $newsEvent['eventdate']?> à <?= $newsEvent['eventtime']?> </li>
-                <li class="<?= $newsEvent['city']?>"><?= $newsEvent['eventtype'];?> à <?= $newsEvent['city'];?></li>
-                <li><?= $newsEvent['eventdescription']?></li>
+                <?php if( $newsEvent['eventdate'] != null && $newsEvent['eventtime'] != null && $newsEvent['eventtype'] != null && $newsEvent['city'] != null) :?>
+                    <li>Le <span><?= $newsEvent['eventdate']?> </span>
+                        <?php if( $newsEvent['endtime'] != null) :?>
+                            de <span><?= $newsEvent['eventtime']?></span> à <?= $newsEvent['endtime']?>
+                        <?php else :?>
+                            dès <span><?= $newsEvent['eventtime']?></span>
+                        <?php endif ?>
+                    </li>
+                    <li><span><?= $newsEvent['eventtype'];?></span> à <span><?= $newsEvent['city'];?></span></li>
+
+                    <?php if($newsEvent['eventdescription'] != null) : ?>
+                        <li><?= $newsEvent['eventdescription']?></li>
+                    <?php endif;?>
+                    
+                <?php else :?>
+                    <li><?= $newsEvent['eventdescription']?></li>
+                <?php endif ?>
             </ul>
         <?php endforeach; ?>
 

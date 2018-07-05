@@ -7,7 +7,15 @@
         <img src="img/tape2.png" alt="ruban adhésif">
         <div class="bg-slider">
             <?php foreach($newsEvents as $newsEvent): ?>
-                <p><?= $newsEvent['eventdescription']?></p>
+                <p>
+                    <a href="index.php#news-events">
+                        <?php if($newsEvent['eventdate'] != null && $newsEvent['eventtime'] != null && $newsEvent['eventtype'] != null && $newsEvent['city'] != null) : ?>
+                            Retrouvez-moi le <span><?= $newsEvent['eventdate']?></span> à partir de <span><?= $newsEvent['eventtime']?></span> </br> pour <span><?= $newsEvent['eventtype']?></span> à <span><?= $newsEvent['city']?></span>
+                        <?php else :?>
+                            <?= substr($newsEvent['eventdescription'],0,170);?>
+                        <?php endif;?>
+                    </a>
+                </p>
             <?php endforeach; ?>
             <!-- <p>Je serai présente sur le place de la mairie à mon stand FOREVER</p>
             <p>Retrouvez-moi à mon stand Forever dès 9h du matin</p>
@@ -17,5 +25,3 @@
         <img src="img/tape3.png" alt="ruban adhésif">
     </div>
 </section>
-
-<script src="js/slider.js"></script>
