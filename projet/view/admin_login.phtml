@@ -1,0 +1,27 @@
+<section id="admin-login">
+    <form id ="form" action="" method="post">
+        <?php if((array_key_exists('connexion',$_POST) && $errorModel->getErrorMessage() != null) ) :?>
+            <!-- affichage du message d'erreur s'il existe en PHP -->
+            <aside class="error-message">
+                <ul>
+                    <li><?=$errorModel->getErrorMessage();?></li>
+                </ul>
+            </aside>
+        <?php endif;?>
+
+        <fieldset>
+            <legend>Connexion Admin</legend>
+            <ul>
+                <li>
+                    <label>Votre Pseudo : </label>
+                    <input type="text" name="pseudo">
+                </li>
+                <li>
+                    <label>Votre mot de passe : </label>
+                    <input type="password" name="password">
+                </li>
+            </ul>
+            <button class="admin-btn" type="submit" name="connexion" ><i class="fas fa-user-circle"></i>Connexion</button>
+        </fieldset>
+    </form>
+</section>

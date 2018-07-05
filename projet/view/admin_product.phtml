@@ -1,0 +1,182 @@
+<section id ="admin-product">
+
+    <div class="admin-menu">
+        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+    </div>
+    
+    <?php if(array_key_exists('update_product', $_GET)) :?>
+        <!-- Si le lien contenant la query string 'update_product' est cliqué ,on affiche ce titre-->
+        <h1 class="title">Modifier un produit</h1>
+    <?php else : ?>
+        <!-- sinon celui-ci-->
+        <h1 class="title">Ajouter un produit</h1>
+    <?php endif; ?>
+
+    <form method="post" action="">
+        <!-- si on clique sur le bouton 'ajouter une produit' OU 'modifier un produit' ET qu'il existe une erreur-->
+        <?php if(((array_key_exists('addProduct',$_POST) || array_key_exists('updateProduct',$_POST))  && $errorModel->getErrorMessage() != null) ) :?>
+
+            <!-- on affiche le message d'erreur avec PHP  -->
+            <?php if($errorModel->getErrorMessage() != null):?>
+                <aside class="error-message">
+                    <ul>
+                        <li><?=$errorModel->getErrorMessage();?></li>
+                    </ul>
+                </aside>
+            <?php endif;?>
+        <?php endif;?>
+    
+        <ul>
+            <div>
+                <li>
+                    <label for="ref">Référence&nbsp;:&nbsp;<span class="required">*</span></label>
+                    <?php if(array_key_exists('update_product', $_GET)) : ?>
+
+                        <!-- Si la variable $ref existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                        <?php if(isset($ref)) : ?>
+                            <!-- alors on la réaffiche dans l'input-->
+                            <input id="ref" type="text" value="<?=htmlspecialchars($ref)?>" name="ref">
+                        <?php else: ?>
+                            <!-- sinon on affiche la valeur récupérée en BDD -->
+                            <input id="ref" type="text" value="<?= $productUpdate['ref']?>" name="ref">
+                        <?php endif;?>
+
+                    <?php else: ?> <!-- admin_product-->
+                        <!-- sinon on affiche l'input vide ou grace a isset on réaffiche la valeur de $ref dans l'input-->
+                        <input id="ref" type="text" value="<?php if(isset($ref)){echo htmlspecialchars($ref);}?>" name="ref">
+                    <?php endif;?>
+
+                </li>
+
+                <li>
+                    <label for"category">Catégorie&nbsp;:&nbsp;<span class="required">*</span></label>
+                    <select name="category">
+                        
+                        <?php if(array_key_exists('update_product', $_GET)) : ?>
+                            <!-- Si la variable $category existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                            <?php if(isset($category)) : ?>
+                                <!-- alors on la réaffiche dans le select -->
+                                <option><?= htmlspecialchars($category)?></option>
+                            <?php else: ?>
+                                <!-- sinon on affiche la valeur récupérée en BDD -->
+                                <option><?= $productUpdate['category']?></option>
+                            <?php endif; ?>
+                        <?php endif;?>
+                        <!-- si on a cliqué sur le bouton Ajouter produit ET que la variable $category existe alors on la réaffiche dans le select-->
+                        <?php if(array_key_exists('addProduct', $_POST) && isset($category)) : ?>
+                            <option><?= htmlspecialchars($category)?></option>
+                        <?php endif;?>
+
+                        <option value=""></option>
+                        <option value="Nouveautés">Nouveautés</option>
+                        <option value="Santé">Santé</option>
+                        <option value="Douleur">Douleur</option>
+                        <option value="Peau">Peau</option>
+                        <option value="Quotidien">Quotidien</option>
+                        <option value="Maison Animaux">Maison Animaux</option>
+                    </select>
+                </li>
+
+                <li>
+                    <label for="title">Titre&nbsp;:&nbsp;<span class="required">*</span></label>
+                    <?php if(array_key_exists('update_product', $_GET)) : ?>
+
+                        <!-- Si la variable $title existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                        <?php if(isset($title)) : ?>
+                            <!-- alors on la réaffiche dans l'input-->
+                            <input type="text" value="<?=htmlspecialchars($title)?>" name="title">
+                        <?php else: ?>
+                            <!-- sinon on affiche la valeur récupérée en BDD -->
+                            <input type="text" value="<?= $productUpdate['title']?>" name="title">
+                        <?php endif; ?>
+
+                    <?php else: ?><!-- admin_product-->
+                        <!-- sinon on affiche l'input vide ou grace a isset on réaffiche la valeur de $title dans l'input-->
+                        <input type="text" value="<?php if(isset($title)){echo htmlspecialchars($title);}?>" name="title">
+                    <?php endif;?>
+                </li>
+
+                <li>
+                    <label for="capacity">Contenance&nbsp;:</label>
+                    <?php if(array_key_exists('update_product', $_GET)) : ?>
+                        <!-- Si la variable $capacity existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                        <?php if(isset($capacity)) : ?>
+                            <!-- alors on la réaffiche dans l'input-->
+                            <input type="text" value="<?=htmlspecialchars($capacity)?>" name="capacity">
+                        <?php else: ?>
+                            <!-- sinon on affiche la valeur récupérée en BDD -->
+                            <input type="text" value="<?= $productUpdate['capacity']?>" name="capacity">
+                        <?php endif;?>
+
+                    <?php else: ?><!-- admin_product-->
+                        <!-- sinon on affiche l'input vide ou grace a isset on réaffiche la valeur de $capacity dans l'input-->
+                        <input type="text" value="<?php if(isset($capacity)){echo htmlspecialchars($capacity);}?>" name="capacity">
+                    <?php endif;?>
+                </li>
+
+                <li>
+                    <label for="composition">Composition&nbsp;:</label>
+                    <?php if(array_key_exists('update_product', $_GET)) : ?>
+                        <!-- Si la variable $composition existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                        <?php if(isset($composition)) : ?>
+                            <!-- alors on la réaffiche dans l'input-->
+                            <input type="text" value="<?= htmlspecialchars($composition)?>" name="composition">
+                        <?php else: ?>
+                            <!-- sinon on affiche la valeur récupérée en BDD -->
+                            <input type="text" value="<?= $productUpdate['composition']?>" name="composition">
+                        <?php endif;?>
+
+                    <?php else: ?><!-- admin_product-->
+                        <!-- sinon on affiche l'input vide ou grace a isset on réaffiche la valeur de $composition dans l'input-->
+                        <input type="text" value="<?php if(isset($composition)){echo htmlspecialchars($composition);}?>" name="composition">
+                    <?php endif;?>
+                </li>
+                <p class="italic"><span class="required">*</span> Ces champs sont obligatoires !</p>
+
+            </div>
+            <li>
+                <label for="productdescription">Description&nbsp;:</label>
+                <?php if(array_key_exists('update_product', $_GET)) : ?>
+
+                        <!-- Si la variable $productDescription existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                    <?php if(isset($productDescription)) : ?>
+                        <!-- alors on la réaffiche dans le textarea-->
+                        <textarea type="text" name="productdescription"><?= htmlspecialchars($productDescription)?></textarea>
+                    <?php else: ?>
+                        <!-- sinon on affiche la valeur récupérée en BDD -->
+                        <textarea type="text" name="productdescription"><?= $productUpdate['productdescription']?></textarea>
+                    <?php endif;?>
+
+                <?php else: ?><!-- admin_product-->
+                        <!-- sinon on affiche l'input vide ou grace a isset on réaffiche la valeur de $productDescription dans le textarea-->
+                    <textarea type="text" name="productdescription"><?php if(isset($capacity)){echo htmlspecialchars($productDescription);}?></textarea>
+                <?php endif;?>
+            </li>
+
+            <?php if(array_key_exists('update_product', $_GET)) : ?>
+                <!-- Utilisation d'un champ caché pour récupérer l'id du product à changer -->
+                <input type="hidden" name="id" value="<?= $productUpdate['id']?>">
+            <?php endif;?>
+
+        </ul>
+
+        <?php if(array_key_exists('update_product', $_GET)) : ?>
+            <!-- bouton Mise a jour-->
+            <button class="admin-btn" type="submit" name="updateProduct"><i class="fas fa-plus"></i>Modifier le produit</button>
+            <button class="admin-btn" type="reset" name="reset" value="effacer"><i class="fas fa-undo-alt"></i>Rétablir</button>
+            <button class="admin-btn" type="submit" name="delete_id"><i class="fa fa-trash"></i>Supprimer le produit</button>
+        <?php else: ?>
+        <!-- bouton Ajouter le produit-->
+            <button class="admin-btn" type="submit" name="addProduct"><i class="fas fa-plus"></i>Ajouter le produit </button>
+            <button class="admin-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Effacer</button>
+        <?php endif;?>
+    </form>
+    
+    <form class="logout-btn" action="admin_login.php" method="post">
+        <button class="admin-btn" name="logout" type="submit"><i class="fas fa-sign-out-alt"></i>Déconnexion</button>
+    <form>
+        
+    <div class="admin-menu">
+        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+    </div>
+</section>

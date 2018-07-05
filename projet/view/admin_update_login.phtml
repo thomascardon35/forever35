@@ -1,0 +1,54 @@
+<section id="admin-login">
+    <form action="" method="post">
+        <?php if((array_key_exists('current_password',$_POST) && $errorModel->getErrorMessage() != null) ) :?>
+            <!-- affichage du message d'erreur s'il existe en PHP -->
+            <aside class="error-message">
+                <ul>
+                    <li><?=$errorModel->getErrorMessage();?></li>
+                </ul>
+            </aside>
+        <?php endif;?>
+
+        <fieldset>
+            <legend>Modifier mon mot de passe Admin</legend>
+
+            <?php if($loginVerify == true) :?>
+                <ul>
+                    <li>
+                        <label>Mon Nouveau Pseudo&nbsp;: </label>
+                        <input type="text" name="pseudo">
+                    </li>
+                    <li>
+                        <label>Mon Nouveau Mot de Passe&nbsp;: </label>
+                        <input type="password" name="password">
+                    </li>
+                </ul>
+                <button class="admin-btn" type="submit" name="new_password" ><i class="fas fa-user-circle"></i>Entrer mes identifiants</button>
+            <?php elseif ($loginChange == true) :?>
+                <div class="div-sending-ok">
+                    <i class="far fa-thumbs-up"></i>
+                    <p class="sending-ok">Vos identifiants ont bien été modifiés ! </p>
+                </div>
+                <a href="admin.php" class="admin-a-btn" ><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+
+            <?php else:?>
+                <ul>
+                    <li>
+                        <label>Mon Pseudo Actuel&nbsp;: </label>
+                        <input type="text" name="pseudo">
+                    </li>
+                    <li>
+                        <label>Mon Mot de Passe Actuel&nbsp;: </label>
+                        <input type="password" name="password">
+                    </li>
+                </ul>
+                <button class="admin-btn" type="submit" name="current_password" ><i class="fas fa-user-circle"></i>Entrer mes Identifiants</button>
+            <?php endif;?>
+        </fieldset>
+    </form>
+    <?php if(($loginVerify == true) || (($loginVerify == false) && ($loginChange == false))) :?>
+        <div class="admin-menu">
+            <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+        </div>
+    <?php endif;?>
+</section>

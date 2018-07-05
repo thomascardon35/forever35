@@ -15,54 +15,32 @@
                     <th class="hidden">Message</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tbody-message">
                 <?php foreach($messages as $message): ?>            
-                    <tr onclick="location.href='adminMessage.php?read_message=<?= intval($message['id'])?>'">
-                        <td><?= $message['sendingdate']?></td>
-                        <td><?= $message['sendingtime']?></td>
-                        <td class="hidden"><?= $message['gender']?></td>
-                        <td><?= substr($message['lastname'],0,10);?></td>
-                        <td class="hidden"><?= substr($message['firstname'],0,10);?></td>
-                        <td class="hidden"><?= $message['zipcode']?></td>
-                        <td class="hidden"><?= substr($message['city'],0,17);?></td>
-                        <td><?= $message['subjectmessage']?></td>
-                        <td class="hidden"><?= substr($message['usermessage'],0,20);?></td>
-                        <td class="hidden"><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
+                    <tr>  <!-- on précise onclick a chaque ligne plutot qu'au <tr> parce que ca pose probleme pour le lien <a> (qui ,de ce fait, n'a pas le onclick !) avec l'icone de la poubelle qui permet la suppression en AJAX -->
+                <!-- date d'envoi -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"' data-id="<?= intval($message['id'])?>"><?= $message['sendingdate']?></td>
+                <!-- heure d'envoi -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"'  data-id="<?= intval($message['id'])?>"><?= $message['sendingtime']?></td>
+                <!-- Mme ou M. -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"' class="hidden" data-id="<?= intval($message['id'])?>"><?= $message['gender']?></td>
+                <!-- Nom de famille -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"'  data-id="<?= intval($message['id'])?>"><?= substr($message['lastname'],0,10);?></td>
+                <!-- Prénom -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"' class="hidden" data-id="<?= intval($message['id'])?>"><?= substr($message['firstname'],0,10);?></td>
+                <!-- code Postal -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"' class="hidden" data-id="<?= intval($message['id'])?>"><?= $message['zipcode']?></td>
+                <!-- Ville -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"' class="hidden" data-id="<?= intval($message['id'])?>"><?= substr($message['city'],0,17);?></td>
+                <!-- Sujet du message -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"'  data-id="<?= intval($message['id'])?>"><?= $message['subjectmessage']?></td>
+                <!-- Message -->
+                        <td onclick='location.href="admin_message.php?read_message=<?= intval($message['id'])?>"' class="hidden" data-id="<?= intval($message['id'])?>"><?= substr($message['usermessage'],0,20);?></td>
+                <!-- Bouton de suppression du message -->
+                        <td class="hidden"><a class="remove" data-choice="message" data-remove="<?= intval($message['id'])?>" href="admin.php?delete_message=<?= intval($message['id'])?>"><i class="fa fa-trash"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
-                <!-- <tr>
-                    <td><a href="adminMessage.php">Date......</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Civilité..</a></td>
-                    <td><a href="adminMessage.php">Nom.......</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Prénom....</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Téléphone.</a></td>
-                    <td class="hidden"><a href="adminMessage.php">E-mail....</a></td>
-                    <td><a href="adminMessage.php">Sujet.....</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Message...</a></td>
-                    <td><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
-                </tr>
-                <tr>
-                    <td><a href="adminMessage.php">Date......</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Civilité..</a></td>
-                    <td><a href="adminMessage.php">Nom.......</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Prénom....</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Téléphone.</a></td>
-                    <td class="hidden"><a href="adminMessage.php">E-mail....</a></td>
-                    <td><a href="adminMessage.php">Sujet.....</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Message...</a></td>
-                    <td><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
-                </tr>
-                <tr>
-                    <td><a href="adminMessage.php">Date......</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Civilité..</a></td>
-                    <td><a href="adminMessage.php">Nom.......</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Prénom....</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Téléphone.</a></td>
-                    <td class="hidden"><a href="adminMessage.php">E-mail....</a></td>
-                    <td><a href="adminMessage.php">Sujet.....</a></td>
-                    <td class="hidden"><a href="adminMessage.php">Message...</a></td>
-                    <td><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
-                </tr> -->
+                
             </tbody>
         </table>
 
@@ -82,21 +60,21 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody id="tbody-event">
                 <?php foreach($newsEvents as $newsEvent): ?>
-                    <tr onclick="location.href='adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>'">
-                        <td><?= $newsEvent['eventdate']?></td>
-                        <td class="hidden"><?= $newsEvent['eventtime']?></td>
-                        <td class="hidden"><?= $newsEvent['endtime']?></td>
-                        <td><?= substr($newsEvent['city'],0,15);?></td>
-                        <td><?= substr($newsEvent['eventtype'],0,15);?></td>
-                        <td><?= substr($newsEvent['eventdescription'],0,30);?></td>
+                    <tr>
+                        <td onclick="location.href='admin_event.php?update_event=<?= intval($newsEvent['id'])?>'"><?= $newsEvent['eventdate']?></td>
+                        <td onclick="location.href='admin_event.php?update_event=<?= intval($newsEvent['id'])?>'" class="hidden"><?= $newsEvent['eventtime']?></td>
+                        <td onclick="location.href='admin_event.php?update_event=<?= intval($newsEvent['id'])?>'" class="hidden"><?= $newsEvent['endtime']?></td>
+                        <td onclick="location.href='admin_event.php?update_event=<?= intval($newsEvent['id'])?>'"><?= substr($newsEvent['city'],0,15);?></td>
+                        <td onclick="location.href='admin_event.php?update_event=<?= intval($newsEvent['id'])?>'"><?= substr($newsEvent['eventtype'],0,15);?></td>
+                        <td onclick="location.href='admin_event.php?update_event=<?= intval($newsEvent['id'])?>'"><?= substr($newsEvent['eventdescription'],0,30);?></td>
                         <td class="hidden">
                             <div>
-                                <a data-action="update" href="adminAddEvent.php?update_id=<?= intval($newsEvent['id'])?>">
+                                <a href="admin_event.php?update_event=<?= intval($newsEvent['id'])?>">
                                 <i class="fa fa-edit"></i></a>
 
-                                <a data-action="remove" href="admin.php?delete_id=<?= intval($newsEvent['id'])?>">
+                                <a class="remove" data-choice="event" data-remove="<?= intval($newsEvent['id'])?>" href="admin.php?delete_event=<?= intval($newsEvent['id'])?>">
                                 <i class="fa fa-trash"></i></a>
                             </div>
                         </td>
@@ -104,11 +82,41 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a class="admin-a-btn" href="adminAddEvent.php"><i class="fas fa-plus"></i> Ajouter un événement</a>
+        <a class="admin-a-btn" href="admin_event.php"><i class="fas fa-plus"></i> Ajouter un événement</a>
+    </section>
+
+    <section class="admin-products">
+        <h2 class="title">Mes Produits affichés sur le site</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Réf Produit</th>
+                    <th>Catégorie</th>
+                    <th>Titre</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-product">
+                <?php foreach($products as $product): ?>
+                    <tr>
+                        <td onclick="location.href='admin_product.php?update_product=<?= intval($product['id'])?>'"><?= $product['ref']?></td>
+                        <td onclick="location.href='admin_product.php?update_product=<?= intval($product['id'])?>'"><?= $product['category']?></td>
+                        <td onclick="location.href='admin_product.php?update_product=<?= intval($product['id'])?>'"><?= $product['title']?></td>
+                        <td>
+                            <a href="admin_product.php?update_product=<?= intval($product['id'])?>"><i class="fa fa-edit"></i></a>
+                            <a class="remove" data-choice="product" data-remove="<?= intval($product['id'])?>" href="admin.php?delete_product=<?= intval($product['id'])?>"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <a class="admin-a-btn" href="admin_product.php"><i class="fas fa-plus"></i> Ajouter un produit</a>
     </section>
     
-    <form class="logout-btn" action="adminLogIn.php" method="post">
+    <form class="logout-btn" action="admin_login.php" method="post">
         <button class="admin-btn" name="logout" type="submit"><i class="fas fa-sign-out-alt"></i>Déconnexion</button>
     <form>
 
+    <a class="update-login" href="admin_update_login.php">Modifier mon login/mot de passe</a>
 </section>
+
+<script src="js/delete.ajax.js"></script>

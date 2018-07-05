@@ -1,0 +1,341 @@
+<section id ="admin-add-event">
+
+    <div class="admin-menu">
+        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+    </div>
+    <?php if(array_key_exists('update_event', $_GET)) :?>
+    <!-- Si le lien contenant la query string 'update_event' est cliqué ,on affiche ce titre-->
+        <h1 class="title">Modifier un événement</h1>
+    <?php else: ?>
+    <!-- sinon celui-ci-->
+        <h1 class="title">Ajouter un événement</h1>
+    <?php endif;?>
+
+    <form method="post" action="">
+    <!-- si on clique sur le bouton 'ajouter une événement' OU 'modifier un événement' ET qu'il existe une erreur-->
+        <?php if(((array_key_exists('addEvent',$_POST) || array_key_exists('updateEvent',$_POST))  && $errorModel->getErrorMessage() != null) ) :?>
+
+            <!-- on affiche le message d'erreur avec PHP  -->
+            <?php if($errorModel->getErrorMessage() != null):?>
+                <aside class="error-message">
+                    <ul>
+                        <li><?=$errorModel->getErrorMessage();?></li>
+                    </ul>
+                </aside>
+            <?php endif;?>
+        <?php endif;?>
+
+        <ul>
+            <div class="div-event-field">
+                <!-- Selecteur de date --> 
+                <li>
+                    <label for"appointementdate">Date de l'événement&nbsp;:&nbsp;<span class="required">*</span></label>
+                    <div class="select-date">
+
+                        <select name="day">
+
+                            <!-- Ici grace a isset on réaffiche la donnée qui n'a pas pu s'enregistrer pour éviter à l'admin de tout retaper si une erreur existe sur son formulaire-->
+                            <?php if(isset($day)) : ?>
+
+                                <!-- ici on gère le cas particulier du champ vide. Sans cette condition le formulaire affichera 00 à cause de sprintf-->
+                                <?php if($day == '') :?>
+                                    <option value=""></option>
+                                <?php else: ?>
+                                    <option value="<?= htmlspecialchars(sprintf("%02d",$day));?>"><?= htmlspecialchars(sprintf("%02d",$day));?></option>
+                                <?php endif;?>
+
+                            <?php endif;?>
+
+                            <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                            <?php if(array_key_exists('update_event', $_GET)) : ?>
+                            <!-- alors on affiche la valeur récupérée en BDD -->
+                                <option value="<?= $newsEventsUpdate['eventday']?>"><?= $newsEventsUpdate['eventday']?></option>
+                            <?php endif;?>
+                            
+                            <option value=""></option>
+
+                            <!-- Boucle for qui permet d'afficher les jours de 1 à 31-->
+                            <?php for ($day = 1; $day <= 31; $day++): ?>
+                                <option value="<?= sprintf("%02d",$day) ?>"><?= sprintf("%02d",$day) ?></option>
+                            <?php endfor ?>
+                        </select>
+
+                        <select name="month">           
+
+                            <!-- Ici grace a isset on réaffiche la donnée qui n'a pas pu s'enregistrer pour éviter à l'admin de tout retaper si une erreur existe sur son formulaire-->
+                            <?php if(isset($month)) : ?>
+
+                                <!-- ici on gère le cas particulier du champ vide. Sans cette condition le formulaire affichera 00 à cause de sprintf-->
+                                <?php if($month == '') :?>
+                                    <option value=""></option>
+                                <?php else: ?>
+                                    <option value="<?= htmlspecialchars(sprintf("%02d",$month));?>"><?= htmlspecialchars(sprintf("%02d",$month));?></option>
+                                <?php endif;?>
+
+                            <?php endif;?>
+
+                            <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                            <?php if(array_key_exists('update_event', $_GET)) : ?>
+                            <!-- alors on affiche la valeur récupérée en BDD -->
+                                <option value="<?= $newsEventsUpdate['eventmonth']?>"><?= $newsEventsUpdate['eventmonth']?></option>
+                            <?php endif;?>
+
+                            <option value=""></option>
+                            
+                            <!-- Boucle for qui permet d'afficher les mois de 1 à 12-->
+                            <?php for ($month = 1; $month <= 12; $month++): ?>
+                                <option value="<?= sprintf("%02d",$month) ?>"><?= sprintf("%02d",$month) ?></option>
+                            <?php endfor ?>
+                        </select>
+
+                        <select name="year">        
+
+                            <!-- Ici grace a isset on réaffiche la donnée qui n'a pas pu s'enregistrer pour éviter à l'admin de tout retaper si une erreur existe sur son formulaire-->
+                            <?php if(isset($year)) : ?>
+
+                                <!-- ici on gère le cas particulier du champ vide. Sans cette condition le formulaire affichera 00 à cause de sprintf-->
+                                <?php if($year == '') :?>
+                                    <option value=""></option>
+                                <?php else: ?>
+                                    <option value="<?= htmlspecialchars(sprintf("%02d",$year));?>"><?= htmlspecialchars(sprintf("%02d",$year));?></option>
+                                <?php endif;?>
+
+                            <?php endif;?>
+                            
+                            <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                            <?php if(array_key_exists('update_event', $_GET)) : ?>
+                            <!-- alors on affiche la valeur récupérée en BDD -->
+                                <option value="<?= $newsEventsUpdate['eventyear']?>"><?= $newsEventsUpdate['eventyear']?></option>
+                            <?php endif;?>
+
+                            <option value=""></option>
+
+                            <!-- Boucle for qui permet d'obtenir dans le champ select l'année en cours + les 3 années suivantes-->
+                            <?php for ($year = date("Y"); $year <=  date("Y") + 3 ; $year++):  ?>
+                                <option value="<?=$year ?>"><?=$year ?></option>
+                            <?php endfor ?>
+                        </select>
+                    </div>
+                </li>
+                <!-- Sélecteur d'heure de début-->
+                <li>
+                    <label for"appointementtime">Heure de rendez-vous&nbsp;:&nbsp;<span class="required">*</span></label>
+                    <div class="select-time">
+
+                        <select name="appointementhour">
+
+                            <!-- Ici grace a isset on réaffiche la donnée qui n'a pas pu s'enregistrer pour éviter à l'admin de tout retaper si une erreur existe sur son formulaire-->
+                            <?php if(isset($appointementHour)) : ?>
+
+                                <!-- ici on gère le cas particulier du champ vide. Sans cette condition le formulaire affichera 00 à cause de sprintf-->
+                                <?php if($appointementHour == '' ):?>
+                                    <option value=""></option>
+                                <?php else: ?>
+                                    <option value="<?= htmlspecialchars(sprintf("%02d",$appointementHour));?>"><?= htmlspecialchars(sprintf("%02d",$appointementHour));?></option>
+                                <?php endif;?>
+
+                            <?php endif;?>
+                            
+                            <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                            <?php if(array_key_exists('update_event', $_GET)) : ?>
+                            <!-- alors on affiche la valeur récupérée en BDD -->
+                                <option value="<?= $newsEventsUpdate['eventhour']?>"><?= $newsEventsUpdate['eventhour']?></option>
+                            <?php endif;?>
+
+                            <option value=""></option>
+
+                            <!-- Boucle for qui permet d'afficher les heures de 0 à 23-->
+                            <?php for ($hour = 0; $hour <= 23; $hour++): ?>
+                                <option value="<?= sprintf("%02d",$hour) ?>"><?= sprintf("%02d",$hour) ?></option>
+                            <?php endfor ?>
+                        </select>
+
+                        <select name="appointementminutes">
+                            
+                            <!-- Ici grace a isset on réaffiche la donnée qui n'a pas pu s'enregistrer pour éviter à l'admin de tout retaper si une erreur existe sur son formulaire-->
+                            <?php if(isset($appointementMinutes)) : ?>
+
+                                <!-- ici on gère le cas particulier du champ vide. Sans cette condition le formulaire affichera 00 à cause de sprintf-->
+                                <?php if($appointementMinutes == '') :?>
+                                    <option value=""></option>
+                                <?php else: ?>
+                                    <option value="<?= htmlspecialchars(sprintf("%02d",$appointementMinutes));?>"><?= htmlspecialchars(sprintf("%02d",$appointementMinutes));?></option>
+                                <?php endif;?>
+
+                            <?php endif;?>
+                            
+                            <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                            <?php if(array_key_exists('update_event', $_GET)) : ?>
+                            <!-- alors on affiche la valeur récupérée en BDD -->
+                                <option value="<?= $newsEventsUpdate['eventminutes']?>"><?= $newsEventsUpdate['eventminutes']?></option>
+                            <?php endif;?>
+
+                            <option value=""></option>
+
+                            <!-- Boucle for qui permet d'afficher les minutes de 0 à 59-->
+                            <?php for ($minutes = 0; $minutes <= 59; $minutes++): ?>
+                                <option value="<?= sprintf("%02d",$minutes); ?>"><?= sprintf("%02d",$minutes); ?></option>
+                            <?php endfor ?>
+                        </select>
+
+                    </div>
+                </li>
+                <!-- Sélecteur d'heure de fin-->
+                <li>
+                    <label for"endtimeevent">Heure de fin&nbsp;:</label>
+                    <div class="select-time">
+
+                        <select name="endtimehour">
+                            
+                            <!-- Ici grace a isset on réaffiche la donnée qui n'a pas pu s'enregistrer pour éviter à l'admin de tout retaper si une erreur existe sur son formulaire-->
+                            <?php if(isset($endTimeHour)) : ?>
+
+                                <!-- ici on gère le cas particulier du champ vide. Sans cette condition le formulaire affichera 00 à cause de sprintf-->
+                                <?php if($endTimeHour == '') :?>
+                                    <option value=""></option>
+                                <?php else: ?>
+                                    <option value="<?= htmlspecialchars(sprintf("%02d",$endTimeHour));?>"><?= htmlspecialchars(sprintf("%02d",$endTimeHour));?></option>
+                                <?php endif;?>
+
+                            <?php endif;?>
+                            
+                            <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                            <?php if(array_key_exists('update_event', $_GET)) : ?>
+                            <!-- alors on affiche la valeur récupérée en BDD -->
+                                <option value="<?= $newsEventsUpdate['endtimehour']?>"><?= $newsEventsUpdate['endtimehour']?></option>
+                            <?php endif;?>
+
+                            <option value=""></option>
+
+                            <!-- Boucle for qui permet d'afficher les heures de 0 à 23-->
+                            <?php for ($hour = 0; $hour <= 23; $hour++): ?>
+                                <option value="<?= sprintf("%02d",$hour) ?>"><?= sprintf("%02d",$hour) ?></option>
+                            <?php endfor ?>
+                        </select>
+
+                        <select name="endtimeminutes">
+
+                            <!-- Ici grace a isset on réaffiche la donnée qui n'a pas pu s'enregistrer pour éviter à l'admin de tout retaper si une erreur existe sur son formulaire-->
+                            <?php if(isset($endTimeMinutes)) : ?>
+
+                                <!-- ici on gère le cas particulier du champ vide. Sans cette condition le formulaire affichera 00 à cause de sprintf-->
+                                <?php if($endTimeMinutes == '') :?>
+                                    <option value=""></option>
+                                <?php else: ?>
+                                    <option value="<?= htmlspecialchars(sprintf("%02d",$endTimeMinutes));?>"><?= htmlspecialchars(sprintf("%02d",$endTimeMinutes));?></option>
+                                <?php endif;?>
+
+                            <?php endif;?>
+
+                            <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                            <?php if(array_key_exists('update_event', $_GET)) : ?>
+                            <!-- alors on affiche la valeur récupérée en BDD -->
+                                <option value="<?= $newsEventsUpdate['endtimeminutes']?>"><?= $newsEventsUpdate['endtimeminutes']?></option>
+                            <?php endif;?>
+
+                            <option value=""></option>
+
+                            <!-- Boucle for qui permet d'afficher les minutes de 0 à 59-->
+                            <?php for ($minutes = 0; $minutes <= 59; $minutes++): ?>
+                                <option value="<?= sprintf("%02d",$minutes); ?>"><?= sprintf("%02d",$minutes); ?></option>
+                            <?php endfor ?>
+                        </select>
+
+                    </div>
+                </li>
+                <!-- Ville-->
+                <li>
+                    <label for="city">Ville&nbsp;:&nbsp;<span class="required">*</span></label>
+                    <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                    <?php if(array_key_exists('update_event', $_GET)) : ?>
+
+                        <!-- Si la variable $city existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                        <?php if(isset($city)) : ?>
+                            <!-- alors on la réaffiche dans l'input-->
+                            <input id="city" type="text" value="<?= htmlspecialchars($city) ?>" name="city">
+                        <?php else: ?>
+                            <!-- sinon on affiche la valeur récupérée en BDD -->
+                            <input id="city" type="text" value="<?= $newsEventsUpdate['city']?>" name="city">
+                        <?php endif;?>
+
+                    <?php else : ?> <!-- ici add_event-->
+                        <!-- sinon on affiche l'input vide ou grace a isset on réaffiche la valeur de $city dans l'input-->
+                        <input id="city" type="text" value="<?php if(isset($city)){echo htmlspecialchars($city);}?>" name="city">
+                        
+                    <?php endif;?>
+                </li>
+                <!-- Type d'événement -->
+                <li>
+                    <label for="eventtype">Type d'événement&nbsp;:&nbsp;<span class="required">*</span></label>
+                    <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                    <?php if(array_key_exists('update_event', $_GET)) : ?>
+
+                        <!-- Si la variable $eventType existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                        <?php if(isset($eventType)) : ?>
+                            <!-- alors on la réaffiche dans l'input-->
+                            <input id="eventtype" type="text" value="<?= htmlspecialchars($eventType) ?>" name="eventtype">
+                        <?php else: ?>
+                            <!-- alors on affiche la valeur récupérée en BDD -->
+                            <input id="eventtype" type="text" value="<?= $newsEventsUpdate['eventtype']?>" name="eventtype">
+                        <?php endif;?>
+
+                    <?php else : ?><!-- ici add_event-->
+                        <!-- sinon on affiche l'input vide ou grace a isset on réaffiche la valeur de $eventType dans l'input-->
+                        <input id="eventtype" type="text" value="<?php if(isset($eventType)){echo htmlspecialchars($eventType);}?>" name="eventtype">
+                    <?php endif;?>
+                </li>
+                <p class="italic"><span class="required">*</span> Ces champs sont obligatoires !</p>
+            </div>
+            <!-- Description de l'événement-->
+            <li>
+                <label class="description-title" for="eventdescription">Description&nbsp;:&nbsp;<span class="required-blue">*</span></label>
+                <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+                <?php if(array_key_exists('update_event', $_GET)) : ?>
+
+                    <!-- Si la variable $eventType existe (en cas d'erreur,ca permet de conserver ce qui a été écrit) -->
+                    <?php if(isset($eventDescription)) : ?>
+                        <!-- alors on la réaffiche dans l'input-->
+                        <textarea id="eventdescription" type="text" name="eventdescription"><?= htmlspecialchars($eventDescription)?></textarea>
+                    <?php else:?>
+                        <!-- sinon on affiche la valeur récupérée en BDD -->
+                        <textarea id="eventdescription" type="text" name="eventdescription"><?= $newsEventsUpdate['eventdescription']?></textarea>
+                    <?php endif; ?>
+
+                <?php else : ?><!-- ici add_event-->
+                    <!-- sinon on affiche le textarea vide ou grace a isset on réaffiche la valeur de $eventDescription dans le textarea-->
+                    <textarea id="eventdescription" type="text" name="eventdescription"><?php if(isset($eventDescription)){echo htmlspecialchars($eventDescription);}?></textarea>
+                <?php endif;?>
+                <p class="italic required-description"><span class="required-blue">*</span> Mais le champ Description peut être rempli seul ! (Ajout d'une actualité)</p>
+            </li>
+            
+            <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+            <?php if(array_key_exists('update_event', $_GET)) : ?>
+                <!-- Utilisation d'un champ caché pour récupérer l'id de la newsevents à changer -->
+                <input type="hidden" name="id" value="<?= $newsEventsUpdate['id']?>">
+            <?php endif;?>
+                            
+        </ul>
+
+        <!-- Si le lien contenant la query string 'update_event' est cliqué -->
+        <?php if(array_key_exists('update_event', $_GET)) : ?>
+            <!-- On affiche les boutons Modifier, Rétablir et Supprimer l'événement-->
+            <button class="admin-btn" type="submit" name="updateEvent"><i class="fas fa-plus"></i>Modifier l'événement </button>
+            <button class="admin-btn" type="reset" name="reset" value="effacer"><i class="fas fa-undo-alt"></i>Rétablir</button>
+            <button class="admin-btn" type="submit" name="delete_id"><i class="fa fa-trash"></i>Supprimer l'événement</button>
+            
+        <?php else : ?>            
+            <!-- Ou on affiche les boutons Ajouter l'événement ou Effacer-->
+            <button class="admin-btn" type="submit" name="addEvent"><i class="fas fa-plus"></i>Ajouter l'événement</button>
+            <button class="admin-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Effacer</button>
+        <?php endif;?>
+
+    </form>
+    
+    <form class="logout-btn" action="admin_login.php" method="post">
+        <button class="admin-btn" name="logout" type="submit"><i class="fas fa-sign-out-alt"></i>Déconnexion</button>
+    </form>
+        
+    <div class="admin-menu">
+        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+    </div>
+</section>
