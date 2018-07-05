@@ -1,0 +1,499 @@
+page admin.phtml : 
+
+    <!-- <tr>
+        <td><a href="adminAddEvent.php">Date......</td></a>
+        <td class="hidden"><a href="adminAddEvent.php">Heure.....</td></a>
+        <td><a href="adminAddEvent.php">Lieu......</td></a>
+        <td><a href="adminAddEvent.php">Evenement.</td></a>
+        <td class="hidden"><a href="adminAddEvent.php">Description</td></a>
+        <td>
+            <div>
+                <a data-action="create" href="adminAddEvent.php"><i class="fa fa-edit"></i></a>
+                <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><a href="adminAddEvent.php">Date......</td></a>
+        <td class="hidden"><a href="adminAddEvent.php">Heure.....</td></a>
+        <td><a href="adminAddEvent.php">Lieu......</td></a>
+        <td><a href="adminAddEvent.php">Evenement.</td></a>
+        <td class="hidden"><a href="adminAddEvent.php">Description</td></a>
+        <td>
+            <div>
+                <a data-action="create" href="adminAddEvent.php"><i class="fa fa-edit"></i></a>
+                <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
+            </div>
+        </td>
+    </tr> -->
+
+
+    <!-- <section class="admin-products">
+        <h2 class="title">Mes Produits affichés sur le site</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Réf Produit</th>
+                    <th>Titre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr onclick="document.location=''">
+                    <td>Contenu Catégorie</td>
+                    <td>Contenu Réf</td>
+                    <td>Contenu Titre</td>
+                    <td>
+                        <a data-action="create" href=""><i class="fa fa-edit"></i></a>
+                        <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                <tr onclick="document.location=''">
+                    <td>Contenu Catégorie</td>
+                    <td>Contenu Réf</td>
+                    <td>Contenu Titre</td>
+                    <td>
+                        <a data-action="create" href=""><i class="fa fa-edit"></i></a>
+                        <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                <tr onclick="document.location=''">
+                    <td>Contenu Catégorie</td>
+                    <td>Contenu Réf</td>
+                    <td>Contenu Titre</td>
+                    <td>
+                        <a data-action="create" href=""><i class="fa fa-edit"></i></a>
+                        <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                <tr onclick="document.location=''">
+                    <td>Contenu Catégorie</td>
+                    <td>Contenu Réf</td>
+                    <td>Contenu Titre</td>
+                    <td>
+                        <a data-action="create" href=""><i class="fa fa-edit"></i></a>
+                        <a data-action="remove" href=""><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href=""><i class="fas fa-plus"></i> Ajouter un produit</a>
+    </section> -->
+
+    <!-- <script>
+        $(function(){
+            var tableBox= $("#admin td a");
+            /* var arrayTableBox=[]; */
+
+            for (var index = 0; index < tableBox.length; index++){
+
+                var textTableBox = tableBox[index].textContent;
+                /* arrayTableBox.push(textTableBox); */
+
+                /*var newTextTableBox = textTableBox.substring(0,3);  */
+                tableBox[index].textContent = textTableBox.substring(0,7) + '...';
+            }
+            
+        });
+    </script> -->
+
+    <!--             <article>
+                <h3>Pulpe d'Aloe Vera TetraPak</h3>
+                <img src="img/products/715.png" alt="Pulpe d'Aloe Vera TetraPak">
+                <a href="product.php#product">Description du produit <i class="fas fa-plus-square"></i></a>
+            </article>
+
+            <article>
+                <h3>Forever Bee Propolis</h3>
+                <img src="img/products/27.png" alt="Forever Bee Propolis">
+                <a href="">Description du produit <i class="fas fa-plus-square"></i></a>
+            </article>
+
+            <article>
+                <h3>Forever Royal Jelly</h3>
+                <img src="img/products/36.png" alt="Forever Royal Jelly">
+                <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+            </article> -->
+
+        <!--             <article>
+                    <h3>Emulsion Thermogène - Aloe Heat Lotion</h3>
+                    <img src="img/products/64.png" alt="Emulsion Thermogène - Aloe Heat Lotion">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article>
+
+                <article>
+                    <h3>Aloe MSM Gel</h3>
+                    <img src="img/products/205.png" alt="Aloe MSM Gel">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article> -->
+
+
+        <!--             <article>
+                    <h3>Gelée d'aloès</h3>
+                    <img src="img/products/61.png" alt="Gelée d'aloès">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article>
+
+                <article>
+                    <h3>Aloe Propolis Crème</h3>
+                    <img src="img/products/51.png" alt="Aloe Propolis Crème">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article>
+
+                <article>
+                    <h3>Crème Visage Aloès</h3>
+                    <img src="img/products/63.png" alt="Crème Visage Aloès">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article>
+
+                <article>
+                    <h3>Soin Hydratant Intense Sonya</h3>
+                    <img src="img/products/311.png" alt="Soin Hydratant Intense Sonya">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article>
+
+                <article>
+                    <h3>Sérum Nourrissant au Thé Blanc Sonya</h3>
+                    <img src="img/products/281.png" alt="Sérum Nourrissant au Thé Blanc Sonya">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article> -->
+
+                    <!--             <article>
+                    <h3>Stick Déodorant Aloès</h3>
+                    <img src="img/products/67.png" alt="Stick Déodorant Aloès">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article>
+
+                <article>
+                    <h3>Forever Bright Toothgel</h3>
+                    <img src="img/products/28.png" alt="Forever Bright Toothgel">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article>
+
+                <article>
+                    <h3>Aloé Lèvres</h3>
+                    <img src="img/products/1022.png" alt="Aloé Lèvres">
+                    <a href="#">Description du produit <i class="fas fa-plus-square"></i></a>
+                </article> -->
+
+                
+<!--        Toutes les autres données à enregistrer en BDD          -->
+
+
+<!--  SANTE
+
+<div class="description hidden">
+    <p>La propolis est une résine collectée et métabolisée par les abeilles mellifères à partir des arbres et utilisée pour protéger la ruche. Cette substance ayant des propriétés anti-microbiennes, la ruche est ainsi protégée de la prolifération de champignons et de bactéries.</p>
+    <p><span>Contenance :</span>60 comprimés</p>
+    <p><span>Composition :</span>Propolis, Miel. Contient du soja. </p>
+    <p><span>Référence :</span>27</p>
+</div>
+
+<div class="description hidden">
+    <p>Froid, vent et journées plus courtes marquent l'arrivée de l'hiver. Forever Royal Jelly est idéale pour se prémunir contre les conséquences de la période hivernale. Forever Royal Jelly renforce en douceur les défenses naturelles de l‘organisme et permet d'attaquer l'hiver en forme.</p>
+    <p><span>Contenance :</span>60 comprimés</p>
+    <p><span>Composition :</span>75.5 mg de gelée royale lyophilisée équivalent à 250 mg de gelée royale fraîche par comprimé.</p>
+    <p><span>Référence :</span>36</p>
+</div>
+
+
+DOULEUR
+
+<div class="description hidden">
+    <p>L'émulsion thermogène procure une étonnante sensation de chaleur localisée. La richesse du gel de la plante d'Aloès est associée aux extraits d'Eucalyptus et de Menthol, connus pour leurs propriétés apaisantes. Utilisée comme crème de massage, l'Emulsion Thermogène procure un intense moment de bien-être et de relaxation. NOUVELLE FORMULE</p>
+    <p><span>Contenance :</span>118ml</p>
+    <p><span>Composition :</span>35.9 % de gel d'aloès.</p>
+    <p><span>Référence :</span>64</p>
+</div>
+
+<div class="description hidden">
+    <p>Le methyl sulfonyl méthane (MSM) est une source stable, riche et naturelle de soufre organique. Le soufre est présent en concentration particulièrement élevée dans les articulations où il participe à la production du sulfate de chondroïtine et des glucosamines. Utilisé comme gel de massage, le MSM gel améliore le confort articulaire.</p>
+    <p><span>Contenance :</span>118ml</p>
+    <p><span>Composition :</span>40 % de gel d'aloès, 15 % MSM.</p>
+    <p><span>Référence :</span>205</p>
+</div>
+
+
+PEAU
+
+<div class="description hidden">
+    <p>Particulièrement riche en Aloe Vera, ce gel transparent non gras possède toutes les vertus de la plante. Il hydrate*, apaise et régénère l'épiderme. Il est idéal contre les irritations de la peau et les coups de soleil. * Hydratation des couches supérieures de l'épiderme </p>
+    <p><span>Contenance :</span>118 ml</p>
+    <p><span>Composition :</span>84.46 % de gel d'aloès.</p>
+    <p><span>Référence :</span>61</p>
+</div>
+
+
+<div class="description hidden">
+    <p>L'aloès associé à la propolis, font de cette crème à la texture riche, un véritable soin anti-bactérien et réparateur, qui apaise les irritations cutanées. La camomille, l'allantoïne et les vitamines A et E apportent à la peau douceur et souplesse. Elle peut être utilisée sur les peaux sèches et rugueuses. </p>
+    <p><span>Contenance :</span>113g</p>
+    <p><span>Composition :</span>74.17 % de gel d'aloès, 0.55 % de propolis</p>
+    <p><span>Référence :</span>51</p>
+</div>
+
+
+<div class="description hidden">
+    <p>Ce soin protège, nourrit et réduit les signes du vieillissement cutané. Sa texture fondante, enrichie en collagène et en élastine, hydrate* et raffermit. La peau est souple, douce et apparaît comme "liftée". Convient aux peaux sensibles. </p>
+    <p><span>Contenance :</span>118ml</p>
+    <p><span>Composition :</span>36.5 % de gel d'aloès.</p>
+    <p><span>Référence :</span>63</p>
+</div>
+
+
+<div class="description hidden">
+    <p>Ce soin régénérant agit comme un bain d'hydratation* et procure à la peau un confort. La peau est raffermie, paraît visiblement plus jeune et lissée. Les rides et ridules sont visiblement réduites apportant confort et tonus tout au long de la journée. * Hydratation des couches supérieures de l'épiderme. FORMULE OPTIMISÉE</p>
+    <p><span>Contenance :</span>71g</p>
+    <p><span>Composition :</span>26 % de gel d'aloès.</p>
+    <p><span>Référence :</span>311</p>
+</div>
+
+
+<div class="description hidden">
+    <p>Ce sérum apporte souplesse et préserve l'élasticité de la peau tout en l'hydratant* intensément. Il réduit les signes visibles du vieillissement cutané. Sa texture riche et légèrement gélifiée pénètre en profondeur et laisse un confort intense. * Hydratation des couches supérieures de l'épiderme.</p>
+    <p><span>Contenance :</span>118ml</p>
+    <p><span>Composition :</span>37 % de gel d'aloès.</p>
+    <p><span>Référence :</span>281</p>
+</div>
+
+QUOTIDIEN
+
+
+<div class="description hidden">
+    <p>Sans alcool, sans sels d'aluminium et discrètement parfumé, ce déodorant assure une protection efficace sans tacher vos vêtements. Sa formule à l'aloès adoucit et hydrate* la peau. *Hydrate les couches supérieures de l'épiderme. </p>
+    <p><span>Contenance :</span>92.1g</p>
+    <p><span>Composition :</span>Gel d'aloès.</p>
+    <p><span>Référence :</span>67</p>
+</div>
+
+
+<div class="description hidden">
+    <p>Ce gel dentaire, sans fluor et non abrasif, ravive la blancheur de vos dents. Son complexe à la chlorophylle, sans menthol, procure une sensation de fraîcheur naturelle. Sa formule complète à base de propolis et d'aloès aide à préserver votre l'hygiène buccale. </p>
+    <p><span>Contenance :</span>130g</p>
+    <p><span>Composition :</span>35.5 % de gel d'aloès.</p>
+    <p><span>Référence :</span>28</p>
+</div>
+
+
+<div class="description hidden">
+    <p>Une formule nourrissante et protectrice pour ce baume à lèvres qui associe Aloe Vera, huile de jojoba et cire d'abeille. Il apporte un confort revitalisant pour les lèvres les plus desséchées. * Hydratation des couches supérieures de l'épiderme </p>
+    <p><span>Contenance :</span>4.5g</p>
+    <p><span>Composition :</span>27.6 % de gel d'aloès, 20.4 % d'huile de jojoba.</p>
+    <p><span>Référence :</span>1022</p>
+</div>
+-->
+
+<!-- admin_event -->
+
+    <?php else: ?>
+        <h1 class="title">Ajouter un événement</h1>
+        <form method="post" action="">
+            <?php if((array_key_exists('addEvent',$_POST) && $errorModel->getErrorMessage() != null) || true ) :?>
+
+                <!-- affichage du message d'erreur avec PHP (s'il existe) -->
+                <?php if($errorModel->getErrorMessage() != null):?>
+                    <aside class="error-message">
+                        <ul>
+                            <li><?=$errorModel->getErrorMessage();?></li>
+                        </ul>
+                    </aside>
+                <?php endif;?>
+                <ul>
+                    <div>
+                        <!-- Selecteur de date --> 
+                        <li>
+                            <label for"appointementdate">Date de l'événement&nbsp;:</label>
+                            <div class="select-date">
+                                <select name="day">
+                                    <option value=""></option>
+                                    <?php for ($day = 1; $day <= 31; $day++): ?>
+                                        <option value="<?= sprintf("%02d",$day) ?>"><?= sprintf("%02d",$day) ?></option>
+                                    <?php endfor ?>
+                                </select>
+                                <select name="month">
+                                    <option value=""></option>
+                                    <?php for ($month = 1; $month <= 12; $month++): ?>
+                                        <option value="<?= sprintf("%02d",$month) ?>"><?= sprintf("%02d",$month) ?></option>
+                                    <?php endfor ?>
+                                </select>
+                                <select name="year">
+                                    <option value=""></option>
+                                    <?php for ($year = date("Y"); $year <=  date("Y") + 3 ; $year++):  ?>
+                                        <option value="<?=$year ?>"><?=$year ?></option>
+                                    <?php endfor ?>
+                                </select>
+                            </div>
+                        </li>
+                        <!-- Sélecteur d'heure de début-->
+                        <li>
+                            <label for"appointementtime">Heure de rendez-vous&nbsp;:</label>
+                            <div class="select-time">
+                                <select name="appointementhour">
+                                    <option value=""></option>
+                                    <?php for ($hour = 0; $hour <= 23; $hour++): ?>
+                                        <option value="<?= sprintf("%02d",$hour) ?>"><?= sprintf("%02d",$hour) ?></option>
+                                    <?php endfor ?>
+                                </select>
+                                <select name="appointementminutes">
+                                    <option value=""></option>
+                                    <?php for ($minutes = 0; $minutes <= 59; $minutes++): ?>
+                                        <option value="<?= sprintf("%02d",$minutes); ?>"><?= sprintf("%02d",$minutes); ?></option>
+                                    <?php endfor ?>
+                                </select>
+                            </div>
+                        </li>
+                        <!-- Sélecteur d'heure de fin-->
+                        <li>
+                            <label for"endtimeevent">Heure de fin&nbsp;:</label>
+                            <div class="select-time">
+                                <select name="endtimehour">
+                                    <option value=""></option>
+                                    <?php for ($hour = 0; $hour <= 23; $hour++): ?>
+                                        <option value="<?= sprintf("%02d",$hour) ?>"><?= sprintf("%02d",$hour) ?></option>
+                                    <?php endfor ?>
+                                </select>
+                                <select name="endtimeminutes">
+                                    <option value=""></option>
+                                    <?php for ($minutes = 0; $minutes <= 59; $minutes++): ?>
+                                        <option value="<?= sprintf("%02d",$minutes); ?>"><?= sprintf("%02d",$minutes); ?></option>
+                                    <?php endfor ?>
+                                </select>
+                            </div>
+                        </li>
+                        <!-- Ville-->
+                        <li>
+                            <label for="city">Ville&nbsp;:</label>
+                            <input id="city" type="text" value="" name="city" data-name="Ville" data-type="alphanum">
+                        </li>
+                        <!-- Type d'événement -->
+                        <li>
+                            <label for="eventtype">Type d'événement&nbsp;:</label>
+                            <input id="eventtype" type="text" value="" name="eventtype" data-name="TypeEvenement" data-type="alphanum">
+                        </li>
+                    </div>
+                    <!-- Description de l'événement-->
+                    <li>
+                        <label for="eventdescription">Description&nbsp;:</label>
+                        <textarea id="eventdescription" type="text" name="eventdescription" data-required data-name="DescriptionEvenement" data-type="alphanum"></textarea>
+                    </li>
+                </ul>
+            <?php endif;?>
+            
+            <!-- bouton Ajouter-->
+            <button class="admin-btn" type="submit" name="addEvent"><i class="fas fa-plus"></i>Ajouter l'événement</button>
+            <button class="admin-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Effacer</button>
+        </form>
+    <?php endif;?>
+
+<!-- admin_product -->
+    <?php else: ?>
+        <h1 class="title">Ajouter un produit</h1>
+        <form id="form" method="post" action="">
+            <ul>
+                <div>
+                    <li>
+                        <label for="ref">Référence&nbsp;:&nbsp;<span class="required">*</span></label>
+                        <input id="ref" type="text" value="" name="ref" data-name="Référence du produit" data-type="positiveInteger" data-required>
+                    </li>
+
+                    <li>
+                        <label for"category">Catégorie&nbsp;:&nbsp;<span class="required">*</span></label>
+                        <select data-required name="category">
+                            <option></option>
+                            <option value="Promos/Nouveautés">Promos/Nouveautés</option>
+                            <option value="Santé">Santé</option>
+                            <option value="Douleur">Douleur</option>
+                            <option value="Peau">Peau</option>
+                            <option value="Quotidien">Quotidien</option>
+                            <option value="Maison Animaux">Maison Animaux</option>
+                        </select>
+                    </li>
+
+                    <li>
+                        <label for="title">Titre&nbsp;:&nbsp;<span class="required">*</span></label>
+                        <input type="text" value="" name="title" data-name="Titre du Produit" data-required>
+                    </li>
+
+                    <li>
+                        <label for="capacity">Contenance&nbsp;:</label>
+                        <input type="text" value="" name="capacity" data-name="Capacité du Produit">
+                    </li>
+
+                    <li>
+                        <label for="composition">Composition&nbsp;:</label>
+                        <input type="text" value="" name="composition" data-name="Composition du Produit">
+                    </li>
+                </div>
+                <li>
+                    <label for="productdescription">Description&nbsp;:</label>
+                    <textarea  type="text" name="productdescription" data-required data-name="description du produit"></textarea>
+                </li>
+            </ul>
+            <!-- bouton Ajouter le produit-->
+            <button class="admin-btn" type="submit" name="addProduct"><i class="fas fa-plus"></i>Ajouter le produit </button>
+            <button class="admin-btn" type="reset" name="reset" value="effacer"><i class="fa fa-trash"></i>Effacer</button>
+        </form>
+    <?php endif;?>
+
+admin.phtml
+
+<!-- <tr>
+                    <td><a href="admin_message.php">Date......</a></td>
+                    <td class="hidden"><a href="admin_message.php">Civilité..</a></td>
+                    <td><a href="admin_message.php">Nom.......</a></td>
+                    <td class="hidden"><a href="admin_message.php">Prénom....</a></td>
+                    <td class="hidden"><a href="admin_message.php">Téléphone.</a></td>
+                    <td class="hidden"><a href="admin_message.php">E-mail....</a></td>
+                    <td><a href="admin_message.php">Sujet.....</a></td>
+                    <td class="hidden"><a href="admin_message.php">Message...</a></td>
+                    <td><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
+                </tr>
+                <tr>
+                    <td><a href="admin_message.php">Date......</a></td>
+                    <td class="hidden"><a href="admin_message.php">Civilité..</a></td>
+                    <td><a href="admin_message.php">Nom.......</a></td>
+                    <td class="hidden"><a href="admin_message.php">Prénom....</a></td>
+                    <td class="hidden"><a href="admin_message.php">Téléphone.</a></td>
+                    <td class="hidden"><a href="admin_message.php">E-mail....</a></td>
+                    <td><a href="admin_message.php">Sujet.....</a></td>
+                    <td class="hidden"><a href="admin_message.php">Message...</a></td>
+                    <td><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
+                </tr>
+                <tr>
+                    <td><a href="admin_message.php">Date......</a></td>
+                    <td class="hidden"><a href="admin_message.php">Civilité..</a></td>
+                    <td><a href="admin_message.php">Nom.......</a></td>
+                    <td class="hidden"><a href="admin_message.php">Prénom....</a></td>
+                    <td class="hidden"><a href="admin_message.php">Téléphone.</a></td>
+                    <td class="hidden"><a href="admin_message.php">E-mail....</a></td>
+                    <td><a href="admin_message.php">Sujet.....</a></td>
+                    <td class="hidden"><a href="admin_message.php">Message...</a></td>
+                    <td><a data-action="remove" href=""><i class="fa fa-trash"></i></a></td>
+                </tr> -->
+
+<!-- section commentaires dans product.phtml -->
+<h2 class="comments-title"> Les commentaires sur <?=$comments['0']['title']?></h2>
+        <p class="refproduct">Référence produit : <?=$comments['0']['refproduct']?></p>
+
+        <?php foreach($comments as $comment) :?>
+            <p>Commentaire laissé par <?=$comment['pseudo']?> sur <?=$comment['title']?></p>
+            <p>Le <?=$comment['posteddate']?></p>
+            <p>Avis sur le produit : <?=$comment['satisfaction']?></p>
+            <p>Commentaire : <?=$comment['usercomment']?></p>
+        <?php endforeach;?>
+
+ajax delete ??
+        
+        $('<tr onclick="location.href="admin_message.php?read_message=' + datas.id + '">"').append
+            (
+                '<td> ' + datas[index].sendingdate + '</td>',
+                '<td> ' + datas[index].sendingtime  + '</td>',
+                '<td  class="hidden"> ' + datas[index].gender  + '</td>',
+                '<td> ' + datas[index].lastname  + '</td>',
+                '<td class="hidden"> ' + datas[index].firstname  + '</td>',
+                '<td class="hidden"> ' + datas[index].zipcode  + '</td>',
+                '<td class="hidden"> ' + datas[index].city  + '</td>',
+                '<td> ' + datas[index].subjectmessage  + '</td>',
+                '<td  class="hidden"> ' + datas[index].usermessage  + '</td>',
+                '<td  class="hidden"><a class="remove" data-remove="' + datas[index].id + '" href="admin.php?delete_message=' + datas[index].id + '" ><i class="fa fa-trash"></i></a></td> '
+
+            ).appendTo('#salut');
