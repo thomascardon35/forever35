@@ -69,7 +69,7 @@ body{
     font-size:40px;
     position: fixed;
     z-index:100;
-    bottom:20px;
+    bottom:35px;
     right:5px;
 } 
 
@@ -118,7 +118,8 @@ body{
 /************************** Titres ***************************/
 #body .title{
     font-size:30px;
-    margin:30px 30px 40px ;
+    margin:0 30px 40px ;
+    padding-top:30px;
     font-family: 'Amaranth', sans-serif;
     color:rgba(108,122,30,1);
     border-bottom :1px solid rgba(200,200,200,1);
@@ -131,6 +132,75 @@ body{
     font-family: 'Amaranth', sans-serif;
     color:rgba(108,122,30,1);
     text-decoration: underline;
+}
+
+/******************* Messages d'erreur en JS *****************/
+.error-message{
+    background-color: rgba(86, 217, 0, 0.3);
+    border: 2px solid #FF3300;
+    border-radius: 6px;
+    margin: 20px 0;
+    color: black;
+    font-size: 17px;
+    animation: error-message 200ms 10;
+    max-width:400px;
+    margin:0 auto;
+}
+
+@keyframes error-message{
+    50%{
+        background-color:orange;
+        color:black;
+    }
+}
+
+#body #container .error-message ul li{
+    padding:0 20px 0;
+    text-align: left;
+    white-space:normal;
+    color:red;
+    list-style: disclosure-closed ;
+    margin:5px 0;
+}
+
+#body .error-field{
+    background-color:rgba(255,0,0,0.2);
+}
+
+/**************** Message de bon envoi d'un form *************/
+.div-sending-ok i{
+    display: block;
+    font-size: 65px;
+    color: rgba(52,201,36,1);
+    margin-top: 65px;
+}
+
+.sending-ok{
+    background-color: rgba(52,201,36,1);
+    display: inline-block;
+    padding: 15px;
+    margin-bottom: 65px;
+    color: white;
+    font-size: 20px;
+    border-radius: 25px;
+}
+
+/********** Les classes utliseés sur plusieurs pages *********/
+.italic{
+    font-style:italic;
+    font-size : 13px;
+}
+
+.required{
+    color:red;
+    font-weight: bold;
+    font-size:20px;
+}
+
+.required-blue{
+    color:blue;
+    font-weight: bold;
+    font-size:20px;
 }
 
 /****************************************************************************************
@@ -193,6 +263,15 @@ header figure figcaption{
     transition:all 0.5s ease 0s;
 }
 
+.fas{
+    transition:all 0.5s ease 0s;
+}
+
+.rotate-icon{
+    transform: rotate(-180deg);
+    transition:all 0.5s ease 0s;
+}
+
 /**************************** NAV ****************************/
 .width-nav{
     width:232px;
@@ -229,7 +308,7 @@ header nav a{
 
 header nav a:hover{
     transition:all 0.5s ease 0s;
-    /*transform:scale(1.1);*/
+    /* transform:scale(1.1); */
     transform:translateY(-3px);
 }
 
@@ -266,6 +345,43 @@ main #container{
     background-color:rgba(255,255,255,0.7);
     padding-bottom:50px;
     margin:0 auto;
+}
+
+main .padding-top{
+    padding-top:30px;
+}
+
+main .admin-connection{
+    font-size:13px;
+    border:1px solid green;
+    background-color:rgba(0,255,0,0.2);
+    width:230px;
+    margin:0 auto;
+    color: red;
+    border-radius:6px;
+    margin-bottom:25px;
+}
+
+main .admin-connection i{
+    font-size:17px;
+    padding-top:5px;
+    display:block;
+    color:rgba(150,215,60,1);
+    margin-bottom:5px;
+}
+
+main .admin-connection p{
+    margin:0;
+    display:inline-block;
+}
+
+main .admin-connection .span-login{
+    font-size:15px;
+    color:rgba(235, 75, 155,1);
+}
+
+main .admin-connection p:last-of-type{
+    margin-bottom:5px;
 }
 
 /******************* Message Prochain Evénement **************/
@@ -322,10 +438,10 @@ main .next-event .slider-events img:first-of-type{
 }
 
 main .next-event .slider-events .bg-slider{
-    /* background:linear-gradient(135deg,rgba(255,255,255,0.5),rgba(187,255,127,0.5) 20%,rgba(120, 255, 0,0.5) ); */
     width:280px;
-    height:130px;
+    height:145px;
     animation :blink 6s infinite ;
+    cursor:pointer;
 }
 
 @keyframes blink{
@@ -354,6 +470,20 @@ main .next-event .slider-events .bg-slider{
         background-color:transparent;
     }42%{
         background-color:rgba(0,255,0,0.4);
+    }50%{
+        background-color: rgba(0,255,0,0.35);
+    }58%{
+        background-color: rgba(0,255,0,0.3);
+    }66%{
+        background-color: rgba(0,255,0,0.25);
+    }74%{
+        background-color: rgba(0,255,0,0.2);
+    }82%{
+        background-color: rgba(0,255,0,0.15);
+    }90%{
+        background-color: rgba(0,255,0,0.1);
+    }98%{
+        background-color: rgba(0,255,0,0.05);
     }
 }
 
@@ -405,7 +535,7 @@ main .next-event .slider-events img:nth-of-type(2){
 }
 
 #home .history{
-    margin: 60px 0;
+    margin: 30px 0;
 }
 
 #home .identity {
@@ -461,6 +591,13 @@ main .next-event .slider-events img:nth-of-type(2){
     color:rgba(80,80,80,1);
     font-weight: bold;
 }
+
+#news-events .no-event{
+    border: 2px solid grey;
+    padding: 18px;
+    color: rgba(108,122,30,1);
+    background-color: rgba(255,255,255,0.25);
+}
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN ALOE VERA                                      *
@@ -515,6 +652,37 @@ main .next-event .slider-events img:nth-of-type(2){
 #aloe-vera .reasons ol li p{
     font-family: "OpenSansBold", sans-serif;
 }
+
+#aloe-vera .reasons ol li:first-of-type{
+    color:rgba(255,105,180,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(2){
+    color:rgba(218,112,214,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(3){
+    color:rgba(138,43,226,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(4){
+    color:rgba(240,128,128,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(5){
+    color:rgba(255,69,0,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(6){
+    color:rgba(220,20,60,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(7){
+    color:rgba(255,140,0,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(8){
+    color:rgba(154,205,50,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(9){
+    color:rgba(34,150,34,1);
+}
+#aloe-vera .reasons ol li:nth-of-type(10){
+    color:rgba(0,90,0,1);
+}
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN PRODUCTS                                       *
@@ -523,10 +691,6 @@ main .next-event .slider-events img:nth-of-type(2){
 #body #products .title{
     margin:0 30px;
 } 
-
-#products .first-title{
-    margin-top:50px;
-}
 
 #products section{
     margin:20px;
@@ -564,7 +728,7 @@ main .next-event .slider-events img:nth-of-type(2){
 
 #products h2{
     font-size:30px;
-    margin:100px 30px 0;
+    margin:75px 30px 0;
     font-family: "OpenSansBold", sans-serif;
     line-height:1.4;
     text-decoration: underline;
@@ -581,12 +745,18 @@ main .next-event .slider-events img:nth-of-type(2){
     margin: 0 auto;
 }
 
-/******************* Les Boutons "Description" ***************/
-#products section a{
+/****** Boutons "Description" et "Retour aux produits" *******/
+#products section .clickable-img,#products #house-animals article .clickable-img{
+    background-color: transparent;
+    border:0;
+}
+
+#products section a,#products #house-animals article a,#product .return a,#product .return button{
     color:white;
     border-radius:20px;
     padding:10px;
     font-size:16px;
+    font-weight:normal;
     border:1px solid rgba(255,255,255,1);
     cursor:pointer;
     text-decoration: none;
@@ -595,46 +765,65 @@ main .next-event .slider-events img:nth-of-type(2){
     margin: 0 auto;
 }
 
-#products section a:hover{
+#body #product .return button{
+    max-width: 280px;
+}
+
+#products section .clickable-img:hover,#products #house-animals article .clickable-img:hover{
+    border:0;
+    background-color: transparent;
+}
+
+#products section a:hover,#products #house-animals article a:hover,#product .return a:hover,#product .return button:hover{
     background-color: white;
     transition:all 0.7s ease 0s;
     border:1px solid rgba(0,0,0,0.5);
 }
 
 /*************** Les Couleurs NAV,Boutons,Titres *************/
-#health a{
+#new a, .new .return a,.new .return button{
+    background-color: rgba(255, 0, 0, 1);
+}
+#health a, .health .return a,.health .return button{
     background-color: rgba(92, 38, 131, 1);
 }
-#pain a{
+#pain a, .pain .return a,.pain .return button{
     background-color: rgba(140, 204, 92,1);
 }
-#skin a{
+#skin a, .skin .return a,.skin .return button{
     background-color: rgba(12, 100, 174,1);
 }
-#daily a{
+#daily a, .daily .return a,.daily .return button{
     background-color: rgba(235, 75, 155,1);
 }
+#products #house-animals article a, .house-animals .return a,.house-animals .return button{
+    background-color: rgba(90,90,90,1);
+}
 
-#products nav a:first-of-type,#products #health a:hover, #products #health h2, #products #health h3{
+/* Couleurs selon les categories de produits*/
+#new a:hover,#new h2,#new h3,#body .new .title, .new,#body .new .return a:hover,#body .new .return button:hover,.new #target .comments li span, .new #target-admin #comments li span{ 
+    color:rgba(255, 0, 0, 1);
+}
+#products nav a:first-of-type,#products #health a:hover, #products #health h2, #products #health h3,#body .health .title, .health,#body .health .return a:hover,#body .health .return button:hover,.health #target .comments li span, .health #target-admin #comments li span{
     color: rgba(92, 38, 131, 1);
 }
-#products nav a:nth-of-type(2),#products #pain a:hover, #products #pain h2, #products #pain h3{
+#products nav a:nth-of-type(2),#products #pain a:hover, #products #pain h2, #products #pain h3,#body .pain .title, .pain,#body .pain .return a:hover,#body .pain .return button:hover,.pain #target .comments li span, .pain #target-admin #comments li span{
     color: rgba(140, 204, 92,1);
 }
-#products nav a:nth-of-type(3),#products #skin a:hover, #products #skin h2, #products #skin h3{
+#products nav a:nth-of-type(3),#products #skin a:hover, #products #skin h2, #products #skin h3,#body .skin .title, .skin,#body .skin .return a:hover,#body .skin .return button:hover,.skin #target .comments li span, .skin #target-admin #comments li span{
     color:rgba(12, 100, 174,1);
 }
-#products nav a:nth-of-type(4),#products #daily a:hover, #products #daily h2, #products #daily h3{
+#products nav a:nth-of-type(4),#products #daily a:hover, #products #daily h2, #products #daily h3,#body .daily .title, .daily,#body .daily .return a:hover,#body .daily .return button:hover,.daily #target .comments li span, .daily #target-admin #comments li span{
     color:rgba(235, 75, 155,1);
 }
-#products nav a:nth-of-type(5){
+#products nav a:nth-of-type(5),#products #house-animals article a:hover,#products #house-animals h2,#products #house-animals h3,#body .house-animals .title, .house-animals,#body .house-animals .return a:hover,#body .house-animals .return button:hover,.house-animals #target .comments li span, .house-animals #target-admin #comments li span{
     color: rgba(90,90,90,1);
 }
 #products nav a:nth-of-type(6){
     color: rgba(221, 151, 20,1);
 }
 
-/***************** La catégorie "Maison&Animaux" ************/
+/**** catégorie "Maison&Animaux" sans produits enregistrés ***/
 #products #house-animals a{
     color:black;
     font-weight: bold;
@@ -642,7 +831,7 @@ main .next-event .slider-events img:nth-of-type(2){
 }
 
 #products #house-animals a:hover{
-    border:0;
+    border:1px solid rgba(255,255,255,1);
 }
 /****************************************************************************************
 *                                                                                       *
@@ -653,10 +842,6 @@ main .next-event .slider-events img:nth-of-type(2){
     max-width: 500px;
     margin:0 auto;
 }
-
-#body #product .title,#product p{
-    color: rgba(92, 38, 131, 1);
-} 
 
 #product img{
     width:200px;
@@ -681,6 +866,238 @@ main .next-event .slider-events img:nth-of-type(2){
 #product .description p span{
     text-decoration: underline;
 }
+
+#body .div-description{
+    margin-bottom:100px;
+}
+
+/******************** Lien retour aux produits ***************/
+#product .return{
+    margin:0 auto 50px;
+}
+
+/** Msg "aucun commentaire" et "votre comm a bien été envoyé */
+
+.div-commentary-inform{
+    margin:20px 10px;;
+}
+
+.div-commentary-inform i{
+    display: block;
+    font-size: 65px;
+    color: rgba(52,201,36,1);
+    margin-top: 65px;
+}
+
+.commentary-inform{
+    font-size : 18px;
+    margin:50px auto 20px;;
+    padding:20px 10px;
+    border: 1px solid green;
+    border-radius:6px;
+    max-width:400px;
+    background-color:rgba(0,255,0,0.4);
+    animation: commentary-inform 1s infinite ;    
+}
+
+.commentary-inform span{
+    font-size : 22px;
+    color:red;
+}
+
+@keyframes commentary-inform{
+    
+    50%{
+        background-color:rgba(0,255,0,0.1);
+    }
+}
+
+/**************** Formulaire Commentaire du produit **********/
+#product form{
+    margin:0 10px 25px;
+}
+
+#product fieldset{
+    max-width: 400px;
+    margin: 40px auto 0;
+}
+
+#product form fieldset legend{
+    font-size: 25px;
+    color: rgba(108,122,30,1);
+}
+
+#product form fieldset ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+#product form fieldset ul li{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    white-space: nowrap;
+    align-items: center;
+}
+
+#product form fieldset ul li>input,#product form fieldset ul li select,#product form fieldset ul li textarea{
+    width:172px;
+}
+
+#product form fieldset ul li input,#product form fieldset ul li select{
+    height: 35px;
+    margin-bottom: 5px;
+    border:0;
+    background-color: rgba(0,255,0,0.2);
+    border-radius: 20px;
+    padding:0 15px;
+}
+
+#product form input:focus,#product form textarea:focus{
+    background-color: rgba(0,255,0,0.4);
+    border:0;
+    outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
+}
+
+#product form fieldset ul li select{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    margin-left: -20px;
+}
+
+#product form fieldset ul li select:focus{
+    outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
+}
+
+#product form textarea{
+    resize:none;
+    height:170px;
+    border:0;
+    background-color: rgba(0,255,0,0.2);
+    border-radius: 20px;
+    padding:10px 10px 10px 15px;
+    margin-left:-7px;
+}
+
+/************************ Bouton Envoyer *********************/
+/************** (Pour product.php et contact.php) ************/
+.submit-btn{
+    background-color: white;
+    padding:10px 40px;
+    cursor:pointer;
+    color: rgba(108,122,30,1);
+    border:1px solid rgba(0,0,0,0.3);
+    font-size:18px;
+    border-radius: 50px;
+    transition:all 0.5s ease 0s;
+}
+
+.submit-btn:hover{
+    background-color:rgba(27, 231, 27, 0.8);
+    color:black;
+    transition:all 0.5s ease 0s;
+}
+
+/**************** Boutons "voir,masquer les comm" ************/
+.return button i{
+    font-size:25px;
+    margin-top:10px;
+}
+
+/********************** Les commentaires *********************/
+#body .comm-title, #body #comments-title{
+    flex-direction:column;
+    margin-top:50px;
+}
+
+.refproduct{
+    font-size:13px;
+    font-style: italic;
+    margin:0 20px;
+}
+
+.comm-title, #target,#comments-title, #target-admin{
+    color: rgba(90,90,90,1);
+    margin:0 20px;
+}
+
+#body #target, #body #target-admin{
+    max-width:340px;
+    margin:0 auto;
+}
+
+.comments-title{
+    font-size:20px;
+    margin:0 20px;
+}
+
+#target .comments, #target-admin #comments{
+    list-style: disclosure-closed;
+    padding:0;
+    margin: 0 auto;
+}
+
+#target .comments li,#target-admin #comments li{
+    margin:40px 21px 40px 48px;;
+    max-width:340px; 
+    overflow-wrap: break-word;
+}
+
+#target .comments li p, #target-admin #comments li p{
+    margin:0;
+    font-size:14px;
+    text-align: left;
+    padding: 3px;
+}
+
+#target .comments li span,#target-admin #comments li span{
+    font-size:15px;
+} 
+
+
+#body #target .comments li .pseudo, #target-admin #comments .pseudo {
+    text-decoration: underline;
+    color:rgba(90,90,90,1);
+
+}
+
+#body #target .comments li .satisfaction, #target-admin #comments .satisfaction{
+    border:1px solid grey;
+    border-radius:20px;
+    padding:1px 3px;
+    animation: satisfaction 3s infinite ;   
+}
+
+@keyframes satisfaction{
+    
+    50%{
+        background-color:rgba(0,255,0,0.3);
+    }
+}
+
+#target-admin #comments li p a {
+    text-decoration : none;
+}
+
+.del-comm-btn{
+    color:blue;
+    font-size:14px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 20px;
+    cursor:pointer;
+    padding:5px;
+    margin-top:5px;
+}
+
+#body #product .del-comm-btn:focus{
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+
 /****************************************************************************************
 *                                                                                       *
 *                                   MAIN STANDARDS                                      *
@@ -811,7 +1228,7 @@ main .next-event .slider-events img:nth-of-type(2){
     border:0;
     background-color: rgba(0,255,0,0.2);
     border-radius: 20px;
-    padding-left:15px;
+    padding:0 15px;
 }
 
 #contact form input:focus,#contact form textarea:focus{
@@ -837,57 +1254,6 @@ main .next-event .slider-events img:nth-of-type(2){
     background-color: rgba(0,255,0,0.2);
     border-radius: 20px;
     padding:10px 0 10px 15px;
-}
-
-/************************ Bouton Envoyer *********************/
-#contact .submit-btn{
-    background-color: white;
-    padding:10px 40px;
-    cursor:pointer;
-    color: rgba(108,122,30,1);
-    border:1px solid rgba(0,0,0,0.3);
-    font-size:18px;
-    border-radius: 50px;
-    transition:all 0.5s ease 0s;
-}
-
-#contact .submit-btn:hover{
-    background-color:rgba(27, 231, 27, 0.8);
-    color:black;
-    transition:all 0.5s ease 0s;
-}
-
-/*********************** Messages d'erreur *******************/
-.error-message{
-    background-color: rgba(86, 217, 0, 0.3);
-    border: 2px solid #FF3300;
-    border-radius: 6px;
-    margin: 20px 0;
-    color: black;
-    font-size: 17px;
-    animation: error-message 200ms 10;
-    max-width:400px;
-    margin:0 auto;
-}
-
-@keyframes error-message{
-    50%{
-        background-color:orange;
-        color:black;
-    }
-}
-
-#contact .error-message ul li{
-    padding-left:20px;
-    text-align: left;
-    white-space:normal;
-    color:red;
-    list-style: disclosure-closed ;
-    margin:5px 0;
-}
-
-#contact .error-field{
-    background-color:rgba(255,0,0,0.2);
 }
 
 /******************** Adresse, Mail, Téléphone ****************/
@@ -1032,6 +1398,10 @@ iframe{
     margin: 0 auto;
 }
 
+#body #container #admin-login .error-message ul li{
+    text-align: center;
+}
+
 #admin-login form fieldset legend{
     font-size:22px;
     color:rgba(108,122,30,1);
@@ -1051,8 +1421,16 @@ iframe{
 #admin-login form ul li input{
     width:162px;
     margin: 0 auto;
+    background-color: rgba(0,255,0,0.2);
+    border: 2px solid grey;
+    padding: 5px;
+    border-radius:20px;
+    text-align:center;
 }
 
+#admin-login form ul li input:focus{
+    background-color:rgba(0,255,0,0.4);
+}
 /****************************************************************************************
 *                                                                                       *
 *                                    MAIN ADMIN                                         *
@@ -1117,38 +1495,21 @@ iframe{
     cursor:pointer;
 }
 
-/* #admin .admin-products tbody tr:nth-of-type(odd){
+#admin .admin-products tbody tr:nth-of-type(odd){
     background-color: rgba(255,105,180,0.4);
 }
 
 #admin .admin-products table tbody tr:hover{
     background-color: rgba(255,105,180,0.7);
     cursor:pointer;
-} */
+}
 
-/************* Bouton Ajouter un Evenement(ADMIN) ************/
-/* #admin section>a{
+#admin .update-login{
+    display:block;
     text-decoration: none;
-    color:rgba(0,100,0,1);
-    padding:10px;
-    border:1px solid rgba(200,200,200,1);
-    transition:all 0.5s ease 0s;
+    font-size:13px;
+    color:rgba(108,122,30,1);
 }
-
-#admin section>a i{
-    transform:scale(1);
-    transition:all 0.5s ease 0s;
-}
-
-#admin section > a:hover{
-    background-color:rgba(58,242,75,0.5);
-    transition:all 0.5s ease 0s;
-}
-#admin section>a:hover i{
-    transform:scale(1.4);
-    transition:all 0.5s ease 0s;
-} */
-
 
 /****************************************************************************************
 *                                                                                       *
@@ -1228,61 +1589,36 @@ iframe{
  #admin-message .message-btn{
     margin-top:50px;
 }
-/*
-#admin-message .message-btn a{
-    text-decoration: none;
-    color:rgba(0,100,0,1);
-    padding:10px;
-    border:1px solid rgba(200,200,200,1);
-    transition:all 0.5s ease 0s;
-    display:flex;
-    flex-direction:column;
-    width:250px;
-    margin:0 auto;
-}
 
-#admin-message .message-btn a:hover{
-    background-color:rgba(58,242,75,0.5);
-    transition:all 0.5s ease 0s;
-}
-
-#admin-message .message-btn a i{
-    transform:scale(1);
-    transition:all 0.5s ease 0s;
-}
-
-#admin-message .message-btn a:hover i{
-    transform:scale(1.4);
-    transition:all 0.5s ease 0s;
-} */
 /****************************************************************************************
 *                                                                                       *
 *                               MAIN ADMINEVENTFORM                                     *
+*                              MAIN ADMINPRODUCTFORM                                    *
 *                                                                                       *
 ****************************************************************************************/
-#admin-add-event{
+#admin-add-event,#admin-product{
     margin:0 20px;
 }
 
-#body #admin-add-event h1{
+#body #admin-add-event h1,#body #admin-product h1{
     margin-top: 0;
     padding-top: 15px;
 }
 
-#admin-add-event form ul{
+#admin-add-event form ul,#admin-product form ul{
     list-style-type: none;
     padding-left:0;
     color:black;
 }
 
-#admin-add-event form ul li{
+#admin-add-event form ul li,#admin-product form ul li{
     display:flex;
     flex-direction: column;
     margin:10px 0;
 }
 
 /****** Mise en forme des champs de saisie du formulaire *****/
-#admin-add-event form ul li select{
+#admin-add-event form ul li select,#admin-product form ul li select{
     width:70px;
     text-align: center;
     appearance: none;
@@ -1291,13 +1627,23 @@ iframe{
     outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
 }
 
-#admin-add-event form ul li input{
+#admin-product form ul li select{/*surcharge pour une mise en forme correcte du champ select de admin_product.php*/
+    width:220px;
+    margin:0 auto;
+}
+
+#admin-add-event form ul li input,#admin-product form ul li input{
     width:220px;
     margin:0 auto;
     outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
+    text-align: center;
 }
 
-#body #admin-add-event form ul li textarea{
+#admin-add-event .div-event-field .italic{
+    margin-bottom: 50px;
+}
+
+#body #admin-add-event form ul li textarea,#body #admin-product form ul li textarea{
     width:220px;
     height:250px;
     resize:none;
@@ -1306,7 +1652,7 @@ iframe{
     outline: -webkit-focus-ring-color auto 0px;  /*permet de contrer le focus "natif" sur webkit : chrome .... */
 }
 
-#admin-add-event form ul li select,#admin-add-event form ul li input , #admin-add-event form ul li textarea{
+#admin-add-event form ul li select,#admin-add-event form ul li input , #admin-add-event form ul li textarea,#admin-product form ul li select,#admin-product form ul li input,#admin-product form ul li textarea{
     height: 35px;
     margin-bottom: 5px;
     border:0;
@@ -1315,34 +1661,51 @@ iframe{
     padding:0 15px;
 }
 
-/********* Bouton Ajouter un Evenement(ADMINADDEVENT) ********/
-/* #admin-add-event .add-event-btn{
-    text-decoration: none;
-    color:rgba(0,100,0,1);
-    padding:10px;
-    border:1px solid rgba(200,200,200,1);
-    transition:all 0.5s ease 0s;
-    line-height: 1.5;
-    font-size:18px;
-    background-color: transparent;
-    cursor: pointer;
-    width:210px;
-}
-#admin-add-event .add-event-btn i{
-    transform:scale(1);
-    transition:all 0.5s ease 0s;
-    display:block;
-    font-size:25px;
+
+/****************************************************************************************
+*                                                                                       *
+*                                   Page ERROR                                          *
+*                                                                                       *
+****************************************************************************************/
+
+#page-error div{
+    display:flex;
+    flex-direction:column;
 }
 
-#admin-add-event .add-event-btn:hover{
-    background-color:rgba(58,242,75,0.5);
-    transition:all 0.5s ease 0s;
+#page-error h1{
+    margin-bottom: 0;
+    padding-top:25px;
 }
-#admin-add-event .add-event-btn:hover i{
-    transform:scale(1.4);
-    transition:all 0.5s ease 0s;
-} */
+
+#page-error .oups{
+    color:rgba(108,122,30,1);
+    font-size: 40px;
+    margin-top:0;
+}
+
+#page-error img{
+    width:250px;
+    margin:0 auto;
+    border-radius:40% 130%;
+}
+
+#page-error .page-error-msg{
+    font-size:25px;
+    color: red;
+}
+
+#page-error a:first-of-type{
+    margin-top:35px;
+}
+
+#page-error a{
+    margin:10px auto;
+    border-radius:20px;
+    border:2px solid rgba(200,200,200,1);
+    width:190px;
+}
+
 /****************************************************************************************
 *                                                                                       *
 *                                      FOOTER                                           *
@@ -1379,6 +1742,7 @@ footer .footer-link{
     display:flex;
     justify-content:center;
     align-items: flex-end;
+    margin-bottom:30px;
 }
 
 footer .footer-link a{
@@ -1400,6 +1764,7 @@ footer .footer-link a i{
     padding-bottom:14px;
     font-size:20px;
 }
+
 /****************************************************************************************
 *                                                                                       *
 *                                 MEDIAQUERRIES                                         *
@@ -1433,9 +1798,12 @@ footer .footer-link a i{
     #body .fa-chevron-circle-up{
         right:15px;
     }
+    main .admin-connection{
+        width:320px;
+    }
     main .next-event .slider-events .bg-slider{
         width:450px;
-        height:105px;
+        height:100px;
     }
     /*********************** HOME **********************/
     #home{
@@ -1475,6 +1843,16 @@ footer .footer-link a i{
     #product .description{
         width:370px;
     }
+    #product form fieldset ul li>input,#product form fieldset ul li select,#product form fieldset ul li textarea{
+        width:250px;
+    }
+    #body #target, #body #target-admin{
+        max-width:410px;
+    }
+    #target .comments li,#target-admin #comments li{
+        margin:40px 21px 40px 21px;
+        max-width:410px; 
+    }
     /********************** NORMES *********************/
     #standards{
         display: flex;
@@ -1492,6 +1870,9 @@ footer .footer-link a i{
     /******************* ADMIN LOGIN *******************/
     #admin-login{
         max-width:600px;
+    }
+    #body #container #admin-login .error-message ul li{
+        flex-direction : column; /*  surcharge de "#admin-login form ul li" pour accepter le text-align-center*/
     }
     #admin-login form ul li{
         flex-direction: row;
@@ -1527,14 +1908,35 @@ footer .footer-link a i{
         flex-direction: row;
         justify-content: center;
     }
-    /****************** ADMIN ADD EVENT ****************/
-    #admin-add-event form ul{
+    /********** ADMIN ADD EVENT+ ADMIN PRODUCT *********/
+    #admin-add-event form ul,#admin-product form ul{
         display:flex;
         justify-content: space-around;
     }
-    #body #admin-add-event form ul li textarea{
+    #admin-add-event .div-event-field .italic{
+        margin-bottom: 13px;
+    }
+    #admin-add-event .description-title{
+        margin-bottom: 10px;
+    }
+    #body #admin-add-event form ul li textarea,#body #admin-product form ul li textarea{
         width:400px;
         height:310px;
+    }
+    #admin-add-event .required-description{
+        margin-top:21px;
+    }
+    /********************* Page ERROR ******************/
+    #page-error > div{
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+    }
+    #page-error .page-error-second-div{
+        flex-direction:row
+    }
+    #page-error img{
+        width:340px;
     }
     /*********************** FOOTER ********************/
 }
@@ -1611,6 +2013,17 @@ footer .footer-link a i{
     main #container{
         max-width:1100px;
     }
+    main .admin-connection{
+        font-size: 15px;
+        width:520px;
+    }
+    main .admin-connection i{
+        font-size:19px;
+    }
+
+    main .admin-connection .span-login{
+        font-size:17px;
+    }
     main .next-event{
         max-width: 700px;
     }
@@ -1626,7 +2039,7 @@ footer .footer-link a i{
     }
     main .next-event .slider-events .bg-slider{
         width:650px;
-        height:140px;
+        height:125px;
     }
     main .next-event .slider-events img:first-of-type{
         width:75px;
@@ -1676,6 +2089,26 @@ footer .footer-link a i{
         font-size:35px;
     }
     /******************* PRODUITS SEULS ****************/
+    #product fieldset{
+        max-width: 800px;
+    }
+    #product form fieldset ul li>input,#product form fieldset ul li select,#product form fieldset ul li textarea{
+        width:500px;
+    }
+    #product form textarea{
+        width:350px;
+        height:300px;
+    }
+    .commentary-inform{
+        max-width:800px;
+    }    
+    #body #target, #body #target-admin{
+        max-width:540px;
+    }
+    #target .comments li,#target-admin #comments li{
+        margin:40px 21px 40px 21px;
+        max-width:540px; 
+    }
     /********************** NORMES *********************/
     /********************* CONTACT *********************/
     #body #contact-h1{
@@ -1727,12 +2160,22 @@ footer .footer-link a i{
     #admin-message .user-message{
         max-width: 700px;
     }
-    /******************* ADMIN ADD EVENT *****************/
-    #admin-add-event form ul li input{
+    /********** ADMIN ADD EVENT+ ADMIN PRODUCT *********/
+    #admin-add-event form ul li input,#admin-product form ul li input,#admin-product form ul li select{
         width:270px
     }
-    #body #admin-add-event form ul li textarea{
+    #body #admin-add-event form ul li textarea,#body #admin-product form ul li textarea{
         width:500px;
+    }
+    /********************* Page ERROR ******************/
+    #page-error .oups {
+        font-size:50px;
+    }
+    #page-error .page-error-msg {
+        font-size:35px;
+    }
+    #page-error img{
+        width:400px;
     }
     /*********************** FOOTER ********************/    
     footer .div-logo-footer img{

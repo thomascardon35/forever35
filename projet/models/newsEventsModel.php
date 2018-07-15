@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/databaseClass.php';
+require_once '../config/databaseClass.php';
 
 class NewsEvents{
     private $db;
@@ -10,7 +10,7 @@ class NewsEvents{
     }
 
     function create($appointementDate,$endTimeEvent,$city,$eventType,$eventDescription){
-        
+
         $sql = 'INSERT INTO newsevents(appointementdate,endtimeevent,city,eventtype,eventdescription)
                 VALUES (?,?,?,?,?)';
                 
@@ -18,7 +18,7 @@ class NewsEvents{
     }
     
     function read(){
-        $sql = 'SELECT id, DATE_FORMAT(appointementdate,"%e %M %Y") AS eventdate, DATE_FORMAT(appointementdate,"%H:%i") AS eventtime,TIME_FORMAT(endtimeevent,"%H:%i") AS endtime,city ,eventdescription,eventtype
+        $sql = 'SELECT id, DATE_FORMAT(appointementdate,"%e") AS eventday, DATE_FORMAT(appointementdate,"%c") AS eventmonth ,DATE_FORMAT(appointementdate,"%Y") AS eventyear , DATE_FORMAT(appointementdate,"%H:%i") AS eventtime,TIME_FORMAT(endtimeevent,"%H:%i") AS endtime,city ,eventdescription,eventtype
         FROM newsevents
         ORDER BY appointementdate' ;
 
@@ -36,10 +36,11 @@ class NewsEvents{
     function delete($id){
         $sql = 'DELETE FROM newsevents WHERE id=?';
 
-        $this->db->executeSql($sql,$id);
+        $this->db->executeSql($sql,[$id]);
     }
 
     function update($appointementDate,$endTimeEvent,$city,$eventType,$eventDescription,$id){
+
         $sql = 'UPDATE newsevents
                 SET appointementdate = ?,
                 endtimeevent = ?,
@@ -51,9 +52,5 @@ class NewsEvents{
 
         $newsEventUpdate = $this->db->executeSql($sql,[$appointementDate,$endTimeEvent,$city,$eventType,$eventDescription,$id]);
         
-        var_dump($appointementDate);
     }
 }
-
-
-/* DAY(appointementdate)AS day,MONTH(appointementdate)AS month,YEAR(appointementdate)AS year, HOUR(appointementdate)AS hour,MINUTE(appointementdate)AS minute */

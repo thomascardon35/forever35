@@ -110,11 +110,14 @@ Validator.prototype.maxiLength = function() {
 
 Validator.prototype.submitForm = function (event) {
 
+
     // cette boucle for remet la couleur de fond initiale des input, select et textarea du formulaire (en cas d'erreur précédente).
     for(var index=0 ; index < (this.errorFields).length ; index++){
         var errorField = this.errorFields[index];
         errorField.removeClass('error-field');
     }
+
+
 
      // on remet les tableaux vide pour remettre à 0 les eventuelles précédentes erreurs
     this.errors = [];
@@ -131,7 +134,6 @@ Validator.prototype.submitForm = function (event) {
     if (this.errors.length > 0) {
         event.preventDefault(); // on n'empeche l'envoi du formulaire
 
-        document.location.href="contact.php#form"; // on redirige vers le haut du formulaire pour indiquer les erreurs
 
         var ul = $('<ul>'); // on crée une balise html <ul> qu'on stocke dans une variable
 
@@ -154,7 +156,7 @@ Validator.prototype.submitForm = function (event) {
 
 
 Validator.prototype.init = function(){
-
+    
     // Lorsque le formulaire est soumis, on fait appel a submitForm pour la verification des champs de formulaire
     // Ici bind(this) permet d'indiquer à submitForm qu'il ne doit pas prendre this.form mais bien Validator
     this.form.submit(this.submitForm.bind(this));

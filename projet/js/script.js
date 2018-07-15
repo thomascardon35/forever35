@@ -22,11 +22,21 @@ function onClickBodyRemoveNav(event){
     };
 };
 
-/* function onClickDescription(event){
-    event.preventDefault();
-    $('.description').toggleClass("hidden");
-} */
+function addRotateArrowComm(){
+    $('#product .arrow-comm').addClass("rotate-icon"); // rotation de l'icone
+}
 
+function removeRotateArrowComm(){
+    $('#product .arrow-comm').removeClass("rotate-icon"); // rotation de l'icone 
+}
+
+function addRotateArrowReturn(){
+    $('#product .arrowreturn').addClass("rotate-icon"); // rotation de l'icone 
+}
+
+function removeRotateArrowReturn(){
+    $('#product .arrowreturn').removeClass("rotate-icon"); // rotation de l'icone 
+}
 
 function onScroll(){
 
@@ -81,3 +91,46 @@ function onScroll(){
         $('main .arrow-up').addClass('hidden');  // sinon on fait disparaitre la fleche de remontée du document
     };
 };
+
+/*******************************************************************************
+*                                                                              *
+*        Redirections après click ligne des tableaux sur la page admin         *
+*                                                                              *
+*******************************************************************************/
+
+function onClickLineProduct(){
+
+    var id = $(this).data("id");
+
+    location.href='myproducts?update_product=' + id ;
+}
+
+function onClickLineEvent(){
+    
+    var id = $(this).data("id");
+
+    location.href='myevents?update_event=' + id ;
+}
+
+function onClickLineMessage(){
+    
+    var id = $(this).data("id");
+
+    location.href='mymsgs?read_message=' + id ;
+}
+
+/*******************************************************************************
+*                                                                              *
+*              Redirections après Click sur éléments concernés                 *
+*                                                                              *
+*******************************************************************************/
+// ici on redirige vers l'aside des news-event de la page d'accueil
+function onClickNextEvent(){
+    location.href='home#news-events';
+};
+
+// ici on redirige vers la page précédant le message d'erreur
+function onClickPreviousPage(event){
+    event.preventDefault();
+    history.back();
+}

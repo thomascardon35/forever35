@@ -1,17 +1,4 @@
 <?php
-
-/**CONNEXION A LA BASE DE DONNEE AVEC L'OBJET PDO**/
-/*
-$dbHost='localhost';
-$dbName='forever35';
-$dbUser='root';
-$dbPass='';
-
-// Le dsn (data-source-name) qui ne contient jamais de majuscule
-$pdo = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser,$dbPass, [
-    PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING          // On active le débugage
-]);*/
-
 class Database{
     private $pdo;
 
@@ -34,7 +21,6 @@ class Database{
 
 		$query->execute($values);
 
-		/* return $this->pdo->lastInsert(); */
 	}
 
     public function query($sql, array $criteria = array())
