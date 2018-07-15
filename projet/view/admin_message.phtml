@@ -1,7 +1,7 @@
 <section id="admin-message">
 
     <div class="admin-menu">
-        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+        <a href="admin"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
     </div>
         
     <h1 class="title">Message</h1>
@@ -17,22 +17,24 @@
                 <span><a href="mailto:<?= $readMessage['email']?>"><?= $readMessage['email']?></a></span>
             </div>
         </li>
-        <li><span>Reçu le&nbsp;: </span> <span><?= $readMessage['sendingdate']?> à <?= $readMessage['sendingtime']?></span></li>
+        <li><span>Reçu le&nbsp;: </span> <span><?= $readMessage['sendingday']?> <?= $months[($readMessage['sendingmonth'])-1]?> <?= $readMessage['sendingyear']?> à <?= $readMessage['sendingtime']?></span></li>
         <li><span>Sujet&nbsp;: </span> <span><?= $readMessage['subjectmessage']?></span></li>
         <li><span>Message&nbsp;: </span> <span><?= $readMessage['usermessage']?></span></li>
     </ul>
     <div class="message-btn">
         <a class="admin-a-btn" href="mailto:<?= $readMessage['email']?>"><i class="fas fa-envelope"></i>Répondre à <?= $readMessage['firstname']?> <?= $readMessage['lastname']?></a>
-        <a class="admin-a-btn" href="tel:<?= $readMessage['phone']?>"><i class="fas fa-envelope"></i>Appeler <?= $readMessage['firstname']?> <?= $readMessage['lastname']?></a>
-        <a class="admin-a-btn" data-action="remove" href="admin_message.php?delete_message=<?= intval($readMessage['id'])?>"><i class="fa fa-trash"></i>Supprimer le Message</a>
+        <?php if($readMessage['phone'] != "0000000000") :?>
+            <a class="admin-a-btn" href="tel:<?= $readMessage['phone']?>"><i class="fas fa-envelope"></i>Appeler <?= $readMessage['firstname']?> <?= $readMessage['lastname']?></a>
+        <?php endif;?>
+        <a class="admin-a-btn" data-action="remove" href="mymsgs?delete_message=<?= intval($readMessage['id'])?>"><i class="fa fa-trash"></i>Supprimer le Message</a>
     </div>
     
-    <form class="logout-btn" action="admin_login.php" method="post">
+    <form class="logout-btn" action="log" method="post">
         <button class="admin-btn" name="logout" type="submit"><i class="fas fa-sign-out-alt"></i>Déconnexion</button>
     <form>
 
     <div class="admin-menu">
-        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+        <a href="admin"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
     </div>
         
 </section>

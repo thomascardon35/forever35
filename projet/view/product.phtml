@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="return">
-        <a href="products.php#<?=$productsById['categoryforcss']?>"><i class="fas fa-angle-double-left"></i> Retour aux Produits</a>
+        <a href="products#<?=$productsById['categoryforcss']?>"><i class="fas arrowreturn fa-angle-double-right"></i> Retour aux Produits</a>
     </div>
 
     <form id="form" method="POST" action="">
@@ -37,6 +37,7 @@
         on l'informe que son commentaire a bien été ajouté (VALABLE AVEC OU SANS JS)-->
         <?php if((array_key_exists('addComment',$_POST) && $errorModel->getErrorMessage() == null )) : ?>
             <div class="div-commentary-inform">
+                <i class="far fa-thumbs-up"></i>
                 <p class="commentary-inform">Votre Commentaire a bien été ajouté&nbsp;!</p>
             </div>
         <?php else :?>
@@ -93,22 +94,49 @@
 
     </form>
 
-    <?php if($comments != null) : ?>
-        <div class="return">
-            <button type="button" id="showComments" data-comments="<?=$productsById['ref']?>">Voir les commentaires sur <?=$comments['0']['title']?></br><i class="fas fa-angle-double-down"></i></button>
+    <?php if($login == 1) : ?>
+        <?php if($comments != null) : ?>
+            <div class="comm-title">
+                <h2 class="comments-title"> Les commentaires sur <?=$comments['0']['title']?></h2>
+                <p class="refproduct">Référence produit : <?=$comments['0']['refproduct']?></p>
+            </div>
+            <form id="target-admin" method="post" action="">
+                <ul id="comments">
+                    <?php foreach($comments as $comment) :?>
+                        <li>
+                            <p>Commentaire laissé par : </p>
+                            <p><a href="mailto:<?=$comment['email']?>"><?=$comment['pseudo']?></a></p>
+                            <p>Le <?=$comment['reformeddate']?> à <?=$comment['reformedhour']?></p>
+                            <p>Avis sur le produit : <span class="satisfaction"><?=$comment['satisfaction']?></span></p>
+                            <p>Commentaire : <span><?=$comment['usercomment']?></span></p>
+                            <!-- récupération de l'id pour supprimer le commentaire-->
+                            <input type="hidden" name="id" value="<?= $comment['id']?>">
+                            <!-- récupération de la référence produit pour la redirection après suppression-->
+                            <input type="hidden" name="refproduct" value="<?=$comment['refproduct']?>">
+                            <input class="del-comm-btn remove" type="submit" name="delete_comm" value="Supprimer ce commentaire" data-remove="<?= $comment['id']?>" data-choice="comm" data-ref="<?=$comment['refproduct']?>">
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </form>
+        <?php endif;?>
+    <?php else:?>
+        <?php if($comments != null) : ?>
+            <div class="return">
+                <button type="button" id="showComments" data-comments="<?=$productsById['ref']?>">Voir les commentaires sur <?=$comments['0']['title']?></br><i class="fas arrow-comm fa-angle-double-up"></i></button>
 
-            <button type="button" id="hideComments" data-comments="<?=$productsById['ref']?>">Masquer les commentaires sur <?=$comments['0']['title']?></br><i class="fas fa-angle-double-up"></i></button>
-        </div>
+                <button type="button" id="hideComments" data-comments="<?=$productsById['ref']?>">Masquer les commentaires sur <?=$comments['0']['title']?></br><i class="fas arrow-comm fa-angle-double-down"></i></button>
+            </div>
 
-        <div id="comments-title">
-            <h2 class="comments-title"> Les commentaires sur <?=$comments['0']['title']?></h2>
-            <p class="refproduct">Référence produit : <?=$comments['0']['refproduct']?></p>
-        </div>
+            <div id="comments-title">
+                <h2 class="comments-title"> Les commentaires sur <?=$comments['0']['title']?></h2>
+                <p class="refproduct">Référence produit : <?=$comments['0']['refproduct']?></p>
+            </div>
 
-        <p id="target"></p>
-
+            <div id="target"></div>
+        <?php endif;?>
     <?php endif;?>
 
 </section>
 
 <script src="js/product_com.ajax.js"></script>
+<script src="js/delete.ajax.js"></script>

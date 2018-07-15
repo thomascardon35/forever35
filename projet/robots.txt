@@ -1,3 +1,7 @@
 User-agent: *
-Disallow: /admin*
-Disallow: /view/admin*
+Disallow: /log
+Disallow: /admin
+Disallow: /mymsgs
+Disallow: /myevents
+Disallow: /myproducts
+Disallow: /updatelog

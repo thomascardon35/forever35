@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <title>FOREVER 35 Ille-et-Vilaine</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+        <!------------------- ICONE ONGLET ---------------------->
+        <link rel="icon" type="image/x-icon" href="img/icon-logo16.png">
         
         <!---------------------- ICONS ------------------------>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
@@ -27,7 +30,7 @@
             <div id="progressbar"></div>
             <div>
                 <figure>
-                    <a href="index.php"><img class="logo" src="img/logo.jpg" alt="Logo FOREVER"></a>
+                    <a href="home"><img class="logo" src="img/logo.jpg" alt="Logo FOREVER"></a>
                     <figcaption>Aloe&nbsp;Vera&nbsp;35<br>Ille-et-Vilaine</figcaption>
                 </figure>
 
@@ -38,18 +41,28 @@
             
             <nav class="nav-header">
                 <div class="border-nav">
-                    <a href="index.php">Accueil</a>
-                    <a href="aloevera.php">L'Aloé Vera</a>
-                    <a href="products.php">Produits</a>
-                    <a href="standards.php">Normes</a>                    
-                    <a href="sponsorship.php">Parrainage</a>
-                    <a href="contact.php">Contact</a>
+                    <a href="home">Accueil</a>
+                    <a href="aloevera">L'Aloé Vera</a>
+                    <a href="products">Produits</a>
+                    <a href="standards">Normes</a>                    
+                    <a href="sponsorship">Parrainage</a>
+                    <a href="contact">Contact</a>
                 </div>
             </nav>
         </header>
 
         <main>
             <div id="container">
+                <!---------- Indication de connexion à l'admin  ---------------->
+                <?php if($login == 1) :?>
+                    <div class="padding-top">
+                    </div>
+                    <div class="admin-connection">
+                        <i class="fas fa-user"></i>
+                        <p>Bonjour <span class="span-login"><?= $_SESSION['pseudo']?></span> ,</p>
+                        <p>vous êtes actuellement <span class="span-login">connecté</span> en tant qu'admin !</p>
+                    </div>
+                <?php endif;?>
                 <!-------------------- Template  ------------------------------>
                 <?php include $template.'.phtml' ?>
 
@@ -78,16 +91,16 @@
                     <a href="#body"><img class="logo-footer" src="img/foreverlogo.png" alt="Logo FOREVER"></a>
                 </div>
                 <div class="standards">
-                    <a href="standards.php#iso9001"><img src="img/normes/iso9001.gif" alt="Norme ISO9001"></a>
-                    <a href="standards.php#iso14001"><img src="img/normes/iso14001.gif" alt="Norme ISO14001"></a>
-                    <a href="standards.php#certified"><img src="img/normes/certified.png" alt="Label IASC (International Aloe Science Council)"></a>
-                    <a href="standards.php#kasher-hallal"><img src="img/normes/kasher.gif" alt="Garantie Kasher"></a>
-                    <a href="standards.php#kasher-hallal"><img src="img/normes/halal.gif" alt="Garantie Halal"></a>
-                    <a href="standards.php#fvd"><img src="img/normes/fvd.gif" alt="Fédération de la Vente Directe"></a>
+                    <a href="standards#iso9001"><img src="img/normes/iso9001.gif" alt="Norme ISO9001"></a>
+                    <a href="standards#iso14001"><img src="img/normes/iso14001.gif" alt="Norme ISO14001"></a>
+                    <a href="standards#certified"><img src="img/normes/certified.png" alt="Label IASC (International Aloe Science Council)"></a>
+                    <a href="standards#kasher-hallal"><img src="img/normes/kasher.gif" alt="Garantie Kasher"></a>
+                    <a href="standards#kasher-hallal"><img src="img/normes/halal.gif" alt="Garantie Halal"></a>
+                    <a href="standards#fvd"><img src="img/normes/fvd.gif" alt="Fédération de la Vente Directe"></a>
                 </div>
                 <div class="footer-link">
                     <a href="https://www.foreverliving.fr" target="blank"><img src="img/logo.png" alt="Logo FOREVER">FRANCE</a>
-                    <a href="contact.php"><i class="fas fa-envelope"></i>CONTACT</a>
+                    <a href="contact"><i class="fas fa-envelope"></i>CONTACT</a>
                 </div>
             </div>
         </footer>

@@ -8,20 +8,23 @@
         <div class="bg-slider">
             <?php foreach($newsEvents as $newsEvent): ?>
                 <p>
-                    <a href="index.php#news-events">
-                        <?php if($newsEvent['eventdate'] != null && $newsEvent['eventtime'] != null && $newsEvent['eventtype'] != null && $newsEvent['city'] != null) : ?>
-                            Retrouvez-moi le <span><?= $newsEvent['eventdate']?></span> à partir de <span><?= $newsEvent['eventtime']?></span> </br> pour <span><?= $newsEvent['eventtype']?></span> à <span><?= $newsEvent['city']?></span>
+                    <a href="home#news-events">
+                        <?php if($newsEvent['eventday'] != null && $newsEvent['eventmonth'] != null && $newsEvent['eventyear'] != null && $newsEvent['eventtime'] != null && $newsEvent['eventtype'] != null && $newsEvent['city'] != null) :?>
+                            <!-- grâce a "stripos" on teste si 'le' est présent en début de chaine(position 0)-->
+                            <?php if(stripos($newsEvent['city'], 'le') === 0 ) : ?>
+                                <!-- et si OUI, on affichera 'au' au lieu de 'à Le' suivi du nom de la ville sans 'le' devant(substr($newsEvent['city'],3))-->
+                                Retrouvez-moi le <span><?= $newsEvent['eventday']?> <?= $months[($newsEvent['eventmonth'])-1]?> <?= $newsEvent['eventyear']?></span> à partir de <span><?= $newsEvent['eventtime']?></span> </br> au <span><?= substr($newsEvent['city'],3);?></span> pour <span><?= $newsEvent['eventtype']?></span>
+                            <?php else :?>
+                                Retrouvez-moi le <span><?= $newsEvent['eventday']?> <?= $months[($newsEvent['eventmonth'])-1]?> <?= $newsEvent['eventyear']?></span> à partir de <span><?= $newsEvent['eventtime']?></span> </br> à <span><?= $newsEvent['city']?></span> pour <span><?= $newsEvent['eventtype']?></span>
+                            <?php endif;?>
                         <?php else :?>
-                            <?= substr($newsEvent['eventdescription'],0,170);?>
+                            <?= substr($newsEvent['eventdescription'],0,130);?>
                         <?php endif;?>
                     </a>
                 </p>
             <?php endforeach; ?>
-            <!-- <p>Je serai présente sur le place de la mairie à mon stand FOREVER</p>
-            <p>Retrouvez-moi à mon stand Forever dès 9h du matin</p>
-            <p>On se retrouve à mon stand FOREVER</p>
-            <p>stand Forever présent ce jour là</p> -->
         </div>
         <img src="img/tape3.png" alt="ruban adhésif">
     </div>
+    <input type="hidden" id="retrieve" value="<?= count($newsEvents)?>" >
 </section>

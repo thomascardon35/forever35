@@ -1,7 +1,7 @@
 <section id ="admin-add-event">
 
     <div class="admin-menu">
-        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+        <a href="admin"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
     </div>
     <?php if(array_key_exists('update_event', $_GET)) :?>
     <!-- Si le lien contenant la query string 'update_event' est cliqué ,on affiche ce titre-->
@@ -331,11 +331,11 @@
 
     </form>
     
-    <form class="logout-btn" action="admin_login.php" method="post">
+    <form class="logout-btn" action="log" method="post">
         <button class="admin-btn" name="logout" type="submit"><i class="fas fa-sign-out-alt"></i>Déconnexion</button>
     </form>
         
     <div class="admin-menu">
-        <a href="admin.php"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
+        <a href="admin"><i class="fas fa-angle-double-left"></i>Menu Admin</a>
     </div>
 </section>

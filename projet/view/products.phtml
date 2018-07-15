@@ -13,13 +13,13 @@
 
     <?php if($newProducts!=null) : ?>
         <section id="new">
-            <h2 class="first-title">Nouveautés&nbsp;:</h2>
+            <h2>Nouveautés&nbsp;:</h2>
             <div class="products-container">
                 
                 <?php foreach($newProducts as $newProduct): ?>
                     <article>
                         <h3><?=$newProduct['title']?></h3>
-                        <img src="img/products/<?=$newProduct['ref']?>.png" alt="<?=$newProduct['title']?>">
+                        <a class="clickable-img" href="product-<?=$newProduct['ref']?>"><img src="img/products/<?=$newProduct['ref']?>.png" alt="<?=$newProduct['title']?>"></a>
                         <a href="product-<?=$newProduct['ref']?>">Description du produit <i class="fas fa-plus-square"></i></a>
                     </article>
                 <?php endforeach; ?>
@@ -30,13 +30,13 @@
 
     <?php if($healthProducts!=null) : ?>
         <section id="health">
-            <h2 class="first-title">Santé&nbsp;:</h2>
+            <h2>Santé&nbsp;:</h2>
             <div class="products-container">
 
                 <?php foreach($healthProducts as $healthProduct): ?>
                     <article>
                         <h3><?=$healthProduct['title']?></h3>
-                        <img src="img/products/<?=$healthProduct['ref']?>.png" alt="<?=$healthProduct['title']?>">
+                        <a class="clickable-img" href="product-<?=$healthProduct['ref']?>"><img src="img/products/<?=$healthProduct['ref']?>.png" alt="<?=$healthProduct['title']?>"></a>
                         <a href="product-<?=$healthProduct['ref']?>">Description du produit <i class="fas fa-plus-square"></i></a>
                     </article>
                 <?php endforeach; ?>
@@ -54,7 +54,7 @@
                 <?php foreach($painProducts as $painProduct): ?>
                     <article>
                         <h3><?=$painProduct['title']?></h3>
-                        <img src="img/products/<?=$painProduct['ref']?>.png" alt="<?=$painProduct['title']?>">
+                        <a class="clickable-img" href="product-<?=$painProduct['ref']?>"><img src="img/products/<?=$painProduct['ref']?>.png" alt="<?=$painProduct['title']?>"></a>
                         <a href="product-<?=$painProduct['ref']?>">Description du produit <i class="fas fa-plus-square"></i></a>
                     </article>
                 <?php endforeach; ?>
@@ -71,7 +71,7 @@
                 <?php foreach($skinProducts as $skinProduct): ?>
                     <article>
                         <h3><?=$skinProduct['title']?></h3>
-                        <img src="img/products/<?=$skinProduct['ref']?>.png" alt="<?=$skinProduct['title']?>">
+                        <a class="clickable-img" href="product-<?=$skinProduct['ref']?>"><img src="img/products/<?=$skinProduct['ref']?>.png" alt="<?=$skinProduct['title']?>"></a>
                         <a href="product-<?=$skinProduct['ref']?>">Description du produit <i class="fas fa-plus-square"></i></a>
                     </article>
                 <?php endforeach; ?>
@@ -88,7 +88,7 @@
                 <?php foreach($dailyProducts as $dailyProduct): ?>
                     <article>
                         <h3><?=$dailyProduct['title']?></h3>
-                        <img src="img/products/<?=$dailyProduct['ref']?>.png" alt="<?=$dailyProduct['title']?>">
+                        <a class="clickable-img" href="product-<?=$dailyProduct['ref']?>"><img src="img/products/<?=$dailyProduct['ref']?>.png" alt="<?=$dailyProduct['title']?>"></a>
                         <a href="product-<?=$dailyProduct['ref']?>">Description du produit <i class="fas fa-plus-square"></i></a>
                     </article>
                 <?php endforeach; ?>
@@ -102,14 +102,14 @@
 
         <?php if($houseAnimalsProducts==null) : ?>
             <p>Il existe une gamme de produits "Maison & Animaux" mais aussi beaucoup d'autres produits que vous pouvez consulter <a href="pdf/foreverCatalogue2018.pdf" target="blank">ici dans ce catalogue.</a></p>
-            <p>Si vous avez des questions, n'hésitez pas à me contacter <a href="contact.php">ici sur ma page de Contact</a></p>
+            <p>Si vous avez des questions, n'hésitez pas à me contacter <a href="contact">ici sur ma page de Contact</a></p>
 
         <?php else :?>
             <div class="products-container">
                 <?php foreach($houseAnimalsProducts as $houseAnimalsProduct): ?>
                     <article>
                         <h3><?=$houseAnimalsProduct['title']?></h3>
-                        <img src="img/products/<?=$houseAnimalsProduct['ref']?>.png" alt="<?=$houseAnimalsProduct['title']?>">
+                        <a class="clickable-img" href="product-<?=$houseAnimalsProduct['ref']?>"><img src="img/products/<?=$houseAnimalsProduct['ref']?>.png" alt="<?=$houseAnimalsProduct['title']?>"></a>
                         <a href="product-<?=$houseAnimalsProduct['ref']?>">Description du produit <i class="fas fa-plus-square"></i></a>
                     </article>
                 <?php endforeach; ?>
