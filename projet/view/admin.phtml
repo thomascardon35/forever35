@@ -37,7 +37,13 @@
                 <!-- Message -->
                         <td class="onclick-msg hidden" data-id="<?= intval($message['id'])?>"><?= substr($message['usermessage'],0,20);?></td>
                 <!-- Bouton de suppression du message -->
-                        <td class="hidden"><a class="remove" data-choice="message" data-remove="<?= intval($message['id'])?>" href="admin?delete_message=<?= intval($message['id'])?>"><i class="fa fa-trash"></i></a></td>
+                        <td class="hidden">
+                            <div>
+                                <a href="mymsgs?read_message=<?= intval($message['id'])?>">
+                                <i class="fa fa-envelope"></i></a>
+
+                                <a class="remove" data-choice="message" data-remove="<?= intval($message['id'])?>" href="admin?delete_message=<?= intval($message['id'])?>"><i class="fa fa-trash"></i></a></td>
+                            </div>
                     </tr>
                 <?php endforeach; ?>
                 
@@ -101,7 +107,7 @@
                         <td class="onclick-product" data-id="<?= intval($product['id'])?>"><?= $product['ref']?></td>
                         <td class="onclick-product" data-id="<?= intval($product['id'])?>"><?= $product['category']?></td>
                         <td class="onclick-product" data-id="<?= intval($product['id'])?>"><?= $product['title']?></td>
-                        <td>
+                        <td class="hidden">
                             <a href="myproducts?update_product=<?= intval($product['id'])?>"><i class="fa fa-edit"></i></a>
                             <a class="remove" data-choice="product" data-remove="<?= intval($product['id'])?>" href="admin?delete_product=<?= intval($product['id'])?>"><i class="fa fa-trash"></i></a>
                         </td>
