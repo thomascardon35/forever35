@@ -1896,7 +1896,7 @@ footer .footer-link a i{
     #admin td.hidden,#admin th.hidden{
         display:table-cell;
     }
-    #admin .admin-messages td:nth-of-type(3),#admin .admin-messages td:nth-of-type(6),#admin .admin-messages th:nth-of-type(3),#admin .admin-messages th:nth-of-type(6),#admin .admin-news-events th:nth-of-type(3),#admin .admin-news-events td:nth-of-type(3){
+    #admin .admin-messages td:nth-of-type(3),#admin .admin-messages td:nth-of-type(5),#admin .admin-messages td:nth-of-type(6),#admin .admin-messages th:nth-of-type(3),#admin .admin-messages th:nth-of-type(6),#admin .admin-news-events th:nth-of-type(3),#admin .admin-news-events td:nth-of-type(3){
         display:none;
     }
     /******************* ADMIN MESSAGE *****************/
@@ -2150,7 +2150,7 @@ footer .footer-link a i{
     }
     /******************* ADMIN LOGIN *******************/
     /********************** ADMIN **********************/
-    #admin .admin-messages td:nth-of-type(3),#admin .admin-messages td:nth-of-type(6),#admin .admin-messages th:nth-of-type(3),#admin .admin-messages th:nth-of-type(6),#admin .admin-news-events th:nth-of-type(3),#admin .admin-news-events td:nth-of-type(3){
+    #admin .admin-messages td:nth-of-type(3),#admin .admin-messages td:nth-of-type(5),#admin .admin-messages td:nth-of-type(6),#admin .admin-messages th:nth-of-type(3),#admin .admin-messages th:nth-of-type(6),#admin .admin-news-events th:nth-of-type(3),#admin .admin-news-events td:nth-of-type(3){
         display:table-cell;
     }
     /******************* ADMIN MESSAGE *****************/
