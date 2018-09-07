@@ -1801,8 +1801,11 @@ footer .footer-link a i{
     main .admin-connection{
         width:320px;
     }
+    main .next-event{
+        max-width:540px;
+    }
     main .next-event .slider-events .bg-slider{
-        width:450px;
+        width:500px;
         height:100px;
     }
     /*********************** HOME **********************/
